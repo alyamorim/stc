@@ -1,0 +1,1287 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Controle de Trabalhos de Consultoria</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/png;base64,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">
+<style>
+:root{
+  --vermelho:#c52026;
+  --vermelho-esc:#9c191e;
+  --grafite:#22252a;
+  --texto:#2b2f36;
+  --texto-fraco:#6b7280;
+  --papel:#f7f6f4;
+  --branco:#ffffff;
+  --linha:#dfdcd7;
+  --linha-forte:#c9c5be;
+
+  --st-nao-bg:#eef3ea;      --st-nao-ac:#7c9166;
+  --st-elab-bg:#e7eef5;     --st-elab-ac:#5b7c9b;
+  --st-tx-bg:#f7f0e0;       --st-tx-ac:#a98b4e;
+  --st-go-bg:#efeaf3;       --st-go-ac:#8a7099;
+  --st-rel-bg:#f8eae3;      --st-rel-ac:#b57a63;
+  --st-conc-bg:#eceff1;     --st-conc-ac:#69757e;
+
+  --stl-nao-bg:#dfebec;     --stl-nao-ac:#3f6f72;
+  --stl-sim-bg:#f2f8f8;     --stl-sim-ac:#7fa8aa;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  background:var(--papel);color:var(--texto);
+  font-family:"IBM Plex Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+  font-size:15px;line-height:1.5;-webkit-font-smoothing:antialiased;
+}
+h1,h2,h3,.franklin{font-family:"Libre Franklin","IBM Plex Sans",sans-serif}
+a{color:var(--vermelho-esc)}
+:focus-visible{outline:2px solid var(--vermelho);outline-offset:2px}
+
+/* ---------- cabeçalho ---------- */
+header.topo{background:var(--branco);border-bottom:3px solid var(--vermelho)}
+.topo-in{max-width:1440px;margin:0 auto;padding:16px 22px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.marca{display:flex;align-items:center;gap:13px;min-width:0}
+.marca img{width:42px;height:42px;display:block;flex:none}
+.marca h1{font-size:18px;font-weight:700;letter-spacing:-.2px;margin:0;line-height:1.15;color:var(--grafite)}
+.marca .sub{font-size:11.5px;color:var(--texto-fraco);letter-spacing:.06em;text-transform:uppercase;margin-top:2px}
+.topo-dir{margin-left:auto;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+
+/* ---------- sincronização ---------- */
+.sync{display:flex;align-items:center;gap:8px;font-size:12.5px;color:var(--texto-fraco);
+  background:var(--papel);border:1px solid var(--linha);border-radius:999px;padding:5px 12px}
+.dot{width:8px;height:8px;border-radius:50%;background:#b9b6b0;flex:none}
+.dot.ok{background:#4e8f5b}.dot.err{background:var(--vermelho)}
+.dot.busy{background:#c9a227;animation:pulsa 1s infinite}
+@keyframes pulsa{50%{opacity:.25}}
+
+/* ---------- botões ---------- */
+button{font-family:inherit;font-size:inherit}
+.btn{display:inline-flex;align-items:center;gap:7px;border:1px solid var(--linha-forte);background:var(--branco);
+  color:var(--texto);padding:7px 14px;border-radius:3px;cursor:pointer;font-size:13.5px;font-weight:500;
+  transition:background .12s,border-color .12s}
+.btn:hover{background:#f1efec;border-color:#a9a49c}
+.btn-primario{background:var(--vermelho);border-color:var(--vermelho);color:#fff}
+.btn-primario:hover{background:var(--vermelho-esc);border-color:var(--vermelho-esc)}
+.btn-fantasma{border-color:transparent;background:transparent;color:var(--texto-fraco);padding:4px 7px}
+.btn-fantasma:hover{background:#eae7e2;color:var(--texto)}
+.btn-mini{font-size:12px;padding:4px 9px}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+
+/* ---------- navegação ---------- */
+nav.abas{background:var(--branco);border-bottom:1px solid var(--linha);position:sticky;top:0;z-index:20}
+.abas-in{max-width:1440px;margin:0 auto;padding:0 22px;display:flex;gap:2px;overflow-x:auto}
+.aba{border:0;background:none;padding:13px 15px 11px;cursor:pointer;color:var(--texto-fraco);
+  font-size:13.5px;font-weight:500;border-bottom:3px solid transparent;white-space:nowrap;
+  font-family:"Libre Franklin",sans-serif}
+.aba:hover{color:var(--texto)}
+.aba[aria-current="page"]{color:var(--grafite);border-bottom-color:var(--vermelho);font-weight:600}
+.aba .cnt{display:inline-block;margin-left:6px;font-size:11.5px;color:var(--texto-fraco);
+  background:var(--papel);border:1px solid var(--linha);border-radius:999px;padding:0 6px;font-variant-numeric:tabular-nums}
+
+main{max-width:1440px;margin:0 auto;padding:26px 22px 70px}
+.oculto{display:none !important}
+
+/* ---------- painel ---------- */
+.chamada{background:var(--branco);border:1px solid var(--linha);border-left:4px solid var(--vermelho);
+  padding:22px 24px;display:flex;align-items:center;gap:20px;flex-wrap:wrap;margin-bottom:22px}
+.chamada h2{margin:0 0 4px;font-size:17px;font-weight:600;color:var(--grafite)}
+.chamada p{margin:0;color:var(--texto-fraco);font-size:13.5px;max-width:52ch}
+.chamada .btn-primario{margin-left:auto;padding:11px 20px;font-size:14.5px}
+
+.cartoes{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px;margin-bottom:26px}
+.cartao{background:var(--branco);border:1px solid var(--linha);padding:18px 20px;text-align:left;
+  cursor:pointer;display:block;width:100%;position:relative;transition:border-color .12s,transform .12s}
+.cartao:hover{border-color:var(--linha-forte);transform:translateY(-1px)}
+.cartao .rot{font-family:"Libre Franklin",sans-serif;font-size:12px;letter-spacing:.09em;text-transform:uppercase;
+  color:var(--texto-fraco);display:flex;align-items:center;gap:8px}
+.cartao .num{font-family:"Libre Franklin",sans-serif;font-size:40px;font-weight:600;line-height:1.05;
+  margin:8px 0 2px;color:var(--grafite);font-variant-numeric:tabular-nums}
+.cartao .pe{font-size:12.5px;color:var(--texto-fraco)}
+.tri{width:0;height:0;border-left:5px solid transparent;border-right:5px solid transparent;
+  border-bottom:9px solid var(--vermelho);flex:none}
+
+.resumo{background:var(--branco);border:1px solid var(--linha);padding:18px 20px}
+.resumo h3{margin:0 0 14px;font-size:12px;letter-spacing:.09em;text-transform:uppercase;color:var(--texto-fraco);font-weight:600}
+.barras{display:flex;flex-direction:column;gap:9px}
+.barra{display:grid;grid-template-columns:230px 1fr 34px;align-items:center;gap:12px;font-size:13px}
+.barra .trilho{height:9px;background:var(--papel);border:1px solid var(--linha)}
+.barra .preenche{height:100%;display:block}
+.barra .v{text-align:right;color:var(--texto-fraco);font-variant-numeric:tabular-nums}
+@media(max-width:640px){.barra{grid-template-columns:1fr 60px 30px}}
+
+/* ---------- barra de ferramentas ---------- */
+.ferramentas{display:flex;gap:9px;align-items:center;flex-wrap:wrap;margin-bottom:14px}
+.ferramentas input[type=search],.ferramentas select{
+  font-family:inherit;font-size:13.5px;padding:7px 10px;border:1px solid var(--linha-forte);
+  border-radius:3px;background:var(--branco);color:var(--texto)}
+.ferramentas input[type=search]{min-width:230px;flex:1;max-width:380px}
+.titulo-lista{display:flex;align-items:baseline;gap:12px;margin:0 0 4px}
+.titulo-lista h2{font-size:20px;margin:0;font-weight:600;color:var(--grafite)}
+.titulo-lista .qtd{font-size:13px;color:var(--texto-fraco)}
+.explica{color:var(--texto-fraco);font-size:13px;margin:0 0 16px;max-width:80ch}
+
+/* ---------- tabelas ---------- */
+.rolagem{overflow-x:auto;background:var(--branco);border:1px solid var(--linha)}
+table{border-collapse:collapse;width:100%;min-width:960px;font-size:13.5px}
+thead th{background:var(--grafite);color:#fff;font-family:"Libre Franklin",sans-serif;font-weight:500;
+  font-size:11.5px;letter-spacing:.07em;text-transform:uppercase;text-align:left;padding:10px 12px;
+  white-space:nowrap;position:sticky;top:0}
+tbody td{padding:9px 12px;border-bottom:1px solid var(--linha);vertical-align:top}
+tbody tr:last-child td{border-bottom:0}
+tbody tr{border-left:4px solid transparent}
+td.nowrap{white-space:nowrap}
+td.acoes{white-space:nowrap;text-align:right}
+.num-trab{font-variant-numeric:tabular-nums;font-weight:500}
+.prop{font-weight:600;color:var(--grafite);white-space:nowrap}
+.prop-links{display:flex;gap:7px;margin-top:2px}
+.prop-links a{font-size:11px;text-decoration:none;color:var(--texto-fraco);border-bottom:1px dotted var(--linha-forte)}
+.prop-links a:hover{color:var(--vermelho);border-bottom-color:var(--vermelho)}
+.miudo{font-size:12px;color:var(--texto-fraco)}
+.desc{min-width:210px;max-width:320px}
+.obs{min-width:150px;max-width:250px;font-size:12.5px;color:var(--texto-fraco)}
+select.inline{font-family:inherit;font-size:12.5px;padding:4px 6px;border:1px solid var(--linha-forte);
+  border-radius:3px;background:rgba(255,255,255,.75);max-width:210px}
+.vazio{padding:44px 24px;text-align:center;color:var(--texto-fraco);background:var(--branco);border:1px solid var(--linha)}
+.vazio strong{display:block;color:var(--texto);font-family:"Libre Franklin",sans-serif;font-size:16px;margin-bottom:6px;font-weight:600}
+
+/* cores por status */
+tr.st-nao{background:var(--st-nao-bg);border-left-color:var(--st-nao-ac)}
+tr.st-elab{background:var(--st-elab-bg);border-left-color:var(--st-elab-ac)}
+tr.st-tx{background:var(--st-tx-bg);border-left-color:var(--st-tx-ac)}
+tr.st-go{background:var(--st-go-bg);border-left-color:var(--st-go-ac)}
+tr.st-rel{background:var(--st-rel-bg);border-left-color:var(--st-rel-ac)}
+tr.st-conc{background:var(--st-conc-bg);border-left-color:var(--st-conc-ac)}
+tr.stl-sim{background:var(--stl-sim-bg);border-left-color:var(--stl-sim-ac)}
+tr.stl-nao{background:var(--stl-nao-bg);border-left-color:var(--stl-nao-ac)}
+
+.legenda{display:flex;flex-wrap:wrap;gap:8px 16px;margin-top:12px;font-size:12px;color:var(--texto-fraco)}
+.legenda span{display:inline-flex;align-items:center;gap:6px}
+.legenda i{width:22px;height:11px;border:1px solid var(--linha);display:inline-block}
+
+/* ---------- modal ---------- */
+.fundo{position:fixed;inset:0;background:rgba(34,37,42,.55);display:flex;align-items:flex-start;
+  justify-content:center;padding:26px 16px;overflow-y:auto;z-index:60}
+.caixa{background:var(--branco);width:100%;max-width:660px;border-top:4px solid var(--vermelho)}
+.caixa-topo{display:flex;align-items:center;gap:12px;padding:18px 24px 12px;border-bottom:1px solid var(--linha)}
+.caixa-topo h2{margin:0;font-size:17px;font-weight:600;color:var(--grafite)}
+.caixa-corpo{padding:20px 24px}
+.caixa-pe{padding:14px 24px;border-top:1px solid var(--linha);display:flex;gap:9px;justify-content:flex-end;
+  background:var(--papel);flex-wrap:wrap}
+.campo{margin-bottom:15px}
+.campo label{display:block;font-size:12px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;
+  color:var(--texto-fraco);margin-bottom:5px;font-family:"Libre Franklin",sans-serif}
+.campo input,.campo select,.campo textarea{width:100%;font-family:inherit;font-size:14px;padding:8px 10px;
+  border:1px solid var(--linha-forte);border-radius:3px;background:var(--branco);color:var(--texto)}
+.campo textarea{resize:vertical;min-height:64px}
+.campo .dica{font-size:12px;color:var(--texto-fraco);margin-top:4px}
+.dupla{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.tripla{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:560px){.dupla,.tripla{grid-template-columns:1fr}}
+fieldset.grupo{border:1px solid var(--linha);padding:15px 16px 2px;margin:0 0 15px;background:var(--papel)}
+fieldset.grupo legend{font-size:11.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--texto-fraco);
+  padding:0 6px;font-family:"Libre Franklin",sans-serif;font-weight:600}
+.erro{color:var(--vermelho-esc);font-size:13px;margin:0 0 12px;display:none}
+.erro.ativo{display:block}
+
+/* ---------- aviso ---------- */
+#aviso{position:fixed;left:50%;bottom:26px;transform:translateX(-50%) translateY(20px);opacity:0;
+  background:var(--grafite);color:#fff;padding:11px 20px;font-size:13.5px;border-radius:3px;
+  pointer-events:none;transition:opacity .2s,transform .2s;z-index:80;max-width:90vw;text-align:center}
+#aviso.ver{opacity:1;transform:translateX(-50%) translateY(0)}
+
+footer{max-width:1440px;margin:0 auto;padding:0 22px 40px;color:var(--texto-fraco);font-size:12px}
+
+@media(prefers-reduced-motion:reduce){*{animation:none !important;transition:none !important}}
+@media print{
+  nav.abas,.ferramentas,.chamada,.topo-dir,.acoes,.btn{display:none !important}
+  body{background:#fff}.rolagem{border:0;overflow:visible}
+  table{min-width:0;font-size:10.5px}thead th{background:#fff;color:#000;border-bottom:2px solid #000}
+  tbody tr{border-left:0}
+}
+</style>
+</head>
+<body>
+
+<header class="topo">
+  <div class="topo-in">
+    <div class="marca">
+      <img src="data:image/png;base64,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" alt="Marca da Assembleia Legislativa de Minas Gerais">
+      <div>
+        <h1>Controle de Trabalhos de Consultoria</h1>
+        <div class="sub">Alysson Amorim Mendes da Silveira &middot; Consultor Legislativo</div>
+      </div>
+    </div>
+    <div class="topo-dir">
+      <div class="sync" id="sync">
+        <span class="dot" id="syncDot"></span>
+        <span id="syncTxt">Somente neste aparelho</span>
+        <button class="btn btn-fantasma btn-mini" id="btnEntrar" type="button">entrar com Google</button>
+        <button class="btn btn-fantasma btn-mini oculto" id="btnSair" type="button">sair</button>
+      </div>
+      <button class="btn btn-mini" id="btnExportar" type="button">Exportar</button>
+      <button class="btn btn-mini" id="btnImportar" type="button">Importar</button>
+      <input type="file" id="arquivoImportar" accept="application/json,.json" class="oculto">
+    </div>
+  </div>
+</header>
+
+<nav class="abas">
+  <div class="abas-in">
+    <button class="aba" data-vista="painel" type="button">Painel</button>
+    <button class="aba" data-vista="ativos" type="button">Trabalhos ativos <span class="cnt" id="cntAtivos">0</span></button>
+    <button class="aba" data-vista="baixados" type="button">Trabalhos baixados <span class="cnt" id="cntBaixados">0</span></button>
+    <button class="aba" data-vista="anteriores" type="button">Comissões anteriores <span class="cnt" id="cntAnteriores">0</span></button>
+  </div>
+</nav>
+
+<main>
+  <!-- PAINEL -->
+  <section id="v-painel">
+    <div class="chamada">
+      <div>
+        <h2>Registro de trabalhos designados</h2>
+        <p>Cadastre a proposição, o tipo de trabalho e o estágio em que ele está. Ao marcar um trabalho como aprovado pelo relator, ele passa sozinho para os baixados.</p>
+      </div>
+      <button class="btn btn-primario" id="btnNovo" type="button">Incluir novo trabalho</button>
+    </div>
+
+    <div class="cartoes">
+      <button class="cartao" data-ir="ativos" type="button">
+        <div class="rot"><i class="tri"></i> Tabela 1 &middot; Ativos</div>
+        <div class="num" id="pnAtivos">0</div>
+        <div class="pe">Em minha responsabilidade agora</div>
+      </button>
+      <button class="cartao" data-ir="baixados" type="button">
+        <div class="rot"><i class="tri"></i> Tabela 2 &middot; Baixados</div>
+        <div class="num" id="pnBaixados">0</div>
+        <div class="pe">Aprovados pelo relator</div>
+      </button>
+      <button class="cartao" data-ir="anteriores" type="button">
+        <div class="rot"><i class="tri"></i> Tabela 3 &middot; Comissões anteriores</div>
+        <div class="num" id="pnAnteriores">0</div>
+        <div class="pe">Ainda não chegaram às minhas comissões</div>
+      </button>
+    </div>
+
+    <div class="resumo">
+      <h3>Trabalhos ativos por estágio</h3>
+      <div class="barras" id="barras"></div>
+    </div>
+
+    <p class="explica" style="margin-top:22px">
+      Os dados ficam neste navegador e, se você entrar com o Google, também numa pasta privada do seu Drive.
+      Use <strong>Exportar</strong> de tempos em tempos para guardar uma cópia de segurança fora do sistema.
+    </p>
+  </section>
+
+  <!-- ATIVOS -->
+  <section id="v-ativos" class="oculto">
+    <div class="titulo-lista"><h2>Trabalhos ativos</h2><span class="qtd" id="qtdAtivos"></span></div>
+    <p class="explica">Trabalhos em curso. Mudar o estágio para <em>Aprovado pelo relator</em> baixa o trabalho automaticamente para a Tabela 2.</p>
+    <div class="ferramentas">
+      <input type="search" id="buscaAtivos" placeholder="Buscar por descrição, proposição, nº do trabalho&hellip;">
+      <select id="filtroStatus"><option value="">Todos os estágios</option></select>
+      <select id="filtroComissao"><option value="">Todas as comissões</option></select>
+      <select id="ordemAtivos">
+        <option value="recente">Alterados por último</option>
+        <option value="numero">Nº do trabalho</option>
+        <option value="proposicao">Proposição</option>
+        <option value="status">Estágio</option>
+      </select>
+      <button class="btn btn-mini btn-primario" data-novo="ativos" type="button">Incluir trabalho</button>
+    </div>
+    <div id="tabAtivos"></div>
+    <div class="legenda" id="legendaAtivos"></div>
+  </section>
+
+  <!-- BAIXADOS -->
+  <section id="v-baixados" class="oculto">
+    <div class="titulo-lista"><h2>Trabalhos baixados</h2><span class="qtd" id="qtdBaixados"></span></div>
+    <p class="explica">Trabalhos concluídos e aprovados pelo relator. Se algum voltar à sua mesa, use <em>Reabrir</em> para devolvê-lo aos ativos.</p>
+    <div class="ferramentas">
+      <input type="search" id="buscaBaixados" placeholder="Buscar nos baixados&hellip;">
+      <select id="filtroAnoBaixados"><option value="">Todos os anos de conclusão</option></select>
+      <button class="btn btn-mini" id="btnCsv" type="button">Exportar esta lista em CSV</button>
+      <button class="btn btn-mini btn-primario" data-novo="baixados" type="button">Incluir trabalho</button>
+    </div>
+    <div id="tabBaixados"></div>
+  </section>
+
+  <!-- ANTERIORES -->
+  <section id="v-anteriores" class="oculto">
+    <div class="titulo-lista"><h2>Trabalhos tramitando em comissões anteriores</h2><span class="qtd" id="qtdAnteriores"></span></div>
+    <p class="explica">Proposições que ainda não chegaram às comissões pelas quais você responde. Quando a proposição for distribuída, use <em>Mover para ativos</em>.</p>
+    <div class="ferramentas">
+      <input type="search" id="buscaAnteriores" placeholder="Buscar nesta lista&hellip;">
+      <select id="filtroSTL">
+        <option value="">Nota no STL: todas</option>
+        <option value="Não">Sem nota lançada</option>
+        <option value="Sim">Com nota lançada</option>
+      </select>
+      <button class="btn btn-mini btn-primario" data-novo="anteriores" type="button">Incluir trabalho</button>
+    </div>
+    <div id="tabAnteriores"></div>
+    <div class="legenda">
+      <span><i style="background:var(--stl-nao-bg);border-left:4px solid var(--stl-nao-ac)"></i> Nota no STL ainda não lançada</span>
+      <span><i style="background:var(--stl-sim-bg);border-left:4px solid var(--stl-sim-ac)"></i> Nota no STL lançada</span>
+    </div>
+  </section>
+</main>
+
+<footer>
+  Registro pessoal de trabalhos &middot; Consultoria Temática &middot; Assembleia Legislativa de Minas Gerais.
+  Os dados não saem do seu navegador e do seu Google Drive.
+</footer>
+
+<!-- ============ MODAL: FORMULÁRIO ============ -->
+<div class="fundo oculto" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitulo">
+  <div class="caixa">
+    <div class="caixa-topo"><i class="tri"></i><h2 id="modalTitulo">Incluir novo trabalho</h2></div>
+    <div class="caixa-corpo">
+      <p class="erro" id="erroForm"></p>
+
+      <div class="campo">
+        <label for="f_lista">Em qual lista este trabalho entra?</label>
+        <select id="f_lista">
+          <option value="ativos">Tabela 1 &middot; Trabalhos ativos</option>
+          <option value="baixados">Tabela 2 &middot; Trabalhos baixados</option>
+          <option value="anteriores">Tabela 3 &middot; Tramitando em comissões anteriores</option>
+        </select>
+        <div class="dica">Um trabalho fica em uma lista de cada vez. Mudar aqui move o registro.</div>
+      </div>
+
+      <div class="campo">
+        <label for="f_numero">Nº do trabalho</label>
+        <input type="text" id="f_numero" placeholder="Ex.: 153234" inputmode="numeric">
+      </div>
+
+      <div class="campo">
+        <label for="f_tipoProp">Tipo da proposição</label>
+        <select id="f_tipoProp">
+          <option value="PL">PL &mdash; Projeto de lei</option>
+          <option value="RQN">RQN &mdash; Requerimento numerado</option>
+          <option value="Inf.">Inf. &mdash; Informação</option>
+          <option value="Rel. Vis.">Rel. Vis. &mdash; Relatório de visita</option>
+          <option value="Rel. Fis.">Rel. Fis. &mdash; Relatório de fiscalização</option>
+        </select>
+      </div>
+
+      <fieldset class="grupo oculto" id="grupoProp">
+        <legend>Dados da proposição</legend>
+        <div class="dupla">
+          <div class="campo">
+            <label for="f_numProp">Número da proposição</label>
+            <input type="text" id="f_numProp" placeholder="Ex.: 3587" inputmode="numeric">
+          </div>
+          <div class="campo">
+            <label for="f_anoProp">Ano</label>
+            <input type="text" id="f_anoProp" placeholder="Ex.: 2025" inputmode="numeric" maxlength="4">
+          </div>
+        </div>
+        <div class="campo">
+          <label for="f_comissao">Comissão</label>
+          <select id="f_comissao"></select>
+        </div>
+      </fieldset>
+
+      <div class="campo">
+        <label for="f_tipoTrab">Tipo do trabalho</label>
+        <select id="f_tipoTrab">
+          <option>Minuta de Parecer</option>
+          <option>Parecer para a Mesa</option>
+          <option>Relatório de Visita</option>
+          <option>Informação</option>
+          <option>Outro</option>
+        </select>
+      </div>
+
+      <div class="campo">
+        <label for="f_desc">Breve descrição do trabalho</label>
+        <input type="text" id="f_desc" placeholder="Ex.: RIC &mdash; Festival de Violeiros de Dom Cavati">
+      </div>
+
+      <div class="campo" id="campoStatus">
+        <label for="f_status">Status do trabalho</label>
+        <select id="f_status"></select>
+        <div class="dica" id="dicaStatus"></div>
+      </div>
+
+      <fieldset class="grupo oculto" id="grupoAnteriores">
+        <legend>Tramitação anterior</legend>
+        <div class="campo">
+          <label for="f_comTramite">Comissão em que está tramitando</label>
+          <select id="f_comTramite"></select>
+        </div>
+        <div class="campo">
+          <label for="f_stl">Lancei nota no STL?</label>
+          <select id="f_stl"><option value="Não">Não</option><option value="Sim">Sim</option></select>
+        </div>
+      </fieldset>
+
+      <div class="campo">
+        <label for="f_obs">Observações</label>
+        <textarea id="f_obs" placeholder="Ex.: enviado ao Silegis GAB; verificar anexação"></textarea>
+      </div>
+    </div>
+    <div class="caixa-pe">
+      <button class="btn" id="btnCancelar" type="button">Cancelar</button>
+      <button class="btn btn-primario" id="btnSalvar" type="button">Salvar trabalho</button>
+    </div>
+  </div>
+</div>
+
+<!-- ============ MODAL: IMPORTAÇÃO ============ -->
+<div class="fundo oculto" id="modalImp" role="dialog" aria-modal="true" aria-labelledby="impTitulo">
+  <div class="caixa" style="max-width:520px">
+    <div class="caixa-topo"><i class="tri"></i><h2 id="impTitulo">Importar dados</h2></div>
+    <div class="caixa-corpo">
+      <p style="margin-top:0" id="impResumo"></p>
+      <p class="explica" style="margin-bottom:0">
+        <strong>Mesclar</strong> mantém o que já existe e acrescenta os registros novos.
+        <strong>Substituir</strong> apaga tudo o que está aqui e fica só com o arquivo.
+      </p>
+    </div>
+    <div class="caixa-pe">
+      <button class="btn" id="impCancelar" type="button">Cancelar</button>
+      <button class="btn" id="impSubstituir" type="button">Substituir tudo</button>
+      <button class="btn btn-primario" id="impMesclar" type="button">Mesclar</button>
+    </div>
+  </div>
+</div>
+
+<div id="aviso" role="status" aria-live="polite"></div>
+
+<script src="https://accounts.google.com/gsi/client" async defer></script>
+<script src="https://apis.google.com/js/api.js" async defer></script>
+<script>
+"use strict";
+
+/* ===================== CONSTANTES ===================== */
+const KEY = "controle-trabalhos:v1";
+const CLIENT_ID = "677651936598-n5ets1kq4qr95qbfgi62vqvcu8m5g49g.apps.googleusercontent.com";
+const SCOPES = "https://www.googleapis.com/auth/drive.appdata";
+const FILE_NAME = "controle-trabalhos-dados.json";
+
+const COMISSOES = [
+  "Administração Pública",
+  "Agropecuária e Agroindústria",
+  "Assuntos Municipais e Regionalização",
+  "Constituição e Justiça",
+  "Cultura",
+  "Defesa do Consumidor e do Contribuinte",
+  "Defesa dos Direitos da Mulher",
+  "Defesa dos Direitos da Pessoa com Deficiência",
+  "Desenvolvimento Econômico",
+  "Direitos Humanos",
+  "Educação, Ciência e Tecnologia",
+  "Esporte, Lazer e Juventude",
+  "Ética e Decoro Parlamentar",
+  "Fiscalização Financeira e Orçamentária",
+  "Meio Ambiente e Desenvolvimento Sustentável",
+  "Minas e Energia",
+  "Participação Popular",
+  "Prevenção e Combate ao Uso de Crack e Outras Drogas",
+  "Redação",
+  "Saúde",
+  "Segurança Pública",
+  "Trabalho, da Previdência e da Assistência Social",
+  "Transporte, Comunicação e Obras Públicas"
+];
+function nomeComissao(n){ return (n.indexOf("Trabalho,") === 0 ? "Comissão do " : "Comissão de ") + n; }
+function ordenar(lista, primeiras){
+  const resto = lista.filter(c => primeiras.indexOf(c) === -1);
+  return primeiras.concat(resto);
+}
+const COM_TRABALHO = ordenar(COMISSOES, ["Educação, Ciência e Tecnologia","Cultura","Esporte, Lazer e Juventude"]);
+const COM_TRAMITE  = ordenar(COMISSOES, ["Constituição e Justiça"]);
+
+const STATUS = [
+  { v:"Não iniciado",                      cls:"st-nao",  cor:"var(--st-nao-ac)"  },
+  { v:"Em elaboração",                     cls:"st-elab", cor:"var(--st-elab-ac)" },
+  { v:"Enviado para a revisão TX",         cls:"st-tx",   cor:"var(--st-tx-ac)"   },
+  { v:"Enviado para a revisão GO",         cls:"st-go",   cor:"var(--st-go-ac)"   },
+  { v:"Enviado para o relator",            cls:"st-rel",  cor:"var(--st-rel-ac)"  },
+  { v:"Aprovado pelo relator (concluído)", cls:"st-conc", cor:"var(--st-conc-ac)" }
+];
+const CONCLUIDO = "Aprovado pelo relator (concluído)";
+const clsStatus = v => (STATUS.find(s => s.v === v) || STATUS[0]).cls;
+
+const NOMES_LISTA = { ativos:"Trabalhos ativos", baixados:"Trabalhos baixados", anteriores:"Comissões anteriores" };
+
+/* ===================== ESTADO ===================== */
+let dados = { trabalhos:[], prefs:{ linkPadrao:"stl" }, atualizadoEm:0 };
+let vistaAtual = "painel";
+let editandoId = null;
+let importPendente = null;
+
+function novoId(){ return "t" + Date.now().toString(36) + Math.random().toString(36).slice(2,7); }
+function agora(){ return Date.now(); }
+function hojeISO(){ return new Date().toISOString().slice(0,10); }
+function dataBR(iso){
+  if(!iso) return "";
+  const p = String(iso).slice(0,10).split("-");
+  return p.length === 3 ? p[2] + "/" + p[1] + "/" + p[0] : iso;
+}
+function esc(s){
+  return String(s == null ? "" : s)
+    .replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;").replace(/'/g,"&#39;");
+}
+function milhar(n){
+  const s = String(n).replace(/\D/g,"");
+  return s.length > 3 ? s.replace(/\B(?=(\d{3})+(?!\d))/g,".") : s;
+}
+function temProposicao(t){ return t.tipoProp === "PL" || t.tipoProp === "RQN"; }
+
+/* ===================== PERSISTÊNCIA LOCAL ===================== */
+function salvar(marcarTempo){
+  if(marcarTempo !== false) dados.atualizadoEm = agora();
+  try{ localStorage.setItem(KEY, JSON.stringify(dados)); }catch(e){}
+  agendarDrive();
+}
+function carregar(){
+  try{
+    const bruto = localStorage.getItem(KEY);
+    if(bruto){
+      const d = JSON.parse(bruto);
+      if(d && Array.isArray(d.trabalhos)) dados = normalizar(d);
+    }
+  }catch(e){}
+}
+function normalizar(d){
+  return {
+    trabalhos: (d.trabalhos || []).map(t => ({
+      id: t.id || novoId(),
+      lista: ["ativos","baixados","anteriores"].indexOf(t.lista) >= 0 ? t.lista : "ativos",
+      numero: t.numero || "",
+      tipoProp: t.tipoProp || "PL",
+      numProp: t.numProp || "",
+      anoProp: t.anoProp || "",
+      comissao: t.comissao || "",
+      tipoTrab: t.tipoTrab || "Outro",
+      desc: t.desc || "",
+      status: t.status || "Não iniciado",
+      obs: t.obs || "",
+      comTramite: t.comTramite || "",
+      stl: t.stl === "Sim" ? "Sim" : "Não",
+      criadoEm: t.criadoEm || hojeISO(),
+      concluidoEm: t.concluidoEm || "",
+      alteradoEm: t.alteradoEm || 0
+    })),
+    prefs: { linkPadrao: (d.prefs && d.prefs.linkPadrao === "portal") ? "portal" : "stl" },
+    atualizadoEm: d.atualizadoEm || agora()
+  };
+}
+
+/* ===================== LINKS DE PROPOSIÇÃO ===================== */
+function linkSTL(t){
+  return "https://stl.almg.gov.br/html5/#" + t.tipoProp + "_" + String(t.numProp).replace(/\D/g,"") + t.anoProp;
+}
+function linkPortal(t){
+  return "https://www.almg.gov.br/projetos-de-lei/" + t.tipoProp + "/" +
+         String(t.numProp).replace(/\D/g,"") + "/" + t.anoProp;
+}
+function celulaProposicao(t){
+  if(!temProposicao(t)){
+    return '<span class="prop">' + esc(t.tipoProp) + "</span>";
+  }
+  const rotulo = t.tipoProp + " " + milhar(t.numProp) + "/" + esc(t.anoProp);
+  const principal = dados.prefs.linkPadrao === "portal" ? linkPortal(t) : linkSTL(t);
+  return '<a class="prop" style="text-decoration:none" href="' + esc(principal) + '" target="_blank" rel="noopener">' +
+         esc(rotulo) + "</a>" +
+         '<span class="prop-links">' +
+           '<a href="' + esc(linkSTL(t)) + '" target="_blank" rel="noopener" title="Abrir dossiê no STL (intranet)">STL</a>' +
+           '<a href="' + esc(linkPortal(t)) + '" target="_blank" rel="noopener" title="Abrir no portal público da ALMG">Portal</a>' +
+         "</span>";
+}
+
+/* ===================== NAVEGAÇÃO ===================== */
+function irPara(v){
+  vistaAtual = v;
+  ["painel","ativos","baixados","anteriores"].forEach(function(x){
+    document.getElementById("v-" + x).classList.toggle("oculto", x !== v);
+  });
+  document.querySelectorAll(".aba").forEach(function(b){
+    if(b.dataset.vista === v) b.setAttribute("aria-current","page");
+    else b.removeAttribute("aria-current");
+  });
+  window.scrollTo(0,0);
+}
+
+/* ===================== RENDERIZAÇÃO ===================== */
+function porLista(l){ return dados.trabalhos.filter(function(t){ return t.lista === l; }); }
+
+function render(){
+  const a = porLista("ativos"), b = porLista("baixados"), c = porLista("anteriores");
+  document.getElementById("cntAtivos").textContent = a.length;
+  document.getElementById("cntBaixados").textContent = b.length;
+  document.getElementById("cntAnteriores").textContent = c.length;
+  document.getElementById("pnAtivos").textContent = a.length;
+  document.getElementById("pnBaixados").textContent = b.length;
+  document.getElementById("pnAnteriores").textContent = c.length;
+  document.getElementById("qtdAtivos").textContent = a.length + (a.length === 1 ? " trabalho" : " trabalhos");
+  document.getElementById("qtdBaixados").textContent = b.length + (b.length === 1 ? " trabalho" : " trabalhos");
+  document.getElementById("qtdAnteriores").textContent = c.length + (c.length === 1 ? " trabalho" : " trabalhos");
+  renderBarras(a);
+  renderAtivos(a);
+  renderBaixados(b);
+  renderAnteriores(c);
+  renderFiltros();
+}
+
+function renderBarras(a){
+  const alvo = document.getElementById("barras");
+  const total = a.length;
+  alvo.innerHTML = STATUS.filter(function(s){ return s.v !== CONCLUIDO; }).map(function(s){
+    const n = a.filter(function(t){ return t.status === s.v; }).length;
+    const pct = total ? Math.round(n / total * 100) : 0;
+    return '<div class="barra"><span>' + esc(s.v) + "</span>" +
+      '<span class="trilho"><span class="preenche" style="width:' + pct + "%;background:" + s.cor + '"></span></span>' +
+      '<span class="v">' + n + "</span></div>";
+  }).join("");
+}
+
+function selectStatus(t){
+  return '<select class="inline" data-campo="status" data-id="' + t.id + '">' +
+    STATUS.map(function(s){
+      return '<option value="' + esc(s.v) + '"' + (s.v === t.status ? " selected" : "") + ">" + esc(s.v) + "</option>";
+    }).join("") + "</select>";
+}
+function selectComissao(t, campo, fonte){
+  const atual = t[campo] || "";
+  return '<select class="inline" data-campo="' + campo + '" data-id="' + t.id + '">' +
+    '<option value="">&mdash;</option>' +
+    fonte.map(function(c){
+      return '<option value="' + esc(c) + '"' + (c === atual ? " selected" : "") + ">" + esc(nomeComissao(c)) + "</option>";
+    }).join("") + "</select>";
+}
+
+function filtraTexto(lista, termo){
+  const q = (termo || "").trim().toLowerCase();
+  if(!q) return lista;
+  return lista.filter(function(t){
+    return [t.numero, t.desc, t.obs, t.tipoProp, t.numProp, t.anoProp, t.comissao, t.tipoTrab, t.status, t.comTramite]
+      .join(" ").toLowerCase().indexOf(q) >= 0;
+  });
+}
+
+function renderAtivos(lista){
+  const alvo = document.getElementById("tabAtivos");
+  let itens = filtraTexto(lista, document.getElementById("buscaAtivos").value);
+  const fs = document.getElementById("filtroStatus").value;
+  const fc = document.getElementById("filtroComissao").value;
+  if(fs) itens = itens.filter(function(t){ return t.status === fs; });
+  if(fc) itens = itens.filter(function(t){ return t.comissao === fc; });
+
+  const ordem = document.getElementById("ordemAtivos").value;
+  itens = itens.slice().sort(function(x,y){
+    if(ordem === "numero") return (parseInt(y.numero,10) || 0) - (parseInt(x.numero,10) || 0);
+    if(ordem === "proposicao") return (y.anoProp + "" ).localeCompare(x.anoProp + "") ||
+      (parseInt(y.numProp,10) || 0) - (parseInt(x.numProp,10) || 0);
+    if(ordem === "status") return STATUS.findIndex(function(s){return s.v===x.status;}) -
+      STATUS.findIndex(function(s){return s.v===y.status;});
+    return (y.alteradoEm || 0) - (x.alteradoEm || 0);
+  });
+
+  if(!itens.length){
+    alvo.innerHTML = vazio(lista.length ? "Nenhum trabalho corresponde ao filtro."
+      : "Nada em curso por aqui.", lista.length ? "Ajuste a busca ou os filtros acima."
+      : "Use <strong>Incluir trabalho</strong> para registrar o primeiro.");
+    return;
+  }
+  alvo.innerHTML = '<div class="rolagem"><table><thead><tr>' +
+    "<th>Nº trab.</th><th>Proposição</th><th>Comissão</th><th>Tipo de trabalho</th>" +
+    "<th>Descrição</th><th>Status</th><th>Observações</th><th></th>" +
+    "</tr></thead><tbody>" +
+    itens.map(function(t){
+      return '<tr class="' + clsStatus(t.status) + '">' +
+        '<td class="num-trab nowrap">' + esc(t.numero || "—") + "</td>" +
+        "<td>" + celulaProposicao(t) + "</td>" +
+        '<td class="miudo">' + (t.comissao ? esc(nomeComissao(t.comissao)) : "—") + "</td>" +
+        '<td class="nowrap">' + esc(t.tipoTrab) + "</td>" +
+        '<td class="desc">' + esc(t.desc) + "</td>" +
+        "<td>" + selectStatus(t) + "</td>" +
+        '<td class="obs">' + esc(t.obs) + "</td>" +
+        '<td class="acoes">' + botoes(t, [["editar","Editar"],["excluir","Excluir"]]) + "</td>" +
+        "</tr>";
+    }).join("") + "</tbody></table></div>";
+}
+
+function renderBaixados(lista){
+  const alvo = document.getElementById("tabBaixados");
+  let itens = filtraTexto(lista, document.getElementById("buscaBaixados").value);
+  const fa = document.getElementById("filtroAnoBaixados").value;
+  if(fa) itens = itens.filter(function(t){ return String(t.concluidoEm).slice(0,4) === fa; });
+  itens = itens.slice().sort(function(x,y){ return String(y.concluidoEm).localeCompare(String(x.concluidoEm)); });
+
+  if(!itens.length){
+    alvo.innerHTML = vazio(lista.length ? "Nenhum trabalho corresponde ao filtro."
+      : "Ainda não há trabalhos baixados.", lista.length ? "Ajuste a busca acima."
+      : "Trabalhos marcados como aprovados pelo relator aparecem aqui.");
+    return;
+  }
+  alvo.innerHTML = '<div class="rolagem"><table><thead><tr>' +
+    "<th>Nº trab.</th><th>Proposição</th><th>Comissão</th><th>Tipo de trabalho</th>" +
+    "<th>Descrição</th><th>Baixado em</th><th>Observações</th><th></th>" +
+    "</tr></thead><tbody>" +
+    itens.map(function(t){
+      return '<tr class="st-conc">' +
+        '<td class="num-trab nowrap">' + esc(t.numero || "—") + "</td>" +
+        "<td>" + celulaProposicao(t) + "</td>" +
+        '<td class="miudo">' + (t.comissao ? esc(nomeComissao(t.comissao)) : "—") + "</td>" +
+        '<td class="nowrap">' + esc(t.tipoTrab) + "</td>" +
+        '<td class="desc">' + esc(t.desc) + "</td>" +
+        '<td class="nowrap miudo">' + esc(dataBR(t.concluidoEm)) + "</td>" +
+        '<td class="obs">' + esc(t.obs) + "</td>" +
+        '<td class="acoes">' + botoes(t, [["reabrir","Reabrir"],["editar","Editar"],["excluir","Excluir"]]) + "</td>" +
+        "</tr>";
+    }).join("") + "</tbody></table></div>";
+}
+
+function renderAnteriores(lista){
+  const alvo = document.getElementById("tabAnteriores");
+  let itens = filtraTexto(lista, document.getElementById("buscaAnteriores").value);
+  const f = document.getElementById("filtroSTL").value;
+  if(f) itens = itens.filter(function(t){ return t.stl === f; });
+  itens = itens.slice().sort(function(x,y){ return (y.alteradoEm || 0) - (x.alteradoEm || 0); });
+
+  if(!itens.length){
+    alvo.innerHTML = vazio(lista.length ? "Nenhum trabalho corresponde ao filtro."
+      : "Nenhuma proposição em espera.", lista.length ? "Ajuste a busca acima."
+      : "Registre aqui o que ainda está em comissão anterior à sua.");
+    return;
+  }
+  alvo.innerHTML = '<div class="rolagem"><table><thead><tr>' +
+    "<th>Nº trab.</th><th>Proposição</th><th>Minha comissão</th><th>Tipo de trabalho</th>" +
+    "<th>Descrição</th><th>Tramitando na</th><th>Nota no STL?</th><th>Observações</th><th></th>" +
+    "</tr></thead><tbody>" +
+    itens.map(function(t){
+      return '<tr class="' + (t.stl === "Sim" ? "stl-sim" : "stl-nao") + '">' +
+        '<td class="num-trab nowrap">' + esc(t.numero || "—") + "</td>" +
+        "<td>" + celulaProposicao(t) + "</td>" +
+        '<td class="miudo">' + (t.comissao ? esc(nomeComissao(t.comissao)) : "—") + "</td>" +
+        '<td class="nowrap">' + esc(t.tipoTrab) + "</td>" +
+        '<td class="desc">' + esc(t.desc) + "</td>" +
+        "<td>" + selectComissao(t, "comTramite", COM_TRAMITE) + "</td>" +
+        "<td>" +
+          '<select class="inline" data-campo="stl" data-id="' + t.id + '">' +
+          '<option value="Não"' + (t.stl === "Não" ? " selected" : "") + ">Não</option>" +
+          '<option value="Sim"' + (t.stl === "Sim" ? " selected" : "") + ">Sim</option>" +
+          "</select>" +
+        "</td>" +
+        '<td class="obs">' + esc(t.obs) + "</td>" +
+        '<td class="acoes">' + botoes(t, [["mover","Mover para ativos"],["editar","Editar"],["excluir","Excluir"]]) + "</td>" +
+        "</tr>";
+    }).join("") + "</tbody></table></div>";
+}
+
+function botoes(t, acoes){
+  return acoes.map(function(a){
+    const primario = a[0] === "mover";
+    return '<button class="btn btn-mini' + (primario ? " btn-primario" : " btn-fantasma") +
+      '" data-acao="' + a[0] + '" data-id="' + t.id + '" type="button">' + a[1] + "</button>";
+  }).join(" ");
+}
+function vazio(titulo, texto){
+  return '<div class="vazio"><strong>' + titulo + "</strong>" + texto + "</div>";
+}
+
+function renderFiltros(){
+  const fs = document.getElementById("filtroStatus");
+  if(fs.options.length <= 1){
+    STATUS.filter(function(s){ return s.v !== CONCLUIDO; }).forEach(function(s){
+      const o = document.createElement("option"); o.value = s.v; o.textContent = s.v; fs.appendChild(o);
+    });
+  }
+  const fc = document.getElementById("filtroComissao");
+  const usadas = [];
+  dados.trabalhos.forEach(function(t){ if(t.comissao && usadas.indexOf(t.comissao) < 0) usadas.push(t.comissao); });
+  const atualC = fc.value;
+  fc.innerHTML = '<option value="">Todas as comissões</option>' + usadas.sort().map(function(c){
+    return '<option value="' + esc(c) + '">' + esc(nomeComissao(c)) + "</option>";
+  }).join("");
+  fc.value = usadas.indexOf(atualC) >= 0 ? atualC : "";
+
+  const fa = document.getElementById("filtroAnoBaixados");
+  const anos = [];
+  porLista("baixados").forEach(function(t){
+    const y = String(t.concluidoEm).slice(0,4);
+    if(y && anos.indexOf(y) < 0) anos.push(y);
+  });
+  const atualA = fa.value;
+  fa.innerHTML = '<option value="">Todos os anos de conclusão</option>' + anos.sort().reverse().map(function(y){
+    return '<option value="' + y + '">' + y + "</option>";
+  }).join("");
+  fa.value = anos.indexOf(atualA) >= 0 ? atualA : "";
+
+  const leg = document.getElementById("legendaAtivos");
+  if(!leg.innerHTML){
+    leg.innerHTML = STATUS.filter(function(s){ return s.v !== CONCLUIDO; }).map(function(s){
+      return '<span><i style="background:var(--' + s.cls + '-bg);border-left:4px solid ' + s.cor + '"></i> ' + esc(s.v) + "</span>";
+    }).join("");
+  }
+}
+
+/* ===================== FORMULÁRIO ===================== */
+function preencherSelects(){
+  const c1 = document.getElementById("f_comissao");
+  c1.innerHTML = '<option value="">Selecione a comissão</option>' + COM_TRABALHO.map(function(c){
+    return '<option value="' + esc(c) + '">' + esc(nomeComissao(c)) + "</option>";
+  }).join("");
+  const c2 = document.getElementById("f_comTramite");
+  c2.innerHTML = '<option value="">Selecione a comissão</option>' + COM_TRAMITE.map(function(c){
+    return '<option value="' + esc(c) + '">' + esc(nomeComissao(c)) + "</option>";
+  }).join("");
+  const s = document.getElementById("f_status");
+  s.innerHTML = STATUS.map(function(x){ return "<option>" + esc(x.v) + "</option>"; }).join("");
+}
+
+function ajustarFormulario(){
+  const lista = document.getElementById("f_lista").value;
+  const tipo = document.getElementById("f_tipoProp").value;
+  document.getElementById("grupoProp").classList.toggle("oculto", !(tipo === "PL" || tipo === "RQN"));
+  document.getElementById("grupoAnteriores").classList.toggle("oculto", lista !== "anteriores");
+
+  const campoStatus = document.getElementById("campoStatus");
+  const sel = document.getElementById("f_status");
+  const dica = document.getElementById("dicaStatus");
+  if(lista === "baixados"){
+    sel.value = CONCLUIDO; sel.disabled = true;
+    dica.textContent = "Trabalhos baixados são, por definição, aprovados pelo relator.";
+    campoStatus.classList.remove("oculto");
+  }else if(lista === "anteriores"){
+    sel.value = "Não iniciado"; sel.disabled = true;
+    dica.textContent = "Enquanto tramita em comissão anterior, o trabalho fica como não iniciado.";
+    campoStatus.classList.remove("oculto");
+  }else{
+    sel.disabled = false;
+    dica.textContent = "Ao escolher “" + CONCLUIDO + "”, o trabalho é baixado para a Tabela 2.";
+    campoStatus.classList.remove("oculto");
+  }
+}
+
+function abrirForm(id, listaPadrao){
+  editandoId = id || null;
+  const t = id ? dados.trabalhos.find(function(x){ return x.id === id; }) : null;
+  document.getElementById("modalTitulo").textContent = t ? "Editar trabalho" : "Incluir novo trabalho";
+  document.getElementById("erroForm").classList.remove("ativo");
+  document.getElementById("f_lista").value = t ? t.lista : (listaPadrao || "ativos");
+  document.getElementById("f_numero").value = t ? t.numero : "";
+  document.getElementById("f_tipoProp").value = t ? t.tipoProp : "PL";
+  document.getElementById("f_numProp").value = t ? t.numProp : "";
+  document.getElementById("f_anoProp").value = t ? t.anoProp : "";
+  document.getElementById("f_comissao").value = t ? t.comissao : "";
+  document.getElementById("f_tipoTrab").value = t ? t.tipoTrab : "Minuta de Parecer";
+  document.getElementById("f_desc").value = t ? t.desc : "";
+  document.getElementById("f_obs").value = t ? t.obs : "";
+  document.getElementById("f_comTramite").value = t ? t.comTramite : "";
+  document.getElementById("f_stl").value = t ? t.stl : "Não";
+  ajustarFormulario();
+  if(t) document.getElementById("f_status").value = t.status;
+  document.getElementById("modal").classList.remove("oculto");
+  setTimeout(function(){ document.getElementById("f_numero").focus(); }, 40);
+}
+function fecharForm(){
+  document.getElementById("modal").classList.add("oculto");
+  editandoId = null;
+}
+
+function salvarForm(){
+  const eraEdicao = !!editandoId;
+  const lista = document.getElementById("f_lista").value;
+  const tipoProp = document.getElementById("f_tipoProp").value;
+  const numProp = document.getElementById("f_numProp").value.replace(/\D/g,"");
+  const anoProp = document.getElementById("f_anoProp").value.replace(/\D/g,"");
+  const comissao = document.getElementById("f_comissao").value;
+  const desc = document.getElementById("f_desc").value.trim();
+  const temProp = tipoProp === "PL" || tipoProp === "RQN";
+
+  const erros = [];
+  if(!desc) erros.push("informe a breve descrição do trabalho");
+  if(temProp && !numProp) erros.push("informe o número da proposição");
+  if(temProp && !/^\d{4}$/.test(anoProp)) erros.push("informe o ano da proposição com quatro dígitos");
+  if(temProp && !comissao) erros.push("selecione a comissão");
+  if(lista === "anteriores" && !document.getElementById("f_comTramite").value)
+    erros.push("selecione a comissão em que a proposição está tramitando");
+
+  const cxErro = document.getElementById("erroForm");
+  if(erros.length){
+    cxErro.textContent = "Falta " + (erros.length > 1 ? "preencher: " : "") + erros.join("; ") + ".";
+    cxErro.classList.add("ativo");
+    return;
+  }
+  cxErro.classList.remove("ativo");
+
+  let status = document.getElementById("f_status").value;
+  if(lista === "baixados") status = CONCLUIDO;
+  if(lista === "anteriores") status = "Não iniciado";
+
+  const base = {
+    lista: (status === CONCLUIDO && lista === "ativos") ? "baixados" : lista,
+    numero: document.getElementById("f_numero").value.trim(),
+    tipoProp: tipoProp,
+    numProp: temProp ? numProp : "",
+    anoProp: temProp ? anoProp : "",
+    comissao: temProp ? comissao : "",
+    tipoTrab: document.getElementById("f_tipoTrab").value,
+    desc: desc,
+    status: status,
+    obs: document.getElementById("f_obs").value.trim(),
+    comTramite: lista === "anteriores" ? document.getElementById("f_comTramite").value : "",
+    stl: lista === "anteriores" ? document.getElementById("f_stl").value : "Não",
+    alteradoEm: agora()
+  };
+
+  let baixou = false;
+  if(editandoId){
+    const t = dados.trabalhos.find(function(x){ return x.id === editandoId; });
+    const antes = t.lista;
+    Object.assign(t, base);
+    if(t.lista === "baixados" && !t.concluidoEm) t.concluidoEm = hojeISO();
+    if(t.lista !== "baixados") t.concluidoEm = "";
+    baixou = antes !== "baixados" && t.lista === "baixados";
+  }else{
+    const novo = Object.assign({ id: novoId(), criadoEm: hojeISO(), concluidoEm:"" }, base);
+    if(novo.lista === "baixados") novo.concluidoEm = hojeISO();
+    dados.trabalhos.push(novo);
+    baixou = novo.lista === "baixados" && lista === "ativos";
+  }
+  salvar();
+  render();
+  fecharForm();
+  avisar(baixou ? "Trabalho salvo e baixado para a Tabela 2."
+    : (eraEdicao ? "Trabalho atualizado." : "Trabalho registrado em " + NOMES_LISTA[base.lista] + "."));
+}
+
+/* ===================== AÇÕES NAS TABELAS ===================== */
+function aoMudarCampo(e){
+  const el = e.target;
+  if(!el.matches("select.inline")) return;
+  const t = dados.trabalhos.find(function(x){ return x.id === el.dataset.id; });
+  if(!t) return;
+  const campo = el.dataset.campo;
+  t[campo] = el.value;
+  t.alteradoEm = agora();
+
+  if(campo === "status" && el.value === CONCLUIDO){
+    t.lista = "baixados";
+    t.concluidoEm = hojeISO();
+    avisar("“" + (t.desc || "Trabalho") + "” foi baixado para a Tabela 2.");
+  }else if(campo === "stl"){
+    avisar(el.value === "Sim" ? "Nota no STL marcada como lançada." : "Nota no STL marcada como pendente.");
+  }
+  salvar();
+  render();
+}
+
+function aoClicarAcao(e){
+  const bt = e.target.closest("button[data-acao]");
+  if(!bt) return;
+  const t = dados.trabalhos.find(function(x){ return x.id === bt.dataset.id; });
+  if(!t) return;
+  const acao = bt.dataset.acao;
+
+  if(acao === "editar"){ abrirForm(t.id); return; }
+
+  if(acao === "excluir"){
+    if(!confirm("Excluir definitivamente “" + (t.desc || "este trabalho") + "”?")) return;
+    dados.trabalhos = dados.trabalhos.filter(function(x){ return x.id !== t.id; });
+    salvar(); render(); avisar("Trabalho excluído.");
+    return;
+  }
+  if(acao === "mover"){
+    t.lista = "ativos"; t.status = "Não iniciado"; t.alteradoEm = agora();
+    salvar(); render(); avisar("Trabalho movido para os ativos.");
+    return;
+  }
+  if(acao === "reabrir"){
+    t.lista = "ativos"; t.status = "Em elaboração"; t.concluidoEm = ""; t.alteradoEm = agora();
+    salvar(); render(); avisar("Trabalho reaberto como “Em elaboração”.");
+    return;
+  }
+}
+
+/* ===================== EXPORTAR / IMPORTAR ===================== */
+function baixarArquivo(nome, conteudo, tipo){
+  const blob = new Blob([conteudo], { type: tipo });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url; a.download = nome;
+  document.body.appendChild(a); a.click(); a.remove();
+  setTimeout(function(){ URL.revokeObjectURL(url); }, 1500);
+}
+function exportarJSON(){
+  const pacote = { formato:"controle-trabalhos-consultoria", versao:1, exportadoEm:new Date().toISOString(),
+    consultor:"Alysson Amorim Mendes da Silveira", prefs:dados.prefs, trabalhos:dados.trabalhos };
+  baixarArquivo("controle-trabalhos-" + hojeISO() + ".json", JSON.stringify(pacote, null, 2), "application/json");
+  avisar("Cópia de segurança gerada.");
+}
+function exportarCSV(lista){
+  const cab = ["Nº trabalho","Tipo prop.","Nº prop.","Ano","Comissão","Tipo de trabalho","Descrição",
+    "Status","Lista","Tramitando na","Nota STL","Baixado em","Observações"];
+  const linhas = (lista || dados.trabalhos).map(function(t){
+    return [t.numero, t.tipoProp, t.numProp, t.anoProp, t.comissao ? nomeComissao(t.comissao) : "",
+      t.tipoTrab, t.desc, t.status, NOMES_LISTA[t.lista], t.comTramite ? nomeComissao(t.comTramite) : "",
+      t.lista === "anteriores" ? t.stl : "", dataBR(t.concluidoEm), t.obs];
+  });
+  const csv = [cab].concat(linhas).map(function(l){
+    return l.map(function(c){ return '"' + String(c == null ? "" : c).replace(/"/g,'""') + '"'; }).join(";");
+  }).join("\r\n");
+  baixarArquivo("trabalhos-" + hojeISO() + ".csv", "\ufeff" + csv, "text/csv;charset=utf-8");
+  avisar("Planilha CSV gerada.");
+}
+function lerImportacao(file){
+  const leitor = new FileReader();
+  leitor.onload = function(){
+    try{
+      const d = JSON.parse(leitor.result);
+      const lista = Array.isArray(d) ? d : d.trabalhos;
+      if(!Array.isArray(lista)) throw new Error("sem lista de trabalhos");
+      importPendente = normalizar({ trabalhos:lista, prefs:d.prefs || dados.prefs, atualizadoEm:agora() });
+      document.getElementById("impResumo").innerHTML =
+        "O arquivo traz <strong>" + importPendente.trabalhos.length + "</strong> registro(s). " +
+        "Aqui existem hoje <strong>" + dados.trabalhos.length + "</strong>.";
+      document.getElementById("modalImp").classList.remove("oculto");
+    }catch(err){
+      avisar("Arquivo não reconhecido. Use um JSON gerado pela própria página.");
+    }
+  };
+  leitor.readAsText(file);
+}
+function concluirImportacao(modo){
+  if(!importPendente) return;
+  if(modo === "substituir"){
+    dados.trabalhos = importPendente.trabalhos;
+  }else{
+    const existentes = {};
+    dados.trabalhos.forEach(function(t){ existentes[t.id] = t; });
+    importPendente.trabalhos.forEach(function(t){
+      if(existentes[t.id]) Object.assign(existentes[t.id], t);
+      else dados.trabalhos.push(t);
+    });
+  }
+  dados.prefs = importPendente.prefs || dados.prefs;
+  importPendente = null;
+  document.getElementById("modalImp").classList.add("oculto");
+  salvar(); render();
+  avisar(modo === "substituir" ? "Dados substituídos pelo arquivo." : "Dados mesclados.");
+}
+
+/* ===================== AVISOS ===================== */
+let avisoTimer = null;
+function avisar(msg){
+  const el = document.getElementById("aviso");
+  el.textContent = msg;
+  el.classList.add("ver");
+  clearTimeout(avisoTimer);
+  avisoTimer = setTimeout(function(){ el.classList.remove("ver"); }, 3400);
+}
+
+/* ===================== GOOGLE DRIVE ===================== */
+let tokenClient = null, accessToken = null, gapiPronto = false, gsiPronto = false;
+let driveFileId = null, driveTimer = null, driveLigado = false;
+
+function setSync(estado, texto, mostrarEntrar){
+  const dot = document.getElementById("syncDot");
+  dot.className = "dot" + (estado ? " " + estado : "");
+  document.getElementById("syncTxt").textContent = texto;
+  document.getElementById("btnEntrar").classList.toggle("oculto", !mostrarEntrar);
+  document.getElementById("btnSair").classList.toggle("oculto", mostrarEntrar);
+}
+function gapiInit(){
+  gapi.load("client", function(){
+    gapi.client.init({ discoveryDocs:["https://www.googleapis.com/discovery/v1/apis/drive/v3/rest"] })
+      .then(function(){ gapiPronto = true; tentarSilencioso(); })
+      .catch(function(){ setSync("err","Não foi possível carregar o Google", true); });
+  });
+}
+function gsiInit(){
+  if(typeof google === "undefined" || !google.accounts) return;
+  tokenClient = google.accounts.oauth2.initTokenClient({
+    client_id: CLIENT_ID,
+    scope: SCOPES,
+    callback: function(resp){
+      if(resp.error){ setSync("err","Não foi possível entrar", true); return; }
+      accessToken = resp.access_token;
+      gapi.client.setToken({ access_token: accessToken });
+      localStorage.setItem(KEY + ":auth", "1");
+      driveLigado = true;
+      sincronizar();
+    }
+  });
+  gsiPronto = true;
+  tentarSilencioso();
+}
+function tentarSilencioso(){
+  if(!(gapiPronto && gsiPronto)) return;
+  if(localStorage.getItem(KEY + ":auth") === "1" && !accessToken){
+    setSync("busy","Conectando ao Drive…", false);
+    try{ tokenClient.requestAccessToken({ prompt:"" }); }
+    catch(e){ setSync("", "Somente neste aparelho", true); }
+  }else if(!accessToken){
+    setSync("", "Somente neste aparelho", true);
+  }
+}
+function entrar(){
+  if(!tokenClient){ avisar("O Google ainda está carregando. Tente de novo em instantes."); return; }
+  setSync("busy","Entrando…", false);
+  tokenClient.requestAccessToken({ prompt:"consent" });
+}
+function sair(){
+  if(accessToken && typeof google !== "undefined" && google.accounts && google.accounts.oauth2){
+    try{ google.accounts.oauth2.revoke(accessToken, function(){}); }catch(e){}
+  }
+  accessToken = null; driveLigado = false; driveFileId = null;
+  localStorage.removeItem(KEY + ":auth");
+  if(typeof gapi !== "undefined" && gapi.client) gapi.client.setToken(null);
+  setSync("", "Somente neste aparelho", true);
+  avisar("Você saiu. Os dados continuam salvos neste navegador.");
+}
+function driveAchar(){
+  return gapi.client.drive.files.list({
+    spaces:"appDataFolder", pageSize:10, fields:"files(id,name,modifiedTime)",
+    q:"name='" + FILE_NAME + "'"
+  }).then(function(r){
+    const f = (r.result.files || [])[0];
+    return f ? f.id : null;
+  });
+}
+function driveBaixar(id){
+  return gapi.client.drive.files.get({ fileId:id, alt:"media" }).then(function(r){
+    if(r.result && typeof r.result === "object") return r.result;
+    return JSON.parse(r.body);
+  });
+}
+function driveSubir(){
+  const meta = { name: FILE_NAME, mimeType:"application/json" };
+  if(!driveFileId) meta.parents = ["appDataFolder"];
+  const limite = "-------drive" + Date.now();
+  const corpo =
+    "--" + limite + "\r\nContent-Type: application/json; charset=UTF-8\r\n\r\n" +
+    JSON.stringify(driveFileId ? { name: FILE_NAME } : meta) + "\r\n" +
+    "--" + limite + "\r\nContent-Type: application/json\r\n\r\n" +
+    JSON.stringify(dados) + "\r\n--" + limite + "--";
+  return gapi.client.request({
+    path:"/upload/drive/v3/files" + (driveFileId ? "/" + driveFileId : ""),
+    method: driveFileId ? "PATCH" : "POST",
+    params:{ uploadType:"multipart" },
+    headers:{ "Content-Type":"multipart/related; boundary=" + limite },
+    body: corpo
+  }).then(function(r){
+    if(r.result && r.result.id) driveFileId = r.result.id;
+  });
+}
+function sincronizar(){
+  if(!driveLigado || !gapiPronto) return;
+  setSync("busy","Sincronizando…", false);
+  driveAchar().then(function(id){
+    driveFileId = id;
+    if(!id) return driveSubir();
+    return driveBaixar(id).then(function(remoto){
+      if(remoto && Array.isArray(remoto.trabalhos) && (remoto.atualizadoEm || 0) > (dados.atualizadoEm || 0)){
+        dados = normalizar(remoto);
+        localStorage.setItem(KEY, JSON.stringify(dados));
+        render();
+        return;
+      }
+      return driveSubir();
+    });
+  }).then(function(){
+    setSync("ok","Sincronizado com o Drive", false);
+  }).catch(function(){
+    setSync("err","Erro ao sincronizar · entre de novo", true);
+  });
+}
+function agendarDrive(){
+  if(!driveLigado || !gapiPronto) return;
+  clearTimeout(driveTimer);
+  setSync("busy","Salvando…", false);
+  driveTimer = setTimeout(function(){
+    driveSubir().then(function(){ setSync("ok","Sincronizado com o Drive", false); })
+      .catch(function(){ setSync("err","Erro ao salvar no Drive", true); });
+  }, 1200);
+}
+function iniciarGoogle(){
+  if(typeof gapi !== "undefined") gapiInit();
+  else{
+    const s = document.querySelector('script[src*="api.js"]');
+    if(s) s.addEventListener("load", gapiInit);
+  }
+  if(typeof google !== "undefined" && google.accounts) gsiInit();
+  else{
+    const s = document.querySelector('script[src*="gsi/client"]');
+    if(s) s.addEventListener("load", gsiInit);
+  }
+}
+
+/* ===================== LIGAÇÕES ===================== */
+document.querySelectorAll(".aba").forEach(function(b){
+  b.addEventListener("click", function(){ irPara(b.dataset.vista); });
+});
+document.querySelectorAll("[data-ir]").forEach(function(b){
+  b.addEventListener("click", function(){ irPara(b.dataset.ir); });
+});
+document.getElementById("btnNovo").addEventListener("click", function(){ abrirForm(null,"ativos"); });
+document.querySelectorAll("[data-novo]").forEach(function(b){
+  b.addEventListener("click", function(){ abrirForm(null, b.dataset.novo); });
+});
+document.getElementById("btnCancelar").addEventListener("click", fecharForm);
+document.getElementById("btnSalvar").addEventListener("click", salvarForm);
+document.getElementById("f_lista").addEventListener("change", ajustarFormulario);
+document.getElementById("f_tipoProp").addEventListener("change", ajustarFormulario);
+document.getElementById("modal").addEventListener("click", function(e){ if(e.target.id === "modal") fecharForm(); });
+document.addEventListener("keydown", function(e){
+  if(e.key === "Escape"){
+    fecharForm();
+    document.getElementById("modalImp").classList.add("oculto");
+  }
+});
+
+["tabAtivos","tabBaixados","tabAnteriores"].forEach(function(id){
+  const el = document.getElementById(id);
+  el.addEventListener("change", aoMudarCampo);
+  el.addEventListener("click", aoClicarAcao);
+});
+function ligarFiltros(ids, fn){
+  ids.forEach(function(id){
+    const el = document.getElementById(id);
+    ["input","change"].forEach(function(ev){ el.addEventListener(ev, fn); });
+  });
+}
+ligarFiltros(["buscaAtivos","filtroStatus","filtroComissao","ordemAtivos"], function(){ renderAtivos(porLista("ativos")); });
+ligarFiltros(["buscaBaixados","filtroAnoBaixados"], function(){ renderBaixados(porLista("baixados")); });
+ligarFiltros(["buscaAnteriores","filtroSTL"], function(){ renderAnteriores(porLista("anteriores")); });
+
+document.getElementById("btnExportar").addEventListener("click", exportarJSON);
+document.getElementById("btnCsv").addEventListener("click", function(){ exportarCSV(porLista("baixados")); });
+document.getElementById("btnImportar").addEventListener("click", function(){
+  document.getElementById("arquivoImportar").click();
+});
+document.getElementById("arquivoImportar").addEventListener("change", function(e){
+  const f = e.target.files[0];
+  if(f) lerImportacao(f);
+  e.target.value = "";
+});
+document.getElementById("impCancelar").addEventListener("click", function(){
+  importPendente = null;
+  document.getElementById("modalImp").classList.add("oculto");
+});
+document.getElementById("impSubstituir").addEventListener("click", function(){ concluirImportacao("substituir"); });
+document.getElementById("impMesclar").addEventListener("click", function(){ concluirImportacao("mesclar"); });
+document.getElementById("btnEntrar").addEventListener("click", entrar);
+document.getElementById("btnSair").addEventListener("click", sair);
+
+/* ===================== PARTIDA ===================== */
+preencherSelects();
+carregar();
+irPara("painel");
+render();
+setSync("", "Somente neste aparelho", true);
+window.addEventListener("load", iniciarGoogle);
+</script>
+</body>
+</html>
