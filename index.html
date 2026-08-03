@@ -27,6 +27,7 @@
   --st-gre-bg:#f6e8ec;      --st-gre-ac:#a56c7c;
   --st-rel-bg:#f8eae3;      --st-rel-ac:#b57a63;
   --st-conc-bg:#eceff1;     --st-conc-ac:#69757e;
+  --plen-bg:#f1ede2;        --plen-ac:#9b8f70;
 
   --stl-nao-bg:#dfebec;     --stl-nao-ac:#3f6f72;
   --stl-sim-bg:#f2f8f8;     --stl-sim-ac:#7fa8aa;
@@ -159,6 +160,7 @@ tr.st-go{background:var(--st-go-bg);border-left-color:var(--st-go-ac)}
 tr.st-gre{background:var(--st-gre-bg);border-left-color:var(--st-gre-ac)}
 tr.st-rel{background:var(--st-rel-bg);border-left-color:var(--st-rel-ac)}
 tr.st-conc{background:var(--st-conc-bg);border-left-color:var(--st-conc-ac)}
+tr.plen{background:var(--plen-bg);border-left-color:var(--plen-ac)}
 tr.stl-sim{background:var(--stl-sim-bg);border-left-color:var(--stl-sim-ac)}
 tr.stl-nao{background:var(--stl-nao-bg);border-left-color:var(--stl-nao-ac)}
 
@@ -239,6 +241,7 @@ footer{max-width:1440px;margin:0 auto;padding:0 22px 40px;color:var(--texto-frac
     <button class="aba" data-vista="ativos" type="button">Trabalhos ativos <span class="cnt" id="cntAtivos">0</span></button>
     <button class="aba" data-vista="baixados" type="button">Trabalhos baixados <span class="cnt" id="cntBaixados">0</span></button>
     <button class="aba" data-vista="anteriores" type="button">Comissões anteriores <span class="cnt" id="cntAnteriores">0</span></button>
+    <button class="aba" data-vista="posteriores" type="button">Plenário/Comissões posteriores <span class="cnt" id="cntPosteriores">0</span></button>
   </div>
 </nav>
 
@@ -248,7 +251,7 @@ footer{max-width:1440px;margin:0 auto;padding:0 22px 40px;color:var(--texto-frac
     <div class="chamada">
       <div>
         <h2>Registro de trabalhos designados</h2>
-        <p>Cadastre a proposição, o tipo de trabalho e o estágio em que ele está. Ao marcar um trabalho como aprovado pelo relator, ele passa sozinho para os baixados.</p>
+        <p>Cadastre a proposição, o tipo de trabalho e o estágio em que ele está. Ao marcar um projeto como aprovado pelo relator, a página pergunta se a deliberação é conclusiva e o encaminha para a tabela devida.</p>
       </div>
       <button class="btn btn-primario" id="btnNovo" type="button">Incluir novo trabalho</button>
     </div>
@@ -262,12 +265,17 @@ footer{max-width:1440px;margin:0 auto;padding:0 22px 40px;color:var(--texto-frac
       <button class="cartao" data-ir="baixados" type="button">
         <div class="rot"><i class="tri"></i> Tabela 2 &middot; Baixados</div>
         <div class="num" id="pnBaixados">0</div>
-        <div class="pe">Aprovados pelo relator</div>
+        <div class="pe">Aprovados em definitivo</div>
       </button>
       <button class="cartao" data-ir="anteriores" type="button">
         <div class="rot"><i class="tri"></i> Tabela 3 &middot; Comissões anteriores</div>
         <div class="num" id="pnAnteriores">0</div>
         <div class="pe">Ainda não chegaram às minhas comissões</div>
+      </button>
+      <button class="cartao" data-ir="posteriores" type="button">
+        <div class="rot"><i class="tri"></i> Tabela 4 &middot; Plenário/posteriores</div>
+        <div class="num" id="pnPosteriores">0</div>
+        <div class="pe">Aprovados pelo relator, aguardando deliberação</div>
       </button>
     </div>
 
@@ -285,7 +293,7 @@ footer{max-width:1440px;margin:0 auto;padding:0 22px 40px;color:var(--texto-frac
   <!-- ATIVOS -->
   <section id="v-ativos" class="oculto">
     <div class="titulo-lista"><h2>Trabalhos ativos</h2><span class="qtd" id="qtdAtivos"></span></div>
-    <p class="explica">Trabalhos em curso. Mudar o estágio para <em>Aprovado pelo relator</em> baixa o trabalho automaticamente para a Tabela 2.</p>
+    <p class="explica">Trabalhos em curso. Ao mudar o estágio para <em>Aprovado pelo relator</em>, um projeto de deliberação conclusiva pela comissão é baixado direto para a Tabela 2; os demais seguem para a Tabela 4, à espera do Plenário. Requerimentos, informações e relatórios são baixados de imediato.</p>
     <div class="ferramentas">
       <input type="search" id="buscaAtivos" placeholder="Buscar por descrição, proposição, nº do trabalho&hellip;">
       <select id="filtroStatus"><option value="">Todos os estágios</option></select>
@@ -305,7 +313,7 @@ footer{max-width:1440px;margin:0 auto;padding:0 22px 40px;color:var(--texto-frac
   <!-- BAIXADOS -->
   <section id="v-baixados" class="oculto">
     <div class="titulo-lista"><h2>Trabalhos baixados</h2><span class="qtd" id="qtdBaixados"></span></div>
-    <p class="explica">Trabalhos concluídos e aprovados pelo relator. Se algum voltar à sua mesa, use <em>Reabrir</em> para devolvê-lo aos ativos.</p>
+    <p class="explica">Trabalhos encerrados: proposições aprovadas em definitivo pelo Plenário ou em deliberação conclusiva pela comissão, além dos requerimentos e relatórios já aprovados. Se algum voltar à sua mesa, use <em>Reabrir</em>.</p>
     <div class="ferramentas">
       <input type="search" id="buscaBaixados" placeholder="Buscar nos baixados&hellip;">
       <select id="filtroAnoBaixados"><option value="">Todos os anos de conclusão</option></select>
@@ -334,6 +342,22 @@ footer{max-width:1440px;margin:0 auto;padding:0 22px 40px;color:var(--texto-frac
       <span><i style="background:var(--stl-sim-bg);border-left:4px solid var(--stl-sim-ac)"></i> Nota no STL lançada</span>
     </div>
   </section>
+
+  <!-- PLENÁRIO / COMISSÕES POSTERIORES -->
+  <section id="v-posteriores" class="oculto">
+    <div class="titulo-lista"><h2>Plenário/Comissões posteriores</h2><span class="qtd" id="qtdPosteriores"></span></div>
+    <p class="explica">Trabalhos já aprovados pelo relator, cuja proposição seguiu para o Plenário ou para outra comissão. Quando houver aprovação definitiva, use <em>Mover para baixados</em>.</p>
+    <div class="ferramentas">
+      <input type="search" id="buscaPosteriores" placeholder="Buscar nesta lista&hellip;">
+      <select id="filtroTurno">
+        <option value="">Todos os turnos</option>
+        <option value="1º turno">1º turno</option>
+        <option value="2º turno">2º turno</option>
+      </select>
+      <button class="btn btn-mini btn-primario" data-novo="posteriores" type="button">Incluir trabalho</button>
+    </div>
+    <div id="tabPosteriores"></div>
+  </section>
 </main>
 
 <footer>
@@ -354,6 +378,7 @@ footer{max-width:1440px;margin:0 auto;padding:0 22px 40px;color:var(--texto-frac
           <option value="ativos">Tabela 1 &middot; Trabalhos ativos</option>
           <option value="baixados">Tabela 2 &middot; Trabalhos baixados</option>
           <option value="anteriores">Tabela 3 &middot; Tramitando em comissões anteriores</option>
+          <option value="posteriores">Tabela 4 &middot; Plenário/Comissões posteriores</option>
         </select>
         <div class="dica">Um trabalho fica em uma lista de cada vez. Mudar aqui move o registro.</div>
       </div>
@@ -465,6 +490,27 @@ footer{max-width:1440px;margin:0 auto;padding:0 22px 40px;color:var(--texto-frac
   </div>
 </div>
 
+<!-- ============ MODAL: DESTINO APÓS APROVAÇÃO ============ -->
+<div class="fundo oculto" id="modalDestino" role="dialog" aria-modal="true" aria-labelledby="destTitulo">
+  <div class="caixa" style="max-width:540px">
+    <div class="caixa-topo"><i class="tri"></i><h2 id="destTitulo">Aprovado pelo relator</h2></div>
+    <div class="caixa-corpo">
+      <p style="margin-top:0" id="destResumo"></p>
+      <p style="font-weight:600;margin:0 0 6px">Trata-se de proposição de deliberação conclusiva pela comissão?</p>
+      <p class="explica" style="margin-bottom:0">
+        Em caso afirmativo, o trabalho está encerrado e vai para os <strong>baixados</strong>.
+        Do contrário, a proposição ainda depende do Plenário ou de outra comissão e fica na
+        <strong>Tabela 4</strong> até a aprovação definitiva.
+      </p>
+    </div>
+    <div class="caixa-pe">
+      <button class="btn" id="destCancelar" type="button">Cancelar</button>
+      <button class="btn" id="destPlenario" type="button">Não &mdash; segue para o Plenário</button>
+      <button class="btn btn-primario" id="destBaixar" type="button">Sim &mdash; deliberação conclusiva</button>
+    </div>
+  </div>
+</div>
+
 <div id="aviso" role="status" aria-live="polite"></div>
 
 <script src="https://accounts.google.com/gsi/client" async defer></script>
@@ -523,7 +569,9 @@ const STATUS = [
 const CONCLUIDO = "Aprovado pelo relator (concluído)";
 const clsStatus = v => (STATUS.find(s => s.v === v) || STATUS[0]).cls;
 
-const NOMES_LISTA = { ativos:"Trabalhos ativos", baixados:"Trabalhos baixados", anteriores:"Comissões anteriores" };
+const NOMES_LISTA = { ativos:"Trabalhos ativos", baixados:"Trabalhos baixados",
+  anteriores:"Comissões anteriores", posteriores:"Plenário/Comissões posteriores" };
+const LISTAS = ["ativos","baixados","anteriores","posteriores"];
 
 /* ===================== ESTADO ===================== */
 let dados = { trabalhos:[], prefs:{ linkPadrao:"stl" }, atualizadoEm:0 };
@@ -569,7 +617,7 @@ function normalizar(d){
   return {
     trabalhos: (d.trabalhos || []).map(t => ({
       id: t.id || novoId(),
-      lista: ["ativos","baixados","anteriores"].indexOf(t.lista) >= 0 ? t.lista : "ativos",
+      lista: LISTAS.indexOf(t.lista) >= 0 ? t.lista : "ativos",
       numero: t.numero || "",
       tipoProp: t.tipoProp || "PL",
       numProp: t.numProp || "",
@@ -583,6 +631,8 @@ function normalizar(d){
       comTramite: t.comTramite || "",
       stl: t.stl === "Sim" ? "Sim" : "Não",
       criadoEm: t.criadoEm || hojeISO(),
+      aprovadoEm: t.aprovadoEm || "",
+      conclusiva: t.conclusiva === "Sim" ? "Sim" : (t.conclusiva === "Não" ? "Não" : ""),
       concluidoEm: t.concluidoEm || "",
       alteradoEm: t.alteradoEm || 0
     })),
@@ -619,7 +669,7 @@ function celulaProposicao(t){
 /* ===================== NAVEGAÇÃO ===================== */
 function irPara(v){
   vistaAtual = v;
-  ["painel","ativos","baixados","anteriores"].forEach(function(x){
+  ["painel"].concat(LISTAS).forEach(function(x){
     document.getElementById("v-" + x).classList.toggle("oculto", x !== v);
   });
   document.querySelectorAll(".aba").forEach(function(b){
@@ -633,20 +683,25 @@ function irPara(v){
 function porLista(l){ return dados.trabalhos.filter(function(t){ return t.lista === l; }); }
 
 function render(){
-  const a = porLista("ativos"), b = porLista("baixados"), c = porLista("anteriores");
+  const a = porLista("ativos"), b = porLista("baixados"),
+        c = porLista("anteriores"), p = porLista("posteriores");
   document.getElementById("cntAtivos").textContent = a.length;
   document.getElementById("cntBaixados").textContent = b.length;
   document.getElementById("cntAnteriores").textContent = c.length;
+  document.getElementById("cntPosteriores").textContent = p.length;
   document.getElementById("pnAtivos").textContent = a.length;
   document.getElementById("pnBaixados").textContent = b.length;
   document.getElementById("pnAnteriores").textContent = c.length;
+  document.getElementById("pnPosteriores").textContent = p.length;
   document.getElementById("qtdAtivos").textContent = a.length + (a.length === 1 ? " trabalho" : " trabalhos");
   document.getElementById("qtdBaixados").textContent = b.length + (b.length === 1 ? " trabalho" : " trabalhos");
   document.getElementById("qtdAnteriores").textContent = c.length + (c.length === 1 ? " trabalho" : " trabalhos");
+  document.getElementById("qtdPosteriores").textContent = p.length + (p.length === 1 ? " trabalho" : " trabalhos");
   renderBarras(a);
   renderAtivos(a);
   renderBaixados(b);
   renderAnteriores(c);
+  renderPosteriores(p);
   renderFiltros();
 }
 
@@ -663,7 +718,8 @@ function renderBarras(a){
 }
 
 function selectStatus(t){
-  return '<select class="inline" data-campo="status" data-id="' + t.id + '">' +
+  return '<select class="inline" data-campo="status" data-id="' + t.id +
+    '" data-anterior="' + esc(t.status) + '">' +
     STATUS.map(function(s){
       return '<option value="' + esc(s.v) + '"' + (s.v === t.status ? " selected" : "") + ">" + esc(s.v) + "</option>";
     }).join("") + "</select>";
@@ -796,9 +852,40 @@ function renderAnteriores(lista){
     }).join("") + "</tbody></table></div>";
 }
 
+function renderPosteriores(lista){
+  const alvo = document.getElementById("tabPosteriores");
+  let itens = filtraTexto(lista, document.getElementById("buscaPosteriores").value);
+  const ft = document.getElementById("filtroTurno").value;
+  if(ft) itens = itens.filter(function(t){ return t.turno === ft; });
+  itens = itens.slice().sort(function(x,y){ return String(y.aprovadoEm).localeCompare(String(x.aprovadoEm)); });
+
+  if(!itens.length){
+    alvo.innerHTML = vazio(lista.length ? "Nenhum trabalho corresponde ao filtro."
+      : "Nada aguardando deliberação.", lista.length ? "Ajuste a busca ou o filtro acima."
+      : "Proposições aprovadas pelo relator que ainda dependem do Plenário aparecem aqui.");
+    return;
+  }
+  alvo.innerHTML = '<div class="rolagem"><table><thead><tr>' +
+    "<th>Nº trab.</th><th>Proposição</th><th>Comissão</th><th>Tipo de trabalho</th>" +
+    "<th>Descrição</th><th>Aprovado em</th><th>Observações</th><th></th>" +
+    "</tr></thead><tbody>" +
+    itens.map(function(t){
+      return '<tr class="plen">' +
+        '<td class="num-trab nowrap">' + esc(t.numero || "—") + "</td>" +
+        "<td>" + celulaProposicao(t) + "</td>" +
+        '<td class="miudo">' + (t.comissao ? esc(nomeComissao(t.comissao)) : "—") + "</td>" +
+        '<td class="nowrap">' + esc(t.tipoTrab) + "</td>" +
+        '<td class="desc">' + esc(t.desc) + "</td>" +
+        '<td class="nowrap miudo">' + esc(dataBR(t.aprovadoEm)) + "</td>" +
+        '<td class="obs">' + esc(t.obs) + "</td>" +
+        '<td class="acoes">' + botoes(t, [["baixar","Mover para baixados"],["voltar","Voltar para ativos"],["editar","Editar"],["excluir","Excluir"]]) + "</td>" +
+        "</tr>";
+    }).join("") + "</tbody></table></div>";
+}
+
 function botoes(t, acoes){
   return acoes.map(function(a){
-    const primario = a[0] === "mover";
+    const primario = a[0] === "mover" || a[0] === "baixar";
     return '<button class="btn btn-mini' + (primario ? " btn-primario" : " btn-fantasma") +
       '" data-acao="' + a[0] + '" data-id="' + t.id + '" type="button">' + a[1] + "</button>";
   }).join(" ");
@@ -869,7 +956,11 @@ function ajustarFormulario(){
   const dica = document.getElementById("dicaStatus");
   if(lista === "baixados"){
     sel.value = CONCLUIDO; sel.disabled = true;
-    dica.textContent = "Trabalhos baixados são, por definição, aprovados pelo relator.";
+    dica.textContent = "Baixados são os aprovados em definitivo pelo Plenário ou em deliberação conclusiva pela comissão.";
+    campoStatus.classList.remove("oculto");
+  }else if(lista === "posteriores"){
+    sel.value = CONCLUIDO; sel.disabled = true;
+    dica.textContent = "Aprovados pelo relator, aguardando o Plenário ou outra comissão.";
     campoStatus.classList.remove("oculto");
   }else if(lista === "anteriores"){
     sel.value = "Não iniciado"; sel.disabled = true;
@@ -936,11 +1027,12 @@ function salvarForm(){
   cxErro.classList.remove("ativo");
 
   let status = document.getElementById("f_status").value;
-  if(lista === "baixados") status = CONCLUIDO;
+  if(lista === "baixados" || lista === "posteriores") status = CONCLUIDO;
   if(lista === "anteriores") status = "Não iniciado";
+  const precisaDecidir = (status === CONCLUIDO && lista === "ativos");
 
   const base = {
-    lista: (status === CONCLUIDO && lista === "ativos") ? "baixados" : lista,
+    lista: lista,
     numero: document.getElementById("f_numero").value.trim(),
     tipoProp: tipoProp,
     numProp: temProp ? numProp : "",
@@ -956,25 +1048,73 @@ function salvarForm(){
     alteradoEm: agora()
   };
 
-  let baixou = false;
+  let alvo;
   if(editandoId){
-    const t = dados.trabalhos.find(function(x){ return x.id === editandoId; });
-    const antes = t.lista;
-    Object.assign(t, base);
-    if(t.lista === "baixados" && !t.concluidoEm) t.concluidoEm = hojeISO();
-    if(t.lista !== "baixados") t.concluidoEm = "";
-    baixou = antes !== "baixados" && t.lista === "baixados";
+    alvo = dados.trabalhos.find(function(x){ return x.id === editandoId; });
+    Object.assign(alvo, base);
   }else{
-    const novo = Object.assign({ id: novoId(), criadoEm: hojeISO(), concluidoEm:"" }, base);
-    if(novo.lista === "baixados") novo.concluidoEm = hojeISO();
-    dados.trabalhos.push(novo);
-    baixou = novo.lista === "baixados" && lista === "ativos";
+    alvo = Object.assign({ id: novoId(), criadoEm: hojeISO(), aprovadoEm:"", conclusiva:"", concluidoEm:"" }, base);
+    dados.trabalhos.push(alvo);
+  }
+  if(alvo.lista === "baixados"){
+    if(!alvo.concluidoEm) alvo.concluidoEm = hojeISO();
+    if(!alvo.aprovadoEm) alvo.aprovadoEm = alvo.concluidoEm;
+  }else if(alvo.lista === "posteriores"){
+    if(!alvo.aprovadoEm) alvo.aprovadoEm = hojeISO();
+    alvo.concluidoEm = "";
+  }else{
+    alvo.concluidoEm = "";
   }
   salvar();
   render();
   fecharForm();
-  avisar(baixou ? "Trabalho salvo e baixado para a Tabela 2."
-    : (eraEdicao ? "Trabalho atualizado." : "Trabalho registrado em " + NOMES_LISTA[base.lista] + "."));
+
+  if(precisaDecidir){ concluirTrabalho(alvo); return; }
+  avisar(eraEdicao ? "Trabalho atualizado." : "Trabalho registrado em " + NOMES_LISTA[base.lista] + ".");
+}
+
+/* ---- destino de um trabalho aprovado pelo relator ---- */
+let pendente = null, statusAnterior = null;
+
+function concluirTrabalho(t, anterior){
+  t.status = CONCLUIDO;
+  t.aprovadoEm = t.aprovadoEm || hojeISO();
+  if(t.tipoProp !== "PL"){
+    // requerimentos, informações e relatórios encerram-se com a aprovação do parecer
+    t.lista = "baixados";
+    t.conclusiva = "Sim";
+    t.concluidoEm = hojeISO();
+    t.alteradoEm = agora();
+    salvar(); render();
+    avisar("“" + (t.desc || "Trabalho") + "” foi baixado para a Tabela 2.");
+    return;
+  }
+  pendente = t;
+  statusAnterior = anterior || null;
+  const rotulo = temProposicao(t)
+    ? t.tipoProp + " " + milhar(t.numProp) + "/" + t.anoProp + (t.turno ? " (" + t.turno + ")" : "")
+    : t.tipoProp;
+  document.getElementById("destResumo").innerHTML =
+    "<strong>" + esc(rotulo) + "</strong> &mdash; " + esc(t.desc || "sem descrição");
+  document.getElementById("modalDestino").classList.remove("oculto");
+}
+
+function resolverDestino(destino){
+  const t = pendente;
+  if(!t){ document.getElementById("modalDestino").classList.add("oculto"); return; }
+  if(destino === "cancelar"){
+    if(statusAnterior){ t.status = statusAnterior; t.aprovadoEm = ""; }
+  }else if(destino === "baixados"){
+    t.lista = "baixados"; t.conclusiva = "Sim"; t.concluidoEm = hojeISO();
+  }else{
+    t.lista = "posteriores"; t.conclusiva = "Não"; t.concluidoEm = "";
+  }
+  t.alteradoEm = agora();
+  pendente = null; statusAnterior = null;
+  document.getElementById("modalDestino").classList.add("oculto");
+  salvar(); render();
+  if(destino === "baixados") avisar("Deliberação conclusiva: trabalho baixado para a Tabela 2.");
+  else if(destino === "posteriores") avisar("Trabalho enviado para a Tabela 4, aguardando o Plenário.");
 }
 
 /* ===================== AÇÕES NAS TABELAS ===================== */
@@ -988,9 +1128,10 @@ function aoMudarCampo(e){
   t.alteradoEm = agora();
 
   if(campo === "status" && el.value === CONCLUIDO){
-    t.lista = "baixados";
-    t.concluidoEm = hojeISO();
-    avisar("“" + (t.desc || "Trabalho") + "” foi baixado para a Tabela 2.");
+    const anterior = el.dataset.anterior || "Em elaboração";
+    salvar();
+    concluirTrabalho(t, anterior);
+    return;
   }else if(campo === "stl"){
     avisar(el.value === "Sim" ? "Nota no STL marcada como lançada." : "Nota no STL marcada como pendente.");
   }
@@ -1018,8 +1159,18 @@ function aoClicarAcao(e){
     salvar(); render(); avisar("Trabalho movido para os ativos.");
     return;
   }
+  if(acao === "baixar"){
+    t.lista = "baixados"; t.conclusiva = "Não"; t.concluidoEm = hojeISO(); t.alteradoEm = agora();
+    salvar(); render(); avisar("Trabalho baixado para a Tabela 2.");
+    return;
+  }
+  if(acao === "voltar"){
+    t.lista = "ativos"; t.status = "Em elaboração"; t.aprovadoEm = ""; t.alteradoEm = agora();
+    salvar(); render(); avisar("Trabalho devolvido aos ativos.");
+    return;
+  }
   if(acao === "reabrir"){
-    t.lista = "ativos"; t.status = "Em elaboração"; t.concluidoEm = ""; t.alteradoEm = agora();
+    t.lista = "ativos"; t.status = "Em elaboração"; t.concluidoEm = ""; t.aprovadoEm = ""; t.alteradoEm = agora();
     salvar(); render(); avisar("Trabalho reaberto como “Em elaboração”.");
     return;
   }
@@ -1042,11 +1193,11 @@ function exportarJSON(){
 }
 function exportarCSV(lista){
   const cab = ["Nº trabalho","Tipo prop.","Nº prop.","Ano","Turno","Comissão","Tipo de trabalho","Descrição",
-    "Status","Lista","Tramitando na","Nota STL","Baixado em","Observações"];
+    "Status","Lista","Tramitando na","Nota STL","Deliberação conclusiva","Aprovado em","Baixado em","Observações"];
   const linhas = (lista || dados.trabalhos).map(function(t){
     return [t.numero, t.tipoProp, t.numProp, t.anoProp, t.turno, t.comissao ? nomeComissao(t.comissao) : "",
       t.tipoTrab, t.desc, t.status, NOMES_LISTA[t.lista], t.comTramite ? nomeComissao(t.comTramite) : "",
-      t.lista === "anteriores" ? t.stl : "", dataBR(t.concluidoEm), t.obs];
+      t.lista === "anteriores" ? t.stl : "", t.conclusiva, dataBR(t.aprovadoEm), dataBR(t.concluidoEm), t.obs];
   });
   const csv = [cab].concat(linhas).map(function(l){
     return l.map(function(c){ return '"' + String(c == null ? "" : c).replace(/"/g,'""') + '"'; }).join(";");
@@ -1256,12 +1407,13 @@ document.getElementById("f_tipoProp").addEventListener("change", ajustarFormular
 document.getElementById("modal").addEventListener("click", function(e){ if(e.target.id === "modal") fecharForm(); });
 document.addEventListener("keydown", function(e){
   if(e.key === "Escape"){
+    if(!document.getElementById("modalDestino").classList.contains("oculto")){ resolverDestino("cancelar"); return; }
     fecharForm();
     document.getElementById("modalImp").classList.add("oculto");
   }
 });
 
-["tabAtivos","tabBaixados","tabAnteriores"].forEach(function(id){
+["tabAtivos","tabBaixados","tabAnteriores","tabPosteriores"].forEach(function(id){
   const el = document.getElementById(id);
   el.addEventListener("change", aoMudarCampo);
   el.addEventListener("click", aoClicarAcao);
@@ -1275,6 +1427,7 @@ function ligarFiltros(ids, fn){
 ligarFiltros(["buscaAtivos","filtroStatus","filtroComissao","ordemAtivos"], function(){ renderAtivos(porLista("ativos")); });
 ligarFiltros(["buscaBaixados","filtroAnoBaixados"], function(){ renderBaixados(porLista("baixados")); });
 ligarFiltros(["buscaAnteriores","filtroSTL"], function(){ renderAnteriores(porLista("anteriores")); });
+ligarFiltros(["buscaPosteriores","filtroTurno"], function(){ renderPosteriores(porLista("posteriores")); });
 
 document.getElementById("btnExportar").addEventListener("click", exportarJSON);
 document.getElementById("btnCsv").addEventListener("click", function(){ exportarCSV(porLista("baixados")); });
@@ -1292,6 +1445,9 @@ document.getElementById("impCancelar").addEventListener("click", function(){
 });
 document.getElementById("impSubstituir").addEventListener("click", function(){ concluirImportacao("substituir"); });
 document.getElementById("impMesclar").addEventListener("click", function(){ concluirImportacao("mesclar"); });
+document.getElementById("destCancelar").addEventListener("click", function(){ resolverDestino("cancelar"); });
+document.getElementById("destPlenario").addEventListener("click", function(){ resolverDestino("posteriores"); });
+document.getElementById("destBaixar").addEventListener("click", function(){ resolverDestino("baixados"); });
 document.getElementById("btnEntrar").addEventListener("click", entrar);
 document.getElementById("btnSair").addEventListener("click", sair);
 
