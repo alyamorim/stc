@@ -24,6 +24,7 @@
   --st-elab-bg:#e7eef5;     --st-elab-ac:#5b7c9b;
   --st-tx-bg:#f7f0e0;       --st-tx-ac:#a98b4e;
   --st-go-bg:#efeaf3;       --st-go-ac:#8a7099;
+  --st-gre-bg:#f6e8ec;      --st-gre-ac:#a56c7c;
   --st-rel-bg:#f8eae3;      --st-rel-ac:#b57a63;
   --st-conc-bg:#eceff1;     --st-conc-ac:#69757e;
 
@@ -137,6 +138,8 @@ td.nowrap{white-space:nowrap}
 td.acoes{white-space:nowrap;text-align:right}
 .num-trab{font-variant-numeric:tabular-nums;font-weight:500}
 .prop{font-weight:600;color:var(--grafite);white-space:nowrap}
+.prop.longo{white-space:normal;line-height:1.25;display:inline-block;max-width:135px}
+.turno{display:block;font-size:11.5px;color:var(--texto-fraco);margin-top:1px;letter-spacing:.02em}
 .prop-links{display:flex;gap:7px;margin-top:2px}
 .prop-links a{font-size:11px;text-decoration:none;color:var(--texto-fraco);border-bottom:1px dotted var(--linha-forte)}
 .prop-links a:hover{color:var(--vermelho);border-bottom-color:var(--vermelho)}
@@ -153,6 +156,7 @@ tr.st-nao{background:var(--st-nao-bg);border-left-color:var(--st-nao-ac)}
 tr.st-elab{background:var(--st-elab-bg);border-left-color:var(--st-elab-ac)}
 tr.st-tx{background:var(--st-tx-bg);border-left-color:var(--st-tx-ac)}
 tr.st-go{background:var(--st-go-bg);border-left-color:var(--st-go-ac)}
+tr.st-gre{background:var(--st-gre-bg);border-left-color:var(--st-gre-ac)}
 tr.st-rel{background:var(--st-rel-bg);border-left-color:var(--st-rel-ac)}
 tr.st-conc{background:var(--st-conc-bg);border-left-color:var(--st-conc-ac)}
 tr.stl-sim{background:var(--stl-sim-bg);border-left-color:var(--stl-sim-ac)}
@@ -367,6 +371,7 @@ footer{max-width:1440px;margin:0 auto;padding:0 22px 40px;color:var(--texto-frac
           <option value="Inf.">Inf. &mdash; Informação</option>
           <option value="Rel. Vis.">Rel. Vis. &mdash; Relatório de visita</option>
           <option value="Rel. Fis.">Rel. Fis. &mdash; Relatório de fiscalização</option>
+          <option value="Minuta de Proposição">Minuta de Proposição</option>
         </select>
       </div>
 
@@ -381,6 +386,13 @@ footer{max-width:1440px;margin:0 auto;padding:0 22px 40px;color:var(--texto-frac
             <label for="f_anoProp">Ano</label>
             <input type="text" id="f_anoProp" placeholder="Ex.: 2025" inputmode="numeric" maxlength="4">
           </div>
+        </div>
+        <div class="campo oculto" id="campoTurno">
+          <label for="f_turno">Turno</label>
+          <select id="f_turno">
+            <option value="1º turno">1º turno</option>
+            <option value="2º turno">2º turno</option>
+          </select>
         </div>
         <div class="campo">
           <label for="f_comissao">Comissão</label>
@@ -504,6 +516,7 @@ const STATUS = [
   { v:"Em elaboração",                     cls:"st-elab", cor:"var(--st-elab-ac)" },
   { v:"Enviado para a revisão TX",         cls:"st-tx",   cor:"var(--st-tx-ac)"   },
   { v:"Enviado para a revisão GO",         cls:"st-go",   cor:"var(--st-go-ac)"   },
+  { v:"Aguardando revisão GRE",            cls:"st-gre", cor:"var(--st-gre-ac)"  },
   { v:"Enviado para o relator",            cls:"st-rel",  cor:"var(--st-rel-ac)"  },
   { v:"Aprovado pelo relator (concluído)", cls:"st-conc", cor:"var(--st-conc-ac)" }
 ];
@@ -561,6 +574,7 @@ function normalizar(d){
       tipoProp: t.tipoProp || "PL",
       numProp: t.numProp || "",
       anoProp: t.anoProp || "",
+      turno: t.turno || "",
       comissao: t.comissao || "",
       tipoTrab: t.tipoTrab || "Outro",
       desc: t.desc || "",
@@ -587,12 +601,15 @@ function linkPortal(t){
 }
 function celulaProposicao(t){
   if(!temProposicao(t)){
-    return '<span class="prop">' + esc(t.tipoProp) + "</span>";
+    const longo = t.tipoProp.length > 12 ? " longo" : "";
+    return '<span class="prop' + longo + '">' + esc(t.tipoProp) + "</span>";
   }
+  const turno = (t.tipoProp === "PL" && t.turno)
+    ? '<span class="turno">' + esc(t.turno) + "</span>" : "";
   const rotulo = t.tipoProp + " " + milhar(t.numProp) + "/" + esc(t.anoProp);
   const principal = dados.prefs.linkPadrao === "portal" ? linkPortal(t) : linkSTL(t);
   return '<a class="prop" style="text-decoration:none" href="' + esc(principal) + '" target="_blank" rel="noopener">' +
-         esc(rotulo) + "</a>" +
+         esc(rotulo) + "</a>" + turno +
          '<span class="prop-links">' +
            '<a href="' + esc(linkSTL(t)) + '" target="_blank" rel="noopener" title="Abrir dossiê no STL (intranet)">STL</a>' +
            '<a href="' + esc(linkPortal(t)) + '" target="_blank" rel="noopener" title="Abrir no portal público da ALMG">Portal</a>' +
@@ -664,7 +681,7 @@ function filtraTexto(lista, termo){
   const q = (termo || "").trim().toLowerCase();
   if(!q) return lista;
   return lista.filter(function(t){
-    return [t.numero, t.desc, t.obs, t.tipoProp, t.numProp, t.anoProp, t.comissao, t.tipoTrab, t.status, t.comTramite]
+    return [t.numero, t.desc, t.obs, t.tipoProp, t.numProp, t.anoProp, t.turno, t.comissao, t.tipoTrab, t.status, t.comTramite]
       .join(" ").toLowerCase().indexOf(q) >= 0;
   });
 }
@@ -844,6 +861,7 @@ function ajustarFormulario(){
   const lista = document.getElementById("f_lista").value;
   const tipo = document.getElementById("f_tipoProp").value;
   document.getElementById("grupoProp").classList.toggle("oculto", !(tipo === "PL" || tipo === "RQN"));
+  document.getElementById("campoTurno").classList.toggle("oculto", tipo !== "PL");
   document.getElementById("grupoAnteriores").classList.toggle("oculto", lista !== "anteriores");
 
   const campoStatus = document.getElementById("campoStatus");
@@ -874,6 +892,7 @@ function abrirForm(id, listaPadrao){
   document.getElementById("f_tipoProp").value = t ? t.tipoProp : "PL";
   document.getElementById("f_numProp").value = t ? t.numProp : "";
   document.getElementById("f_anoProp").value = t ? t.anoProp : "";
+  document.getElementById("f_turno").value = (t && t.turno) ? t.turno : "1º turno";
   document.getElementById("f_comissao").value = t ? t.comissao : "";
   document.getElementById("f_tipoTrab").value = t ? t.tipoTrab : "Minuta de Parecer";
   document.getElementById("f_desc").value = t ? t.desc : "";
@@ -926,6 +945,7 @@ function salvarForm(){
     tipoProp: tipoProp,
     numProp: temProp ? numProp : "",
     anoProp: temProp ? anoProp : "",
+    turno: tipoProp === "PL" ? document.getElementById("f_turno").value : "",
     comissao: temProp ? comissao : "",
     tipoTrab: document.getElementById("f_tipoTrab").value,
     desc: desc,
@@ -1021,10 +1041,10 @@ function exportarJSON(){
   avisar("Cópia de segurança gerada.");
 }
 function exportarCSV(lista){
-  const cab = ["Nº trabalho","Tipo prop.","Nº prop.","Ano","Comissão","Tipo de trabalho","Descrição",
+  const cab = ["Nº trabalho","Tipo prop.","Nº prop.","Ano","Turno","Comissão","Tipo de trabalho","Descrição",
     "Status","Lista","Tramitando na","Nota STL","Baixado em","Observações"];
   const linhas = (lista || dados.trabalhos).map(function(t){
-    return [t.numero, t.tipoProp, t.numProp, t.anoProp, t.comissao ? nomeComissao(t.comissao) : "",
+    return [t.numero, t.tipoProp, t.numProp, t.anoProp, t.turno, t.comissao ? nomeComissao(t.comissao) : "",
       t.tipoTrab, t.desc, t.status, NOMES_LISTA[t.lista], t.comTramite ? nomeComissao(t.comTramite) : "",
       t.lista === "anteriores" ? t.stl : "", dataBR(t.concluidoEm), t.obs];
   });
