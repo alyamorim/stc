@@ -20,17 +20,18 @@
   --linha:#dfdcd7;
   --linha-forte:#c9c5be;
 
-  --st-nao-bg:#eef3ea;      --st-nao-ac:#7c9166;
-  --st-elab-bg:#e7eef5;     --st-elab-ac:#5b7c9b;
-  --st-tx-bg:#f7f0e0;       --st-tx-ac:#a98b4e;
-  --st-go-bg:#efeaf3;       --st-go-ac:#8a7099;
-  --st-gre-bg:#f6e8ec;      --st-gre-ac:#a56c7c;
-  --st-rel-bg:#f8eae3;      --st-rel-ac:#b57a63;
-  --st-conc-bg:#eceff1;     --st-conc-ac:#69757e;
-  --plen-bg:#f1ede2;        --plen-ac:#9b8f70;
+  --e-agu-bg:#eef3ea;  --e-agu-ac:#7c9166;
+  --e-cur-bg:#e7eef5;  --e-cur-ac:#5b7c9b;
+  --e-pen-bg:#faf1e6;  --e-pen-ac:#c98a55;
+  --e-tx-bg:#f7f0e0;   --e-tx-ac:#a98b4e;
+  --e-go-bg:#efeaf3;   --e-go-ac:#8a7099;
+  --e-rel-bg:#f8eae3;  --e-rel-ac:#b57a63;
+  --e-apr-bg:#e6f0ec;  --e-apr-ac:#5f8f7c;
+  --e-tram-bg:#f1ede2; --e-tram-ac:#9b8f70;
+  --e-conc-bg:#eceff1; --e-conc-ac:#69757e;
 
-  --stl-nao-bg:#dfebec;     --stl-nao-ac:#3f6f72;
-  --stl-sim-bg:#f2f8f8;     --stl-sim-ac:#7fa8aa;
+  --stl-nao-bg:#dfebec; --stl-nao-ac:#3f6f72;
+  --stl-sim-bg:#f2f8f8; --stl-sim-ac:#7fa8aa;
 }
 *{box-sizing:border-box}
 html,body{margin:0;padding:0}
@@ -43,16 +44,14 @@ h1,h2,h3,.franklin{font-family:"Libre Franklin","IBM Plex Sans",sans-serif}
 a{color:var(--vermelho-esc)}
 :focus-visible{outline:2px solid var(--vermelho);outline-offset:2px}
 
-/* ---------- cabeçalho ---------- */
 header.topo{background:var(--branco);border-bottom:3px solid var(--vermelho)}
-.topo-in{max-width:1440px;margin:0 auto;padding:16px 22px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.topo-in{max-width:1500px;margin:0 auto;padding:16px 22px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
 .marca{display:flex;align-items:center;gap:13px;min-width:0}
 .marca img{width:42px;height:42px;display:block;flex:none}
 .marca h1{font-size:18px;font-weight:700;letter-spacing:-.2px;margin:0;line-height:1.15;color:var(--grafite)}
 .marca .sub{font-size:11.5px;color:var(--texto-fraco);letter-spacing:.06em;text-transform:uppercase;margin-top:2px}
 .topo-dir{margin-left:auto;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
 
-/* ---------- sincronização ---------- */
 .sync{display:flex;align-items:center;gap:8px;font-size:12.5px;color:var(--texto-fraco);
   background:var(--papel);border:1px solid var(--linha);border-radius:999px;padding:5px 12px}
 .dot{width:8px;height:8px;border-radius:50%;background:#b9b6b0;flex:none}
@@ -60,7 +59,6 @@ header.topo{background:var(--branco);border-bottom:3px solid var(--vermelho)}
 .dot.busy{background:#c9a227;animation:pulsa 1s infinite}
 @keyframes pulsa{50%{opacity:.25}}
 
-/* ---------- botões ---------- */
 button{font-family:inherit;font-size:inherit}
 .btn{display:inline-flex;align-items:center;gap:7px;border:1px solid var(--linha-forte);background:var(--branco);
   color:var(--texto);padding:7px 14px;border-radius:3px;cursor:pointer;font-size:13.5px;font-weight:500;
@@ -73,38 +71,33 @@ button{font-family:inherit;font-size:inherit}
 .btn-mini{font-size:12px;padding:4px 9px}
 .btn:disabled{opacity:.45;cursor:not-allowed}
 
-/* ---------- navegação ---------- */
 nav.abas{background:var(--branco);border-bottom:1px solid var(--linha);position:sticky;top:0;z-index:20}
-.abas-in{max-width:1440px;margin:0 auto;padding:0 22px;display:flex;gap:2px;overflow-x:auto}
-.aba{border:0;background:none;padding:13px 15px 11px;cursor:pointer;color:var(--texto-fraco);
-  font-size:13.5px;font-weight:500;border-bottom:3px solid transparent;white-space:nowrap;
+.abas-in{max-width:1500px;margin:0 auto;padding:0 22px;display:flex;gap:2px;overflow-x:auto}
+.aba{border:0;background:none;padding:13px 13px 11px;cursor:pointer;color:var(--texto-fraco);
+  font-size:13px;font-weight:500;border-bottom:3px solid transparent;white-space:nowrap;
   font-family:"Libre Franklin",sans-serif}
 .aba:hover{color:var(--texto)}
 .aba[aria-current="page"]{color:var(--grafite);border-bottom-color:var(--vermelho);font-weight:600}
-.aba .cnt{display:inline-block;margin-left:6px;font-size:11.5px;color:var(--texto-fraco);
+.aba .cnt{display:inline-block;margin-left:5px;font-size:11px;color:var(--texto-fraco);
   background:var(--papel);border:1px solid var(--linha);border-radius:999px;padding:0 6px;font-variant-numeric:tabular-nums}
 
-main{max-width:1440px;margin:0 auto;padding:26px 22px 70px}
+main{max-width:1500px;margin:0 auto;padding:26px 22px 70px}
 .oculto{display:none !important}
 
-/* ---------- painel ---------- */
 .chamada{background:var(--branco);border:1px solid var(--linha);border-left:4px solid var(--vermelho);
   padding:22px 24px;display:flex;align-items:center;gap:20px;flex-wrap:wrap;margin-bottom:22px}
 .chamada h2{margin:0 0 4px;font-size:17px;font-weight:600;color:var(--grafite)}
-.chamada p{margin:0;color:var(--texto-fraco);font-size:13.5px;max-width:52ch}
+.chamada p{margin:0;color:var(--texto-fraco);font-size:13.5px;max-width:56ch}
 .chamada .btn-primario{margin-left:auto;padding:11px 20px;font-size:14.5px}
 
-.cartoes{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px;margin-bottom:26px}
-.cartao{background:var(--branco);border:1px solid var(--linha);padding:18px 20px;text-align:left;
-  cursor:pointer;display:block;width:100%;position:relative;transition:border-color .12s,transform .12s}
-.cartao:hover{border-color:var(--linha-forte);transform:translateY(-1px)}
-.cartao .rot{font-family:"Libre Franklin",sans-serif;font-size:12px;letter-spacing:.09em;text-transform:uppercase;
-  color:var(--texto-fraco);display:flex;align-items:center;gap:8px}
-.cartao .num{font-family:"Libre Franklin",sans-serif;font-size:40px;font-weight:600;line-height:1.05;
-  margin:8px 0 2px;color:var(--grafite);font-variant-numeric:tabular-nums}
-.cartao .pe{font-size:12.5px;color:var(--texto-fraco)}
-.tri{width:0;height:0;border-left:5px solid transparent;border-right:5px solid transparent;
-  border-bottom:9px solid var(--vermelho);flex:none}
+.cartoes{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px;margin-bottom:26px}
+.cartao{background:var(--branco);border:1px solid var(--linha);border-left:4px solid var(--marc,var(--linha-forte));
+  padding:14px 16px;text-align:left;cursor:pointer;display:block;width:100%;transition:border-color .12s,transform .12s}
+.cartao:hover{transform:translateY(-1px)}
+.cartao .rot{font-family:"Libre Franklin",sans-serif;font-size:11px;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--texto-fraco)}
+.cartao .num{font-family:"Libre Franklin",sans-serif;font-size:30px;font-weight:600;line-height:1.1;
+  margin-top:4px;color:var(--grafite);font-variant-numeric:tabular-nums}
 
 .resumo{background:var(--branco);border:1px solid var(--linha);padding:18px 20px}
 .resumo h3{margin:0 0 14px;font-size:12px;letter-spacing:.09em;text-transform:uppercase;color:var(--texto-fraco);font-weight:600}
@@ -115,18 +108,17 @@ main{max-width:1440px;margin:0 auto;padding:26px 22px 70px}
 .barra .v{text-align:right;color:var(--texto-fraco);font-variant-numeric:tabular-nums}
 @media(max-width:640px){.barra{grid-template-columns:1fr 60px 30px}}
 
-/* ---------- barra de ferramentas ---------- */
 .ferramentas{display:flex;gap:9px;align-items:center;flex-wrap:wrap;margin-bottom:14px}
 .ferramentas input[type=search],.ferramentas select{
   font-family:inherit;font-size:13.5px;padding:7px 10px;border:1px solid var(--linha-forte);
   border-radius:3px;background:var(--branco);color:var(--texto)}
 .ferramentas input[type=search]{min-width:230px;flex:1;max-width:380px}
-.titulo-lista{display:flex;align-items:baseline;gap:12px;margin:0 0 4px}
-.titulo-lista h2{font-size:20px;margin:0;font-weight:600;color:var(--grafite)}
+.titulo-lista{display:flex;align-items:center;gap:12px;margin:0 0 4px}
+.marcador{width:12px;height:12px;border-radius:3px;flex:none;display:inline-block}
+.titulo-lista h2{font-size:19px;margin:0;font-weight:600;color:var(--grafite)}
 .titulo-lista .qtd{font-size:13px;color:var(--texto-fraco)}
-.explica{color:var(--texto-fraco);font-size:13px;margin:0 0 16px;max-width:80ch}
+.explica{color:var(--texto-fraco);font-size:13px;margin:0 0 16px;max-width:86ch}
 
-/* ---------- tabelas ---------- */
 .rolagem{overflow-x:auto;background:var(--branco);border:1px solid var(--linha)}
 table{border-collapse:collapse;width:100%;min-width:960px;font-size:13.5px}
 thead th{background:var(--grafite);color:#fff;font-family:"Libre Franklin",sans-serif;font-weight:500;
@@ -140,27 +132,31 @@ td.acoes{white-space:nowrap;text-align:right}
 .num-trab{font-variant-numeric:tabular-nums;font-weight:500}
 .prop{font-weight:600;color:var(--grafite);white-space:nowrap}
 .prop.longo{white-space:normal;line-height:1.25;display:inline-block;max-width:135px}
-.turno{display:block;font-size:11.5px;color:var(--texto-fraco);margin-top:1px;letter-spacing:.02em}
+.turno{display:block;font-size:11.5px;color:var(--texto-fraco);margin-top:1px}
 .prop-links{display:flex;gap:7px;margin-top:2px}
 .prop-links a{font-size:11px;text-decoration:none;color:var(--texto-fraco);border-bottom:1px dotted var(--linha-forte)}
 .prop-links a:hover{color:var(--vermelho);border-bottom-color:var(--vermelho)}
 .miudo{font-size:12px;color:var(--texto-fraco)}
-.desc{min-width:210px;max-width:320px}
-.obs{min-width:150px;max-width:250px;font-size:12.5px;color:var(--texto-fraco)}
-select.inline{font-family:inherit;font-size:12.5px;padding:4px 6px;border:1px solid var(--linha-forte);
+.desc{min-width:200px;max-width:300px}
+.obs{min-width:150px;max-width:230px;font-size:12.5px;color:var(--texto-fraco)}
+select.inline,input.inline{font-family:inherit;font-size:12.5px;padding:4px 6px;border:1px solid var(--linha-forte);
   border-radius:3px;background:rgba(255,255,255,.75);max-width:210px}
+textarea.inline{font-family:inherit;font-size:12.5px;padding:5px 7px;border:1px solid var(--linha-forte);
+  border-radius:3px;background:rgba(255,255,255,.85);width:100%;min-width:170px;resize:vertical;min-height:44px}
+select.sel-acao{font-family:inherit;font-size:12.5px;padding:5px 7px;border:1px solid var(--vermelho);
+  border-radius:3px;background:#fff5f5;color:var(--vermelho-esc);font-weight:500;max-width:190px}
 .vazio{padding:44px 24px;text-align:center;color:var(--texto-fraco);background:var(--branco);border:1px solid var(--linha)}
 .vazio strong{display:block;color:var(--texto);font-family:"Libre Franklin",sans-serif;font-size:16px;margin-bottom:6px;font-weight:600}
 
-/* cores por status */
-tr.st-nao{background:var(--st-nao-bg);border-left-color:var(--st-nao-ac)}
-tr.st-elab{background:var(--st-elab-bg);border-left-color:var(--st-elab-ac)}
-tr.st-tx{background:var(--st-tx-bg);border-left-color:var(--st-tx-ac)}
-tr.st-go{background:var(--st-go-bg);border-left-color:var(--st-go-ac)}
-tr.st-gre{background:var(--st-gre-bg);border-left-color:var(--st-gre-ac)}
-tr.st-rel{background:var(--st-rel-bg);border-left-color:var(--st-rel-ac)}
-tr.st-conc{background:var(--st-conc-bg);border-left-color:var(--st-conc-ac)}
-tr.plen{background:var(--plen-bg);border-left-color:var(--plen-ac)}
+tr.e-agu{background:var(--e-agu-bg);border-left-color:var(--e-agu-ac)}
+tr.e-cur{background:var(--e-cur-bg);border-left-color:var(--e-cur-ac)}
+tr.e-pen{background:var(--e-pen-bg);border-left-color:var(--e-pen-ac)}
+tr.e-tx{background:var(--e-tx-bg);border-left-color:var(--e-tx-ac)}
+tr.e-go{background:var(--e-go-bg);border-left-color:var(--e-go-ac)}
+tr.e-rel{background:var(--e-rel-bg);border-left-color:var(--e-rel-ac)}
+tr.e-apr{background:var(--e-apr-bg);border-left-color:var(--e-apr-ac)}
+tr.e-tram{background:var(--e-tram-bg);border-left-color:var(--e-tram-ac)}
+tr.e-conc{background:var(--e-conc-bg);border-left-color:var(--e-conc-ac)}
 tr.stl-sim{background:var(--stl-sim-bg);border-left-color:var(--stl-sim-ac)}
 tr.stl-nao{background:var(--stl-nao-bg);border-left-color:var(--stl-nao-ac)}
 
@@ -168,7 +164,6 @@ tr.stl-nao{background:var(--stl-nao-bg);border-left-color:var(--stl-nao-ac)}
 .legenda span{display:inline-flex;align-items:center;gap:6px}
 .legenda i{width:22px;height:11px;border:1px solid var(--linha);display:inline-block}
 
-/* ---------- modal ---------- */
 .fundo{position:fixed;inset:0;background:rgba(34,37,42,.55);display:flex;align-items:flex-start;
   justify-content:center;padding:26px 16px;overflow-y:auto;z-index:60}
 .caixa{background:var(--branco);width:100%;max-width:660px;border-top:4px solid var(--vermelho)}
@@ -185,21 +180,19 @@ tr.stl-nao{background:var(--stl-nao-bg);border-left-color:var(--stl-nao-ac)}
 .campo textarea{resize:vertical;min-height:64px}
 .campo .dica{font-size:12px;color:var(--texto-fraco);margin-top:4px}
 .dupla{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.tripla{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-@media(max-width:560px){.dupla,.tripla{grid-template-columns:1fr}}
+@media(max-width:560px){.dupla{grid-template-columns:1fr}}
 fieldset.grupo{border:1px solid var(--linha);padding:15px 16px 2px;margin:0 0 15px;background:var(--papel)}
 fieldset.grupo legend{font-size:11.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--texto-fraco);
   padding:0 6px;font-family:"Libre Franklin",sans-serif;font-weight:600}
 .erro{color:var(--vermelho-esc);font-size:13px;margin:0 0 12px;display:none}
 .erro.ativo{display:block}
 
-/* ---------- aviso ---------- */
 #aviso{position:fixed;left:50%;bottom:26px;transform:translateX(-50%) translateY(20px);opacity:0;
   background:var(--grafite);color:#fff;padding:11px 20px;font-size:13.5px;border-radius:3px;
   pointer-events:none;transition:opacity .2s,transform .2s;z-index:80;max-width:90vw;text-align:center}
 #aviso.ver{opacity:1;transform:translateX(-50%) translateY(0)}
 
-footer{max-width:1440px;margin:0 auto;padding:0 22px 40px;color:var(--texto-fraco);font-size:12px}
+footer{max-width:1500px;margin:0 auto;padding:0 22px 40px;color:var(--texto-fraco);font-size:12px}
 
 @media(prefers-reduced-motion:reduce){*{animation:none !important;transition:none !important}}
 @media print{
@@ -238,10 +231,16 @@ footer{max-width:1440px;margin:0 auto;padding:0 22px 40px;color:var(--texto-frac
 <nav class="abas">
   <div class="abas-in">
     <button class="aba" data-vista="painel" type="button">Painel</button>
-    <button class="aba" data-vista="ativos" type="button">Trabalhos ativos <span class="cnt" id="cntAtivos">0</span></button>
-    <button class="aba" data-vista="baixados" type="button">Trabalhos baixados <span class="cnt" id="cntBaixados">0</span></button>
-    <button class="aba" data-vista="anteriores" type="button">Comissões anteriores <span class="cnt" id="cntAnteriores">0</span></button>
-    <button class="aba" data-vista="posteriores" type="button">Plenário/Comissões posteriores <span class="cnt" id="cntPosteriores">0</span></button>
+    <button class="aba" data-vista="anteriores" type="button">Comissões anteriores <span class="cnt" id="cnt-anteriores">0</span></button>
+    <button class="aba" data-vista="aguardando" type="button">Aguardando iniciar <span class="cnt" id="cnt-aguardando">0</span></button>
+    <button class="aba" data-vista="emCurso" type="button">Em curso <span class="cnt" id="cnt-emCurso">0</span></button>
+    <button class="aba" data-vista="pendentes" type="button">Pendentes <span class="cnt" id="cnt-pendentes">0</span></button>
+    <button class="aba" data-vista="revisaoTX" type="button">Revisão TX <span class="cnt" id="cnt-revisaoTX">0</span></button>
+    <button class="aba" data-vista="revisaoGO" type="button">Revisão GO <span class="cnt" id="cnt-revisaoGO">0</span></button>
+    <button class="aba" data-vista="relator" type="button">Com o relator <span class="cnt" id="cnt-relator">0</span></button>
+    <button class="aba" data-vista="aprovado" type="button">Aprovado pelo relator <span class="cnt" id="cnt-aprovado">0</span></button>
+    <button class="aba" data-vista="tramitacao" type="button">Plenário/comissão posterior <span class="cnt" id="cnt-tramitacao">0</span></button>
+    <button class="aba" data-vista="concluidos" type="button">Concluídos <span class="cnt" id="cnt-concluidos">0</span></button>
   </div>
 </nav>
 
@@ -251,36 +250,15 @@ footer{max-width:1440px;margin:0 auto;padding:0 22px 40px;color:var(--texto-frac
     <div class="chamada">
       <div>
         <h2>Registro de trabalhos designados</h2>
-        <p>Cadastre a proposição, o tipo de trabalho e o estágio em que ele está. Ao marcar um projeto como aprovado pelo relator, a página pergunta se a deliberação é conclusiva e o encaminha para a tabela devida.</p>
+        <p>Cadastre a proposição e acompanhe o percurso do trabalho, etapa por etapa, do recebimento à conclusão.</p>
       </div>
       <button class="btn btn-primario" id="btnNovo" type="button">Incluir novo trabalho</button>
     </div>
 
-    <div class="cartoes">
-      <button class="cartao" data-ir="ativos" type="button">
-        <div class="rot"><i class="tri"></i> Tabela 1 &middot; Ativos</div>
-        <div class="num" id="pnAtivos">0</div>
-        <div class="pe">Em minha responsabilidade agora</div>
-      </button>
-      <button class="cartao" data-ir="baixados" type="button">
-        <div class="rot"><i class="tri"></i> Tabela 2 &middot; Baixados</div>
-        <div class="num" id="pnBaixados">0</div>
-        <div class="pe">Aprovados em definitivo</div>
-      </button>
-      <button class="cartao" data-ir="anteriores" type="button">
-        <div class="rot"><i class="tri"></i> Tabela 3 &middot; Comissões anteriores</div>
-        <div class="num" id="pnAnteriores">0</div>
-        <div class="pe">Ainda não chegaram às minhas comissões</div>
-      </button>
-      <button class="cartao" data-ir="posteriores" type="button">
-        <div class="rot"><i class="tri"></i> Tabela 4 &middot; Plenário/posteriores</div>
-        <div class="num" id="pnPosteriores">0</div>
-        <div class="pe">Aprovados pelo relator, aguardando deliberação</div>
-      </button>
-    </div>
+    <div class="cartoes" id="cartoesPainel"></div>
 
     <div class="resumo">
-      <h3>Trabalhos ativos por estágio</h3>
+      <h3>Trabalhos por etapa</h3>
       <div class="barras" id="barras"></div>
     </div>
 
@@ -290,73 +268,133 @@ footer{max-width:1440px;margin:0 auto;padding:0 22px 40px;color:var(--texto-frac
     </p>
   </section>
 
-  <!-- ATIVOS -->
-  <section id="v-ativos" class="oculto">
-    <div class="titulo-lista"><h2>Trabalhos ativos</h2><span class="qtd" id="qtdAtivos"></span></div>
-    <p class="explica">Trabalhos em curso. Ao mudar o estágio para <em>Aprovado pelo relator</em>, um projeto de deliberação conclusiva pela comissão é baixado direto para a Tabela 2; os demais seguem para a Tabela 4, à espera do Plenário. Requerimentos, informações e relatórios são baixados de imediato.</p>
-    <div class="ferramentas">
-      <input type="search" id="buscaAtivos" placeholder="Buscar por descrição, proposição, nº do trabalho&hellip;">
-      <select id="filtroStatus"><option value="">Todos os estágios</option></select>
-      <select id="filtroComissao"><option value="">Todas as comissões</option></select>
-      <select id="ordemAtivos">
-        <option value="recente">Alterados por último</option>
-        <option value="numero">Nº do trabalho</option>
-        <option value="proposicao">Proposição</option>
-        <option value="status">Estágio</option>
-      </select>
-      <button class="btn btn-mini btn-primario" data-novo="ativos" type="button">Incluir trabalho</button>
-    </div>
-    <div id="tabAtivos"></div>
-    <div class="legenda" id="legendaAtivos"></div>
-  </section>
-
-  <!-- BAIXADOS -->
-  <section id="v-baixados" class="oculto">
-    <div class="titulo-lista"><h2>Trabalhos baixados</h2><span class="qtd" id="qtdBaixados"></span></div>
-    <p class="explica">Trabalhos encerrados: proposições aprovadas em definitivo pelo Plenário ou em deliberação conclusiva pela comissão, além dos requerimentos e relatórios já aprovados. Se algum voltar à sua mesa, use <em>Reabrir</em>.</p>
-    <div class="ferramentas">
-      <input type="search" id="buscaBaixados" placeholder="Buscar nos baixados&hellip;">
-      <select id="filtroAnoBaixados"><option value="">Todos os anos de conclusão</option></select>
-      <button class="btn btn-mini" id="btnCsv" type="button">Exportar esta lista em CSV</button>
-      <button class="btn btn-mini btn-primario" data-novo="baixados" type="button">Incluir trabalho</button>
-    </div>
-    <div id="tabBaixados"></div>
-  </section>
-
-  <!-- ANTERIORES -->
+  <!-- COMISSÕES ANTERIORES -->
   <section id="v-anteriores" class="oculto">
-    <div class="titulo-lista"><h2>Trabalhos tramitando em comissões anteriores</h2><span class="qtd" id="qtdAnteriores"></span></div>
-    <p class="explica">Proposições que ainda não chegaram às comissões pelas quais você responde. Quando a proposição for distribuída, use <em>Mover para ativos</em>.</p>
+    <div class="titulo-lista"><span class="marcador" style="background:var(--stl-nao-ac)"></span><h2>Comissões anteriores</h2><span class="qtd" id="qtd-anteriores"></span></div>
+    <p class="explica">Proposições que ainda não chegaram às comissões pelas quais você responde. Quando a proposição for distribuída, use <em>Mover para aguardando iniciar</em>.</p>
     <div class="ferramentas">
-      <input type="search" id="buscaAnteriores" placeholder="Buscar nesta lista&hellip;">
-      <select id="filtroSTL">
+      <input type="search" id="busca-anteriores" placeholder="Buscar nesta lista&hellip;">
+      <select id="filtro-anteriores-stl">
         <option value="">Nota no STL: todas</option>
         <option value="Não">Sem nota lançada</option>
         <option value="Sim">Com nota lançada</option>
       </select>
       <button class="btn btn-mini btn-primario" data-novo="anteriores" type="button">Incluir trabalho</button>
     </div>
-    <div id="tabAnteriores"></div>
+    <div id="tab-anteriores"></div>
     <div class="legenda">
       <span><i style="background:var(--stl-nao-bg);border-left:4px solid var(--stl-nao-ac)"></i> Nota no STL ainda não lançada</span>
       <span><i style="background:var(--stl-sim-bg);border-left:4px solid var(--stl-sim-ac)"></i> Nota no STL lançada</span>
     </div>
   </section>
 
-  <!-- PLENÁRIO / COMISSÕES POSTERIORES -->
-  <section id="v-posteriores" class="oculto">
-    <div class="titulo-lista"><h2>Plenário/Comissões posteriores</h2><span class="qtd" id="qtdPosteriores"></span></div>
-    <p class="explica">Trabalhos já aprovados pelo relator, cuja proposição seguiu para o Plenário ou para outra comissão. Quando houver aprovação definitiva, use <em>Mover para baixados</em>.</p>
+  <!-- AGUARDANDO INICIAR -->
+  <section id="v-aguardando" class="oculto">
+    <div class="titulo-lista"><span class="marcador" style="background:var(--e-agu-ac)"></span><h2>Aguardando iniciar trabalho</h2><span class="qtd" id="qtd-aguardando"></span></div>
+    <p class="explica">Trabalhos já distribuídos, ainda não iniciados. Use <em>Iniciar trabalho</em> para começar a elaboração ou <em>Registrar pendência</em> se algo impede o início agora.</p>
     <div class="ferramentas">
-      <input type="search" id="buscaPosteriores" placeholder="Buscar nesta lista&hellip;">
-      <select id="filtroTurno">
-        <option value="">Todos os turnos</option>
-        <option value="1º turno">1º turno</option>
-        <option value="2º turno">2º turno</option>
-      </select>
-      <button class="btn btn-mini btn-primario" data-novo="posteriores" type="button">Incluir trabalho</button>
+      <input type="search" id="busca-aguardando" placeholder="Buscar&hellip;">
+      <select id="filtro-aguardando-comissao"><option value="">Todas as comissões</option></select>
+      <button class="btn btn-mini btn-primario" data-novo="aguardando" type="button">Incluir trabalho</button>
     </div>
-    <div id="tabPosteriores"></div>
+    <div id="tab-aguardando"></div>
+  </section>
+
+  <!-- EM CURSO -->
+  <section id="v-emCurso" class="oculto">
+    <div class="titulo-lista"><span class="marcador" style="background:var(--e-cur-ac)"></span><h2>Trabalhos em curso</h2><span class="qtd" id="qtd-emCurso"></span></div>
+    <p class="explica">Trabalhos em elaboração. Escolha, em cada linha, para onde encaminhar: revisão TX, revisão GO, pendências ou relator.</p>
+    <div class="ferramentas">
+      <input type="search" id="busca-emCurso" placeholder="Buscar&hellip;">
+      <select id="filtro-emCurso-comissao"><option value="">Todas as comissões</option></select>
+      <button class="btn btn-mini btn-primario" data-novo="emCurso" type="button">Incluir trabalho</button>
+    </div>
+    <div id="tab-emCurso"></div>
+  </section>
+
+  <!-- PENDENTES -->
+  <section id="v-pendentes" class="oculto">
+    <div class="titulo-lista"><span class="marcador" style="background:var(--e-pen-ac)"></span><h2>Trabalhos pendentes</h2><span class="qtd" id="qtd-pendentes"></span></div>
+    <p class="explica">Trabalhos parados por alguma pendência. Edite o campo de observações para atualizar o motivo e use <em>Enviar para trabalhos em curso</em> quando for possível retomar.</p>
+    <div class="ferramentas">
+      <input type="search" id="busca-pendentes" placeholder="Buscar&hellip;">
+      <select id="filtro-pendentes-comissao"><option value="">Todas as comissões</option></select>
+      <button class="btn btn-mini btn-primario" data-novo="pendentes" type="button">Incluir trabalho</button>
+    </div>
+    <div id="tab-pendentes"></div>
+  </section>
+
+  <!-- REVISÃO TX -->
+  <section id="v-revisaoTX" class="oculto">
+    <div class="titulo-lista"><span class="marcador" style="background:var(--e-tx-ac)"></span><h2>Em revisão TX</h2><span class="qtd" id="qtd-revisaoTX"></span></div>
+    <p class="explica">Inclui também os trabalhos aguardando revisão da GRE. Use <em>Enviar para revisão GO</em> quando a TX concluir, ou <em>Enviar para trabalhos em curso</em> se precisar de ajuste seu antes.</p>
+    <div class="ferramentas">
+      <input type="search" id="busca-revisaoTX" placeholder="Buscar&hellip;">
+      <select id="filtro-revisaoTX-comissao"><option value="">Todas as comissões</option></select>
+      <button class="btn btn-mini btn-primario" data-novo="revisaoTX" type="button">Incluir trabalho</button>
+    </div>
+    <div id="tab-revisaoTX"></div>
+  </section>
+
+  <!-- REVISÃO GO -->
+  <section id="v-revisaoGO" class="oculto">
+    <div class="titulo-lista"><span class="marcador" style="background:var(--e-go-ac)"></span><h2>Em revisão GO</h2><span class="qtd" id="qtd-revisaoGO"></span></div>
+    <p class="explica">Use <em>Retornar para revisão TX</em> se a GO devolver com apontamentos, ou <em>Enviar para relator</em> quando estiver pronto.</p>
+    <div class="ferramentas">
+      <input type="search" id="busca-revisaoGO" placeholder="Buscar&hellip;">
+      <select id="filtro-revisaoGO-comissao"><option value="">Todas as comissões</option></select>
+      <button class="btn btn-mini btn-primario" data-novo="revisaoGO" type="button">Incluir trabalho</button>
+    </div>
+    <div id="tab-revisaoGO"></div>
+  </section>
+
+  <!-- COM O RELATOR -->
+  <section id="v-relator" class="oculto">
+    <div class="titulo-lista"><span class="marcador" style="background:var(--e-rel-ac)"></span><h2>Enviado para o relator</h2><span class="qtd" id="qtd-relator"></span></div>
+    <p class="explica">A data pode ser ajustada diretamente na tabela. Use <em>Aprovado pelo relator</em> quando o relator se manifestar favoravelmente, ou <em>Retornar para trabalhos em curso</em> caso o parecer volte para ajuste.</p>
+    <div class="ferramentas">
+      <input type="search" id="busca-relator" placeholder="Buscar&hellip;">
+      <select id="filtro-relator-comissao"><option value="">Todas as comissões</option></select>
+      <button class="btn btn-mini btn-primario" data-novo="relator" type="button">Incluir trabalho</button>
+    </div>
+    <div id="tab-relator"></div>
+  </section>
+
+  <!-- APROVADO PELO RELATOR -->
+  <section id="v-aprovado" class="oculto">
+    <div class="titulo-lista"><span class="marcador" style="background:var(--e-apr-ac)"></span><h2>Aprovado pelo relator</h2><span class="qtd" id="qtd-aprovado"></span></div>
+    <p class="explica">Marque <em>Concluído</em> se a aprovação já encerra o trabalho (deliberação conclusiva pela comissão), ou <em>Em tramitação em outra comissão/Plenário</em> se a proposição ainda seguirá adiante.</p>
+    <div class="ferramentas">
+      <input type="search" id="busca-aprovado" placeholder="Buscar&hellip;">
+      <select id="filtro-aprovado-comissao"><option value="">Todas as comissões</option></select>
+      <button class="btn btn-mini btn-primario" data-novo="aprovado" type="button">Incluir trabalho</button>
+    </div>
+    <div id="tab-aprovado"></div>
+  </section>
+
+  <!-- TRAMITAÇÃO POSTERIOR -->
+  <section id="v-tramitacao" class="oculto">
+    <div class="titulo-lista"><span class="marcador" style="background:var(--e-tram-ac)"></span><h2>Em tramitação em outra comissão/Plenário</h2><span class="qtd" id="qtd-tramitacao"></span></div>
+    <p class="explica">Ao marcar <em>Concluído</em>, um PL em 1º turno gera a pergunta sobre o 2º turno; os demais casos vão direto para os concluídos.</p>
+    <div class="ferramentas">
+      <input type="search" id="busca-tramitacao" placeholder="Buscar&hellip;">
+      <select id="filtro-tramitacao-comissao"><option value="">Todas as comissões</option></select>
+      <button class="btn btn-mini btn-primario" data-novo="tramitacao" type="button">Incluir trabalho</button>
+    </div>
+    <div id="tab-tramitacao"></div>
+  </section>
+
+  <!-- CONCLUÍDOS -->
+  <section id="v-concluidos" class="oculto">
+    <div class="titulo-lista"><span class="marcador" style="background:var(--e-conc-ac)"></span><h2>Concluídos</h2><span class="qtd" id="qtd-concluidos"></span></div>
+    <p class="explica">Trabalhos encerrados. Se algum precisar voltar à sua mesa, use <em>Desarquivar</em> para devolvê-lo à fila de espera.</p>
+    <div class="ferramentas">
+      <input type="search" id="busca-concluidos" placeholder="Buscar&hellip;">
+      <select id="filtro-concluidos-ano"><option value="">Todos os anos de conclusão</option></select>
+      <button class="btn btn-mini" id="btnCsv" type="button">Exportar esta lista em CSV</button>
+      <button class="btn btn-mini btn-primario" data-novo="concluidos" type="button">Incluir trabalho</button>
+    </div>
+    <div id="tab-concluidos"></div>
   </section>
 </main>
 
@@ -368,19 +406,25 @@ footer{max-width:1440px;margin:0 auto;padding:0 22px 40px;color:var(--texto-frac
 <!-- ============ MODAL: FORMULÁRIO ============ -->
 <div class="fundo oculto" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitulo">
   <div class="caixa">
-    <div class="caixa-topo"><i class="tri"></i><h2 id="modalTitulo">Incluir novo trabalho</h2></div>
+    <div class="caixa-topo"><h2 id="modalTitulo">Incluir novo trabalho</h2></div>
     <div class="caixa-corpo">
       <p class="erro" id="erroForm"></p>
 
       <div class="campo">
-        <label for="f_lista">Em qual lista este trabalho entra?</label>
+        <label for="f_lista">Etapa</label>
         <select id="f_lista">
-          <option value="ativos">Tabela 1 &middot; Trabalhos ativos</option>
-          <option value="baixados">Tabela 2 &middot; Trabalhos baixados</option>
-          <option value="anteriores">Tabela 3 &middot; Tramitando em comissões anteriores</option>
-          <option value="posteriores">Tabela 4 &middot; Plenário/Comissões posteriores</option>
+          <option value="anteriores">Comissões anteriores</option>
+          <option value="aguardando">Aguardando iniciar trabalho</option>
+          <option value="emCurso">Trabalhos em curso</option>
+          <option value="pendentes">Trabalhos pendentes</option>
+          <option value="revisaoTX">Em revisão TX</option>
+          <option value="revisaoGO">Em revisão GO</option>
+          <option value="relator">Enviado para o relator</option>
+          <option value="aprovado">Aprovado pelo relator</option>
+          <option value="tramitacao">Em tramitação em outra comissão/Plenário</option>
+          <option value="concluidos">Concluídos</option>
         </select>
-        <div class="dica">Um trabalho fica em uma lista de cada vez. Mudar aqui move o registro.</div>
+        <div class="dica">Um trabalho fica em uma etapa de cada vez. Mudar aqui move o registro.</div>
       </div>
 
       <div class="campo">
@@ -441,12 +485,6 @@ footer{max-width:1440px;margin:0 auto;padding:0 22px 40px;color:var(--texto-frac
         <input type="text" id="f_desc" placeholder="Ex.: RIC &mdash; Festival de Violeiros de Dom Cavati">
       </div>
 
-      <div class="campo" id="campoStatus">
-        <label for="f_status">Status do trabalho</label>
-        <select id="f_status"></select>
-        <div class="dica" id="dicaStatus"></div>
-      </div>
-
       <fieldset class="grupo oculto" id="grupoAnteriores">
         <legend>Tramitação anterior</legend>
         <div class="campo">
@@ -456,6 +494,14 @@ footer{max-width:1440px;margin:0 auto;padding:0 22px 40px;color:var(--texto-frac
         <div class="campo">
           <label for="f_stl">Lancei nota no STL?</label>
           <select id="f_stl"><option value="Não">Não</option><option value="Sim">Sim</option></select>
+        </div>
+      </fieldset>
+
+      <fieldset class="grupo oculto" id="grupoRelator">
+        <legend>Envio ao relator</legend>
+        <div class="campo">
+          <label for="f_enviadoRelator">Enviado para o relator em</label>
+          <input type="date" id="f_enviadoRelator">
         </div>
       </fieldset>
 
@@ -471,10 +517,41 @@ footer{max-width:1440px;margin:0 auto;padding:0 22px 40px;color:var(--texto-frac
   </div>
 </div>
 
+<!-- ============ MODAL: REGISTRAR PENDÊNCIA ============ -->
+<div class="fundo oculto" id="modalPendencia" role="dialog" aria-modal="true" aria-labelledby="pendTitulo">
+  <div class="caixa" style="max-width:540px">
+    <div class="caixa-topo"><h2 id="pendTitulo">Registrar pendência</h2></div>
+    <div class="caixa-corpo">
+      <p style="margin-top:0" id="pendResumo"></p>
+      <div class="campo">
+        <label for="pendTexto">Qual é a pendência?</label>
+        <textarea id="pendTexto" placeholder="Descreva o que impede o andamento do trabalho"></textarea>
+      </div>
+    </div>
+    <div class="caixa-pe">
+      <button class="btn" id="pendCancelar" type="button">Cancelar</button>
+      <button class="btn btn-primario" id="pendConfirmar" type="button">Registrar e mover para pendentes</button>
+    </div>
+  </div>
+</div>
+
+<!-- ============ MODAL: PERGUNTA GENÉRICA (SIM/NÃO) ============ -->
+<div class="fundo oculto" id="modalPergunta" role="dialog" aria-modal="true" aria-labelledby="pergTitulo">
+  <div class="caixa" style="max-width:520px">
+    <div class="caixa-topo"><h2 id="pergTitulo"></h2></div>
+    <div class="caixa-corpo"><p id="pergCorpo" style="margin:0"></p></div>
+    <div class="caixa-pe">
+      <button class="btn" id="pergCancelar" type="button">Cancelar</button>
+      <button class="btn" id="pergNao" type="button">Não</button>
+      <button class="btn btn-primario" id="pergSim" type="button">Sim</button>
+    </div>
+  </div>
+</div>
+
 <!-- ============ MODAL: IMPORTAÇÃO ============ -->
 <div class="fundo oculto" id="modalImp" role="dialog" aria-modal="true" aria-labelledby="impTitulo">
   <div class="caixa" style="max-width:520px">
-    <div class="caixa-topo"><i class="tri"></i><h2 id="impTitulo">Importar dados</h2></div>
+    <div class="caixa-topo"><h2 id="impTitulo">Importar dados</h2></div>
     <div class="caixa-corpo">
       <p style="margin-top:0" id="impResumo"></p>
       <p class="explica" style="margin-bottom:0">
@@ -486,27 +563,6 @@ footer{max-width:1440px;margin:0 auto;padding:0 22px 40px;color:var(--texto-frac
       <button class="btn" id="impCancelar" type="button">Cancelar</button>
       <button class="btn" id="impSubstituir" type="button">Substituir tudo</button>
       <button class="btn btn-primario" id="impMesclar" type="button">Mesclar</button>
-    </div>
-  </div>
-</div>
-
-<!-- ============ MODAL: DESTINO APÓS APROVAÇÃO ============ -->
-<div class="fundo oculto" id="modalDestino" role="dialog" aria-modal="true" aria-labelledby="destTitulo">
-  <div class="caixa" style="max-width:540px">
-    <div class="caixa-topo"><i class="tri"></i><h2 id="destTitulo">Aprovado pelo relator</h2></div>
-    <div class="caixa-corpo">
-      <p style="margin-top:0" id="destResumo"></p>
-      <p style="font-weight:600;margin:0 0 6px">Trata-se de proposição de deliberação conclusiva pela comissão?</p>
-      <p class="explica" style="margin-bottom:0">
-        Em caso afirmativo, o trabalho está encerrado e vai para os <strong>baixados</strong>.
-        Do contrário, a proposição ainda depende do Plenário ou de outra comissão e fica na
-        <strong>Tabela 4</strong> até a aprovação definitiva.
-      </p>
-    </div>
-    <div class="caixa-pe">
-      <button class="btn" id="destCancelar" type="button">Cancelar</button>
-      <button class="btn" id="destPlenario" type="button">Não &mdash; segue para o Plenário</button>
-      <button class="btn btn-primario" id="destBaixar" type="button">Sim &mdash; deliberação conclusiva</button>
     </div>
   </div>
 </div>
@@ -525,29 +581,14 @@ const SCOPES = "https://www.googleapis.com/auth/drive.appdata";
 const FILE_NAME = "controle-trabalhos-dados.json";
 
 const COMISSOES = [
-  "Administração Pública",
-  "Agropecuária e Agroindústria",
-  "Assuntos Municipais e Regionalização",
-  "Constituição e Justiça",
-  "Cultura",
-  "Defesa do Consumidor e do Contribuinte",
-  "Defesa dos Direitos da Mulher",
-  "Defesa dos Direitos da Pessoa com Deficiência",
-  "Desenvolvimento Econômico",
-  "Direitos Humanos",
-  "Educação, Ciência e Tecnologia",
-  "Esporte, Lazer e Juventude",
-  "Ética e Decoro Parlamentar",
-  "Fiscalização Financeira e Orçamentária",
-  "Meio Ambiente e Desenvolvimento Sustentável",
-  "Minas e Energia",
-  "Participação Popular",
-  "Prevenção e Combate ao Uso de Crack e Outras Drogas",
-  "Redação",
-  "Saúde",
-  "Segurança Pública",
-  "Trabalho, da Previdência e da Assistência Social",
-  "Transporte, Comunicação e Obras Públicas"
+  "Administração Pública","Agropecuária e Agroindústria","Assuntos Municipais e Regionalização",
+  "Constituição e Justiça","Cultura","Defesa do Consumidor e do Contribuinte",
+  "Defesa dos Direitos da Mulher","Defesa dos Direitos da Pessoa com Deficiência",
+  "Desenvolvimento Econômico","Direitos Humanos","Educação, Ciência e Tecnologia",
+  "Esporte, Lazer e Juventude","Ética e Decoro Parlamentar","Fiscalização Financeira e Orçamentária",
+  "Meio Ambiente e Desenvolvimento Sustentável","Minas e Energia","Participação Popular",
+  "Prevenção e Combate ao Uso de Crack e Outras Drogas","Redação","Saúde","Segurança Pública",
+  "Trabalho, da Previdência e da Assistência Social","Transporte, Comunicação e Obras Públicas"
 ];
 function nomeComissao(n){ return (n.indexOf("Trabalho,") === 0 ? "Comissão do " : "Comissão de ") + n; }
 function ordenar(lista, primeiras){
@@ -557,27 +598,25 @@ function ordenar(lista, primeiras){
 const COM_TRABALHO = ordenar(COMISSOES, ["Educação, Ciência e Tecnologia","Cultura","Esporte, Lazer e Juventude"]);
 const COM_TRAMITE  = ordenar(COMISSOES, ["Constituição e Justiça"]);
 
-const STATUS = [
-  { v:"Não iniciado",                      cls:"st-nao",  cor:"var(--st-nao-ac)"  },
-  { v:"Em elaboração",                     cls:"st-elab", cor:"var(--st-elab-ac)" },
-  { v:"Enviado para a revisão TX",         cls:"st-tx",   cor:"var(--st-tx-ac)"   },
-  { v:"Enviado para a revisão GO",         cls:"st-go",   cor:"var(--st-go-ac)"   },
-  { v:"Aguardando revisão GRE",            cls:"st-gre", cor:"var(--st-gre-ac)"  },
-  { v:"Enviado para o relator",            cls:"st-rel",  cor:"var(--st-rel-ac)"  },
-  { v:"Aprovado pelo relator (concluído)", cls:"st-conc", cor:"var(--st-conc-ac)" }
-];
-const CONCLUIDO = "Aprovado pelo relator (concluído)";
-const clsStatus = v => (STATUS.find(s => s.v === v) || STATUS[0]).cls;
-
-const NOMES_LISTA = { ativos:"Trabalhos ativos", baixados:"Trabalhos baixados",
-  anteriores:"Comissões anteriores", posteriores:"Plenário/Comissões posteriores" };
-const LISTAS = ["ativos","baixados","anteriores","posteriores"];
+const LISTAS = ["anteriores","aguardando","emCurso","pendentes","revisaoTX","revisaoGO","relator","aprovado","tramitacao","concluidos"];
+const NOMES_LISTA = {
+  anteriores:"Comissões anteriores", aguardando:"Aguardando iniciar trabalho", emCurso:"Trabalhos em curso",
+  pendentes:"Trabalhos pendentes", revisaoTX:"Em revisão TX", revisaoGO:"Em revisão GO",
+  relator:"Enviado para o relator", aprovado:"Aprovado pelo relator",
+  tramitacao:"Em tramitação em outra comissão/Plenário", concluidos:"Concluídos"
+};
+const CLASSE_ETAPA = {
+  aguardando:"e-agu", emCurso:"e-cur", pendentes:"e-pen", revisaoTX:"e-tx", revisaoGO:"e-go",
+  relator:"e-rel", aprovado:"e-apr", tramitacao:"e-tram", concluidos:"e-conc"
+};
 
 /* ===================== ESTADO ===================== */
 let dados = { trabalhos:[], prefs:{ linkPadrao:"stl" }, atualizadoEm:0 };
 let vistaAtual = "painel";
 let editandoId = null;
 let importPendente = null;
+let pendenteId = null;
+let pergCallbacks = null;
 
 function novoId(){ return "t" + Date.now().toString(36) + Math.random().toString(36).slice(2,7); }
 function agora(){ return Date.now(); }
@@ -598,6 +637,26 @@ function milhar(n){
 }
 function temProposicao(t){ return t.tipoProp === "PL" || t.tipoProp === "RQN"; }
 
+/* ===================== MIGRAÇÃO DE DADOS ANTIGOS ===================== */
+function migrarLista(t){
+  if(LISTAS.indexOf(t.lista) >= 0) return t.lista;
+  if(t.lista === "ativos"){
+    switch(t.status){
+      case "Não iniciado": return "aguardando";
+      case "Em elaboração": return "emCurso";
+      case "Enviado para a revisão TX": return "revisaoTX";
+      case "Aguardando revisão GRE": return "revisaoTX";
+      case "Enviado para a revisão GO": return "revisaoGO";
+      case "Enviado para o relator": return "relator";
+      case "Aprovado pelo relator (concluído)": return "concluidos";
+      default: return "aguardando";
+    }
+  }
+  if(t.lista === "baixados") return "concluidos";
+  if(t.lista === "posteriores") return "tramitacao";
+  return "aguardando";
+}
+
 /* ===================== PERSISTÊNCIA LOCAL ===================== */
 function salvar(marcarTempo){
   if(marcarTempo !== false) dados.atualizadoEm = agora();
@@ -615,27 +674,29 @@ function carregar(){
 }
 function normalizar(d){
   return {
-    trabalhos: (d.trabalhos || []).map(t => ({
-      id: t.id || novoId(),
-      lista: LISTAS.indexOf(t.lista) >= 0 ? t.lista : "ativos",
-      numero: t.numero || "",
-      tipoProp: t.tipoProp || "PL",
-      numProp: t.numProp || "",
-      anoProp: t.anoProp || "",
-      turno: t.turno || "",
-      comissao: t.comissao || "",
-      tipoTrab: t.tipoTrab || "Outro",
-      desc: t.desc || "",
-      status: t.status || "Não iniciado",
-      obs: t.obs || "",
-      comTramite: t.comTramite || "",
-      stl: t.stl === "Sim" ? "Sim" : "Não",
-      criadoEm: t.criadoEm || hojeISO(),
-      aprovadoEm: t.aprovadoEm || "",
-      conclusiva: t.conclusiva === "Sim" ? "Sim" : (t.conclusiva === "Não" ? "Não" : ""),
-      concluidoEm: t.concluidoEm || "",
-      alteradoEm: t.alteradoEm || 0
-    })),
+    trabalhos: (d.trabalhos || []).map(function(t){
+      const base = {
+        id: t.id || novoId(),
+        numero: t.numero || "",
+        tipoProp: t.tipoProp || "PL",
+        numProp: t.numProp || "",
+        anoProp: t.anoProp || "",
+        turno: t.turno || "",
+        comissao: t.comissao || "",
+        tipoTrab: t.tipoTrab || "Outro",
+        desc: t.desc || "",
+        obs: t.obs || "",
+        comTramite: t.comTramite || "",
+        stl: t.stl === "Sim" ? "Sim" : "Não",
+        enviadoRelatorEm: t.enviadoRelatorEm || "",
+        aprovadoEm: t.aprovadoEm || "",
+        concluidoEm: t.concluidoEm || "",
+        criadoEm: t.criadoEm || hojeISO(),
+        alteradoEm: t.alteradoEm || 0
+      };
+      base.lista = migrarLista(t);
+      return base;
+    }),
     prefs: { linkPadrao: (d.prefs && d.prefs.linkPadrao === "portal") ? "portal" : "stl" },
     atualizadoEm: d.atualizadoEm || agora()
   };
@@ -679,52 +740,116 @@ function irPara(v){
   window.scrollTo(0,0);
 }
 
-/* ===================== RENDERIZAÇÃO ===================== */
+/* ===================== HELPERS DE RENDERIZAÇÃO ===================== */
 function porLista(l){ return dados.trabalhos.filter(function(t){ return t.lista === l; }); }
 
-function render(){
-  const a = porLista("ativos"), b = porLista("baixados"),
-        c = porLista("anteriores"), p = porLista("posteriores");
-  document.getElementById("cntAtivos").textContent = a.length;
-  document.getElementById("cntBaixados").textContent = b.length;
-  document.getElementById("cntAnteriores").textContent = c.length;
-  document.getElementById("cntPosteriores").textContent = p.length;
-  document.getElementById("pnAtivos").textContent = a.length;
-  document.getElementById("pnBaixados").textContent = b.length;
-  document.getElementById("pnAnteriores").textContent = c.length;
-  document.getElementById("pnPosteriores").textContent = p.length;
-  document.getElementById("qtdAtivos").textContent = a.length + (a.length === 1 ? " trabalho" : " trabalhos");
-  document.getElementById("qtdBaixados").textContent = b.length + (b.length === 1 ? " trabalho" : " trabalhos");
-  document.getElementById("qtdAnteriores").textContent = c.length + (c.length === 1 ? " trabalho" : " trabalhos");
-  document.getElementById("qtdPosteriores").textContent = p.length + (p.length === 1 ? " trabalho" : " trabalhos");
-  renderBarras(a);
-  renderAtivos(a);
-  renderBaixados(b);
-  renderAnteriores(c);
-  renderPosteriores(p);
-  renderFiltros();
+function filtraTexto(lista, termo){
+  const q = (termo || "").trim().toLowerCase();
+  if(!q) return lista;
+  return lista.filter(function(t){
+    return [t.numero, t.desc, t.obs, t.tipoProp, t.numProp, t.anoProp, t.turno, t.comissao, t.tipoTrab, t.comTramite]
+      .join(" ").toLowerCase().indexOf(q) >= 0;
+  });
 }
+function ordenarPorAlteracao(lista){
+  return lista.slice().sort(function(x,y){ return (y.alteradoEm || 0) - (x.alteradoEm || 0); });
+}
+function montarFiltroComissao(elId, listaChave){
+  const el = document.getElementById(elId);
+  if(!el) return;
+  const usadas = [];
+  porLista(listaChave).forEach(function(t){ if(t.comissao && usadas.indexOf(t.comissao) < 0) usadas.push(t.comissao); });
+  const atual = el.value;
+  el.innerHTML = '<option value="">Todas as comissões</option>' + usadas.sort().map(function(c){
+    return '<option value="' + esc(c) + '">' + esc(nomeComissao(c)) + "</option>";
+  }).join("");
+  el.value = usadas.indexOf(atual) >= 0 ? atual : "";
+}
+function aplicaFiltroComissao(itens, elId){
+  const el = document.getElementById(elId);
+  const v = el ? el.value : "";
+  return v ? itens.filter(function(t){ return t.comissao === v; }) : itens;
+}
+function vazio(titulo, texto){
+  return '<div class="vazio"><strong>' + titulo + "</strong>" + texto + "</div>";
+}
+function botoes(t, acoes){
+  return acoes.map(function(a){
+    return '<button class="btn btn-mini' + (a[2] ? " btn-primario" : " btn-fantasma") +
+      '" data-acao="' + a[0] + '" data-id="' + t.id + '" type="button">' + a[1] + "</button>";
+  }).join(" ");
+}
+function selectEncaminhar(t, opcoes){
+  return '<select class="sel-acao" data-acaoid="' + t.id + '">' +
+    '<option value="" selected disabled>Encaminhar para&hellip;</option>' +
+    opcoes.map(function(o){ return '<option value="' + o[0] + '">' + esc(o[1]) + "</option>"; }).join("") +
+    "</select>";
+}
+function tdNumero(t){ return '<td class="num-trab nowrap">' + esc(t.numero || "—") + "</td>"; }
+function tdProp(t){ return "<td>" + celulaProposicao(t) + "</td>"; }
+function tdComissao(t){ return '<td class="miudo">' + (t.comissao ? esc(nomeComissao(t.comissao)) : "—") + "</td>"; }
+function tdTipoTrab(t){ return '<td class="nowrap">' + esc(t.tipoTrab) + "</td>"; }
+function tdDesc(t){ return '<td class="desc">' + esc(t.desc) + "</td>"; }
+function tdObs(t){ return '<td class="obs">' + esc(t.obs) + "</td>"; }
 
-function renderBarras(a){
-  const alvo = document.getElementById("barras");
-  const total = a.length;
-  alvo.innerHTML = STATUS.filter(function(s){ return s.v !== CONCLUIDO; }).map(function(s){
-    const n = a.filter(function(t){ return t.status === s.v; }).length;
+/* ===================== RENDER: PAINEL ===================== */
+function renderPainel(){
+  const cores = { anteriores:"var(--stl-nao-ac)", aguardando:"var(--e-agu-ac)", emCurso:"var(--e-cur-ac)",
+    pendentes:"var(--e-pen-ac)", revisaoTX:"var(--e-tx-ac)", revisaoGO:"var(--e-go-ac)", relator:"var(--e-rel-ac)",
+    aprovado:"var(--e-apr-ac)", tramitacao:"var(--e-tram-ac)", concluidos:"var(--e-conc-ac)" };
+  const cartoes = document.getElementById("cartoesPainel");
+  cartoes.innerHTML = LISTAS.map(function(l){
+    const n = porLista(l).length;
+    return '<button class="cartao" data-ir="' + l + '" style="--marc:' + cores[l] + '" type="button">' +
+      '<div class="rot">' + esc(NOMES_LISTA[l]) + "</div>" +
+      '<div class="num">' + n + "</div></button>";
+  }).join("");
+
+  const total = dados.trabalhos.length;
+  document.getElementById("barras").innerHTML = LISTAS.map(function(l){
+    const n = porLista(l).length;
     const pct = total ? Math.round(n / total * 100) : 0;
-    return '<div class="barra"><span>' + esc(s.v) + "</span>" +
-      '<span class="trilho"><span class="preenche" style="width:' + pct + "%;background:" + s.cor + '"></span></span>' +
+    return '<div class="barra"><span>' + esc(NOMES_LISTA[l]) + "</span>" +
+      '<span class="trilho"><span class="preenche" style="width:' + pct + "%;background:" + cores[l] + '"></span></span>' +
       '<span class="v">' + n + "</span></div>";
   }).join("");
 }
 
-function selectStatus(t){
-  return '<select class="inline" data-campo="status" data-id="' + t.id +
-    '" data-anterior="' + esc(t.status) + '">' +
-    STATUS.map(function(s){
-      return '<option value="' + esc(s.v) + '"' + (s.v === t.status ? " selected" : "") + ">" + esc(s.v) + "</option>";
-    }).join("") + "</select>";
+/* ===================== RENDER: COMISSÕES ANTERIORES ===================== */
+function renderAnteriores(){
+  const todos = porLista("anteriores");
+  let itens = filtraTexto(todos, document.getElementById("busca-anteriores").value);
+  const f = document.getElementById("filtro-anteriores-stl").value;
+  if(f) itens = itens.filter(function(t){ return t.stl === f; });
+  itens = ordenarPorAlteracao(itens);
+  const alvo = document.getElementById("tab-anteriores");
+
+  if(!itens.length){
+    alvo.innerHTML = vazio(todos.length ? "Nenhum trabalho corresponde ao filtro."
+      : "Nenhuma proposição em espera.", todos.length ? "Ajuste a busca acima."
+      : "Registre aqui o que ainda está em comissão anterior à sua.");
+  }else{
+    alvo.innerHTML = '<div class="rolagem"><table><thead><tr>' +
+      "<th>Nº trab.</th><th>Proposição</th><th>Minha comissão</th><th>Tipo de trabalho</th>" +
+      "<th>Descrição</th><th>Tramitando na</th><th>Nota no STL?</th><th>Observações</th><th></th>" +
+      "</tr></thead><tbody>" +
+      itens.map(function(t){
+        return '<tr class="' + (t.stl === "Sim" ? "stl-sim" : "stl-nao") + '">' +
+          tdNumero(t) + tdProp(t) + tdComissao(t) + tdTipoTrab(t) + tdDesc(t) +
+          "<td>" + selectComissaoInline(t, "comTramite", COM_TRAMITE) + "</td>" +
+          "<td>" +
+            '<select class="inline" data-campo="stl" data-id="' + t.id + '">' +
+            '<option value="Não"' + (t.stl === "Não" ? " selected" : "") + ">Não</option>" +
+            '<option value="Sim"' + (t.stl === "Sim" ? " selected" : "") + ">Sim</option>" +
+            "</select>" +
+          "</td>" + tdObs(t) +
+          '<td class="acoes">' + botoes(t, [["p-mover","Mover para aguardando iniciar",true],["editar","Editar"],["excluir","Excluir"]]) + "</td>" +
+          "</tr>";
+      }).join("") + "</tbody></table></div>";
+  }
+  document.getElementById("qtd-anteriores").textContent = todos.length + (todos.length === 1 ? " trabalho" : " trabalhos");
 }
-function selectComissao(t, campo, fonte){
+function selectComissaoInline(t, campo, fonte){
   const atual = t[campo] || "";
   return '<select class="inline" data-campo="' + campo + '" data-id="' + t.id + '">' +
     '<option value="">&mdash;</option>' +
@@ -733,186 +858,232 @@ function selectComissao(t, campo, fonte){
     }).join("") + "</select>";
 }
 
-function filtraTexto(lista, termo){
-  const q = (termo || "").trim().toLowerCase();
-  if(!q) return lista;
-  return lista.filter(function(t){
-    return [t.numero, t.desc, t.obs, t.tipoProp, t.numProp, t.anoProp, t.turno, t.comissao, t.tipoTrab, t.status, t.comTramite]
-      .join(" ").toLowerCase().indexOf(q) >= 0;
-  });
-}
-
-function renderAtivos(lista){
-  const alvo = document.getElementById("tabAtivos");
-  let itens = filtraTexto(lista, document.getElementById("buscaAtivos").value);
-  const fs = document.getElementById("filtroStatus").value;
-  const fc = document.getElementById("filtroComissao").value;
-  if(fs) itens = itens.filter(function(t){ return t.status === fs; });
-  if(fc) itens = itens.filter(function(t){ return t.comissao === fc; });
-
-  const ordem = document.getElementById("ordemAtivos").value;
-  itens = itens.slice().sort(function(x,y){
-    if(ordem === "numero") return (parseInt(y.numero,10) || 0) - (parseInt(x.numero,10) || 0);
-    if(ordem === "proposicao") return (y.anoProp + "" ).localeCompare(x.anoProp + "") ||
-      (parseInt(y.numProp,10) || 0) - (parseInt(x.numProp,10) || 0);
-    if(ordem === "status") return STATUS.findIndex(function(s){return s.v===x.status;}) -
-      STATUS.findIndex(function(s){return s.v===y.status;});
-    return (y.alteradoEm || 0) - (x.alteradoEm || 0);
-  });
+/* ===================== RENDER: AGUARDANDO INICIAR ===================== */
+function renderAguardando(){
+  montarFiltroComissao("filtro-aguardando-comissao", "aguardando");
+  const todos = porLista("aguardando");
+  let itens = filtraTexto(todos, document.getElementById("busca-aguardando").value);
+  itens = aplicaFiltroComissao(itens, "filtro-aguardando-comissao");
+  itens = ordenarPorAlteracao(itens);
+  const alvo = document.getElementById("tab-aguardando");
 
   if(!itens.length){
-    alvo.innerHTML = vazio(lista.length ? "Nenhum trabalho corresponde ao filtro."
-      : "Nada em curso por aqui.", lista.length ? "Ajuste a busca ou os filtros acima."
+    alvo.innerHTML = vazio(todos.length ? "Nenhum trabalho corresponde ao filtro."
+      : "Nada na fila de espera.", todos.length ? "Ajuste a busca ou o filtro acima."
       : "Use <strong>Incluir trabalho</strong> para registrar o primeiro.");
-    return;
+  }else{
+    alvo.innerHTML = '<div class="rolagem"><table><thead><tr>' +
+      "<th>Nº trab.</th><th>Proposição</th><th>Comissão</th><th>Tipo de trabalho</th>" +
+      "<th>Descrição</th><th>Observações</th><th></th>" +
+      "</tr></thead><tbody>" +
+      itens.map(function(t){
+        return '<tr class="e-agu">' + tdNumero(t) + tdProp(t) + tdComissao(t) + tdTipoTrab(t) + tdDesc(t) + tdObs(t) +
+          '<td class="acoes">' + botoes(t, [["iniciar","Iniciar trabalho",true],["pendencia","Registrar pendência"],["editar","Editar"],["excluir","Excluir"]]) + "</td>" +
+          "</tr>";
+      }).join("") + "</tbody></table></div>";
   }
-  alvo.innerHTML = '<div class="rolagem"><table><thead><tr>' +
-    "<th>Nº trab.</th><th>Proposição</th><th>Comissão</th><th>Tipo de trabalho</th>" +
-    "<th>Descrição</th><th>Status</th><th>Observações</th><th></th>" +
-    "</tr></thead><tbody>" +
-    itens.map(function(t){
-      return '<tr class="' + clsStatus(t.status) + '">' +
-        '<td class="num-trab nowrap">' + esc(t.numero || "—") + "</td>" +
-        "<td>" + celulaProposicao(t) + "</td>" +
-        '<td class="miudo">' + (t.comissao ? esc(nomeComissao(t.comissao)) : "—") + "</td>" +
-        '<td class="nowrap">' + esc(t.tipoTrab) + "</td>" +
-        '<td class="desc">' + esc(t.desc) + "</td>" +
-        "<td>" + selectStatus(t) + "</td>" +
-        '<td class="obs">' + esc(t.obs) + "</td>" +
-        '<td class="acoes">' + botoes(t, [["editar","Editar"],["excluir","Excluir"]]) + "</td>" +
-        "</tr>";
-    }).join("") + "</tbody></table></div>";
+  document.getElementById("qtd-aguardando").textContent = todos.length + (todos.length === 1 ? " trabalho" : " trabalhos");
 }
 
-function renderBaixados(lista){
-  const alvo = document.getElementById("tabBaixados");
-  let itens = filtraTexto(lista, document.getElementById("buscaBaixados").value);
-  const fa = document.getElementById("filtroAnoBaixados").value;
-  if(fa) itens = itens.filter(function(t){ return String(t.concluidoEm).slice(0,4) === fa; });
-  itens = itens.slice().sort(function(x,y){ return String(y.concluidoEm).localeCompare(String(x.concluidoEm)); });
+/* ===================== RENDER: EM CURSO ===================== */
+function renderEmCurso(){
+  montarFiltroComissao("filtro-emCurso-comissao", "emCurso");
+  const todos = porLista("emCurso");
+  let itens = filtraTexto(todos, document.getElementById("busca-emCurso").value);
+  itens = aplicaFiltroComissao(itens, "filtro-emCurso-comissao");
+  itens = ordenarPorAlteracao(itens);
+  const alvo = document.getElementById("tab-emCurso");
 
   if(!itens.length){
-    alvo.innerHTML = vazio(lista.length ? "Nenhum trabalho corresponde ao filtro."
-      : "Ainda não há trabalhos baixados.", lista.length ? "Ajuste a busca acima."
-      : "Trabalhos marcados como aprovados pelo relator aparecem aqui.");
-    return;
+    alvo.innerHTML = vazio(todos.length ? "Nenhum trabalho corresponde ao filtro."
+      : "Nada em elaboração agora.", todos.length ? "Ajuste a busca ou o filtro acima."
+      : "Trabalhos iniciados a partir da fila de espera aparecem aqui.");
+  }else{
+    alvo.innerHTML = '<div class="rolagem"><table><thead><tr>' +
+      "<th>Nº trab.</th><th>Proposição</th><th>Comissão</th><th>Tipo de trabalho</th>" +
+      "<th>Descrição</th><th>Observações</th><th>Encaminhar</th><th></th>" +
+      "</tr></thead><tbody>" +
+      itens.map(function(t){
+        return '<tr class="e-cur">' + tdNumero(t) + tdProp(t) + tdComissao(t) + tdTipoTrab(t) + tdDesc(t) + tdObs(t) +
+          "<td>" + selectEncaminhar(t, [
+            ["tx","Revisão TX"], ["go","Revisão GO"], ["pendencia","Pendências"], ["relator","Relator"]
+          ]) + "</td>" +
+          '<td class="acoes">' + botoes(t, [["editar","Editar"],["excluir","Excluir"]]) + "</td>" +
+          "</tr>";
+      }).join("") + "</tbody></table></div>";
   }
-  alvo.innerHTML = '<div class="rolagem"><table><thead><tr>' +
-    "<th>Nº trab.</th><th>Proposição</th><th>Comissão</th><th>Tipo de trabalho</th>" +
-    "<th>Descrição</th><th>Baixado em</th><th>Observações</th><th></th>" +
-    "</tr></thead><tbody>" +
-    itens.map(function(t){
-      return '<tr class="st-conc">' +
-        '<td class="num-trab nowrap">' + esc(t.numero || "—") + "</td>" +
-        "<td>" + celulaProposicao(t) + "</td>" +
-        '<td class="miudo">' + (t.comissao ? esc(nomeComissao(t.comissao)) : "—") + "</td>" +
-        '<td class="nowrap">' + esc(t.tipoTrab) + "</td>" +
-        '<td class="desc">' + esc(t.desc) + "</td>" +
-        '<td class="nowrap miudo">' + esc(dataBR(t.concluidoEm)) + "</td>" +
-        '<td class="obs">' + esc(t.obs) + "</td>" +
-        '<td class="acoes">' + botoes(t, [["reabrir","Reabrir"],["editar","Editar"],["excluir","Excluir"]]) + "</td>" +
-        "</tr>";
-    }).join("") + "</tbody></table></div>";
+  document.getElementById("qtd-emCurso").textContent = todos.length + (todos.length === 1 ? " trabalho" : " trabalhos");
 }
 
-function renderAnteriores(lista){
-  const alvo = document.getElementById("tabAnteriores");
-  let itens = filtraTexto(lista, document.getElementById("buscaAnteriores").value);
-  const f = document.getElementById("filtroSTL").value;
-  if(f) itens = itens.filter(function(t){ return t.stl === f; });
-  itens = itens.slice().sort(function(x,y){ return (y.alteradoEm || 0) - (x.alteradoEm || 0); });
+/* ===================== RENDER: PENDENTES ===================== */
+function renderPendentes(){
+  montarFiltroComissao("filtro-pendentes-comissao", "pendentes");
+  const todos = porLista("pendentes");
+  let itens = filtraTexto(todos, document.getElementById("busca-pendentes").value);
+  itens = aplicaFiltroComissao(itens, "filtro-pendentes-comissao");
+  itens = ordenarPorAlteracao(itens);
+  const alvo = document.getElementById("tab-pendentes");
 
   if(!itens.length){
-    alvo.innerHTML = vazio(lista.length ? "Nenhum trabalho corresponde ao filtro."
-      : "Nenhuma proposição em espera.", lista.length ? "Ajuste a busca acima."
-      : "Registre aqui o que ainda está em comissão anterior à sua.");
-    return;
+    alvo.innerHTML = vazio(todos.length ? "Nenhum trabalho corresponde ao filtro."
+      : "Nenhuma pendência no momento.", todos.length ? "Ajuste a busca ou o filtro acima."
+      : "Trabalhos travados por alguma pendência aparecem aqui.");
+  }else{
+    alvo.innerHTML = '<div class="rolagem"><table><thead><tr>' +
+      "<th>Nº trab.</th><th>Proposição</th><th>Comissão</th><th>Tipo de trabalho</th>" +
+      "<th>Descrição</th><th>Pendência (observações)</th><th></th>" +
+      "</tr></thead><tbody>" +
+      itens.map(function(t){
+        return '<tr class="e-pen">' + tdNumero(t) + tdProp(t) + tdComissao(t) + tdTipoTrab(t) + tdDesc(t) +
+          '<td><textarea class="inline" data-campo="obs" data-id="' + t.id + '" placeholder="Descreva a pendência">' + esc(t.obs) + "</textarea></td>" +
+          '<td class="acoes">' + botoes(t, [["curso","Enviar para trabalhos em curso",true],["editar","Editar"],["excluir","Excluir"]]) + "</td>" +
+          "</tr>";
+      }).join("") + "</tbody></table></div>";
   }
-  alvo.innerHTML = '<div class="rolagem"><table><thead><tr>' +
-    "<th>Nº trab.</th><th>Proposição</th><th>Minha comissão</th><th>Tipo de trabalho</th>" +
-    "<th>Descrição</th><th>Tramitando na</th><th>Nota no STL?</th><th>Observações</th><th></th>" +
-    "</tr></thead><tbody>" +
-    itens.map(function(t){
-      return '<tr class="' + (t.stl === "Sim" ? "stl-sim" : "stl-nao") + '">' +
-        '<td class="num-trab nowrap">' + esc(t.numero || "—") + "</td>" +
-        "<td>" + celulaProposicao(t) + "</td>" +
-        '<td class="miudo">' + (t.comissao ? esc(nomeComissao(t.comissao)) : "—") + "</td>" +
-        '<td class="nowrap">' + esc(t.tipoTrab) + "</td>" +
-        '<td class="desc">' + esc(t.desc) + "</td>" +
-        "<td>" + selectComissao(t, "comTramite", COM_TRAMITE) + "</td>" +
-        "<td>" +
-          '<select class="inline" data-campo="stl" data-id="' + t.id + '">' +
-          '<option value="Não"' + (t.stl === "Não" ? " selected" : "") + ">Não</option>" +
-          '<option value="Sim"' + (t.stl === "Sim" ? " selected" : "") + ">Sim</option>" +
-          "</select>" +
-        "</td>" +
-        '<td class="obs">' + esc(t.obs) + "</td>" +
-        '<td class="acoes">' + botoes(t, [["mover","Mover para ativos"],["editar","Editar"],["excluir","Excluir"]]) + "</td>" +
-        "</tr>";
-    }).join("") + "</tbody></table></div>";
+  document.getElementById("qtd-pendentes").textContent = todos.length + (todos.length === 1 ? " trabalho" : " trabalhos");
 }
 
-function renderPosteriores(lista){
-  const alvo = document.getElementById("tabPosteriores");
-  let itens = filtraTexto(lista, document.getElementById("buscaPosteriores").value);
-  const ft = document.getElementById("filtroTurno").value;
-  if(ft) itens = itens.filter(function(t){ return t.turno === ft; });
-  itens = itens.slice().sort(function(x,y){ return String(y.aprovadoEm).localeCompare(String(x.aprovadoEm)); });
+/* ===================== RENDER: REVISÃO TX ===================== */
+function renderRevisaoTX(){
+  montarFiltroComissao("filtro-revisaoTX-comissao", "revisaoTX");
+  const todos = porLista("revisaoTX");
+  let itens = filtraTexto(todos, document.getElementById("busca-revisaoTX").value);
+  itens = aplicaFiltroComissao(itens, "filtro-revisaoTX-comissao");
+  itens = ordenarPorAlteracao(itens);
+  const alvo = document.getElementById("tab-revisaoTX");
 
   if(!itens.length){
-    alvo.innerHTML = vazio(lista.length ? "Nenhum trabalho corresponde ao filtro."
-      : "Nada aguardando deliberação.", lista.length ? "Ajuste a busca ou o filtro acima."
-      : "Proposições aprovadas pelo relator que ainda dependem do Plenário aparecem aqui.");
-    return;
+    alvo.innerHTML = vazio(todos.length ? "Nenhum trabalho corresponde ao filtro."
+      : "Nada em revisão TX (nem GRE) agora.", todos.length ? "Ajuste a busca ou o filtro acima." : "");
+  }else{
+    alvo.innerHTML = '<div class="rolagem"><table><thead><tr>' +
+      "<th>Nº trab.</th><th>Proposição</th><th>Comissão</th><th>Tipo de trabalho</th>" +
+      "<th>Descrição</th><th>Observações</th><th></th>" +
+      "</tr></thead><tbody>" +
+      itens.map(function(t){
+        return '<tr class="e-tx">' + tdNumero(t) + tdProp(t) + tdComissao(t) + tdTipoTrab(t) + tdDesc(t) + tdObs(t) +
+          '<td class="acoes">' + botoes(t, [["curso","Enviar para trabalhos em curso"],["go","Enviar para revisão GO",true],["editar","Editar"],["excluir","Excluir"]]) + "</td>" +
+          "</tr>";
+      }).join("") + "</tbody></table></div>";
   }
-  alvo.innerHTML = '<div class="rolagem"><table><thead><tr>' +
-    "<th>Nº trab.</th><th>Proposição</th><th>Comissão</th><th>Tipo de trabalho</th>" +
-    "<th>Descrição</th><th>Aprovado em</th><th>Observações</th><th></th>" +
-    "</tr></thead><tbody>" +
-    itens.map(function(t){
-      return '<tr class="plen">' +
-        '<td class="num-trab nowrap">' + esc(t.numero || "—") + "</td>" +
-        "<td>" + celulaProposicao(t) + "</td>" +
-        '<td class="miudo">' + (t.comissao ? esc(nomeComissao(t.comissao)) : "—") + "</td>" +
-        '<td class="nowrap">' + esc(t.tipoTrab) + "</td>" +
-        '<td class="desc">' + esc(t.desc) + "</td>" +
-        '<td class="nowrap miudo">' + esc(dataBR(t.aprovadoEm)) + "</td>" +
-        '<td class="obs">' + esc(t.obs) + "</td>" +
-        '<td class="acoes">' + botoes(t, [["baixar","Mover para baixados"],["voltar","Voltar para ativos"],["editar","Editar"],["excluir","Excluir"]]) + "</td>" +
-        "</tr>";
-    }).join("") + "</tbody></table></div>";
+  document.getElementById("qtd-revisaoTX").textContent = todos.length + (todos.length === 1 ? " trabalho" : " trabalhos");
 }
 
-function botoes(t, acoes){
-  return acoes.map(function(a){
-    const primario = a[0] === "mover" || a[0] === "baixar";
-    return '<button class="btn btn-mini' + (primario ? " btn-primario" : " btn-fantasma") +
-      '" data-acao="' + a[0] + '" data-id="' + t.id + '" type="button">' + a[1] + "</button>";
-  }).join(" ");
-}
-function vazio(titulo, texto){
-  return '<div class="vazio"><strong>' + titulo + "</strong>" + texto + "</div>";
-}
+/* ===================== RENDER: REVISÃO GO ===================== */
+function renderRevisaoGO(){
+  montarFiltroComissao("filtro-revisaoGO-comissao", "revisaoGO");
+  const todos = porLista("revisaoGO");
+  let itens = filtraTexto(todos, document.getElementById("busca-revisaoGO").value);
+  itens = aplicaFiltroComissao(itens, "filtro-revisaoGO-comissao");
+  itens = ordenarPorAlteracao(itens);
+  const alvo = document.getElementById("tab-revisaoGO");
 
-function renderFiltros(){
-  const fs = document.getElementById("filtroStatus");
-  if(fs.options.length <= 1){
-    STATUS.filter(function(s){ return s.v !== CONCLUIDO; }).forEach(function(s){
-      const o = document.createElement("option"); o.value = s.v; o.textContent = s.v; fs.appendChild(o);
-    });
+  if(!itens.length){
+    alvo.innerHTML = vazio(todos.length ? "Nenhum trabalho corresponde ao filtro."
+      : "Nada em revisão GO agora.", todos.length ? "Ajuste a busca ou o filtro acima." : "");
+  }else{
+    alvo.innerHTML = '<div class="rolagem"><table><thead><tr>' +
+      "<th>Nº trab.</th><th>Proposição</th><th>Comissão</th><th>Tipo de trabalho</th>" +
+      "<th>Descrição</th><th>Observações</th><th></th>" +
+      "</tr></thead><tbody>" +
+      itens.map(function(t){
+        return '<tr class="e-go">' + tdNumero(t) + tdProp(t) + tdComissao(t) + tdTipoTrab(t) + tdDesc(t) + tdObs(t) +
+          '<td class="acoes">' + botoes(t, [["tx","Retornar para revisão TX"],["relator","Enviar para relator",true],["editar","Editar"],["excluir","Excluir"]]) + "</td>" +
+          "</tr>";
+      }).join("") + "</tbody></table></div>";
   }
-  const fc = document.getElementById("filtroComissao");
-  const usadas = [];
-  dados.trabalhos.forEach(function(t){ if(t.comissao && usadas.indexOf(t.comissao) < 0) usadas.push(t.comissao); });
-  const atualC = fc.value;
-  fc.innerHTML = '<option value="">Todas as comissões</option>' + usadas.sort().map(function(c){
-    return '<option value="' + esc(c) + '">' + esc(nomeComissao(c)) + "</option>";
-  }).join("");
-  fc.value = usadas.indexOf(atualC) >= 0 ? atualC : "";
+  document.getElementById("qtd-revisaoGO").textContent = todos.length + (todos.length === 1 ? " trabalho" : " trabalhos");
+}
 
-  const fa = document.getElementById("filtroAnoBaixados");
+/* ===================== RENDER: COM O RELATOR ===================== */
+function renderRelator(){
+  montarFiltroComissao("filtro-relator-comissao", "relator");
+  const todos = porLista("relator");
+  let itens = filtraTexto(todos, document.getElementById("busca-relator").value);
+  itens = aplicaFiltroComissao(itens, "filtro-relator-comissao");
+  itens = ordenarPorAlteracao(itens);
+  const alvo = document.getElementById("tab-relator");
+
+  if(!itens.length){
+    alvo.innerHTML = vazio(todos.length ? "Nenhum trabalho corresponde ao filtro."
+      : "Nada com o relator agora.", todos.length ? "Ajuste a busca ou o filtro acima." : "");
+  }else{
+    alvo.innerHTML = '<div class="rolagem"><table><thead><tr>' +
+      "<th>Nº trab.</th><th>Proposição</th><th>Comissão</th><th>Tipo de trabalho</th>" +
+      "<th>Descrição</th><th>Enviado em</th><th>Observações</th><th></th>" +
+      "</tr></thead><tbody>" +
+      itens.map(function(t){
+        return '<tr class="e-rel">' + tdNumero(t) + tdProp(t) + tdComissao(t) + tdTipoTrab(t) + tdDesc(t) +
+          '<td><input type="date" class="inline" data-campo="enviadoRelatorEm" data-id="' + t.id + '" value="' + esc(t.enviadoRelatorEm) + '"></td>' +
+          tdObs(t) +
+          '<td class="acoes">' + botoes(t, [["curso","Retornar para trabalhos em curso"],["aprovado","Aprovado pelo relator",true],["editar","Editar"],["excluir","Excluir"]]) + "</td>" +
+          "</tr>";
+      }).join("") + "</tbody></table></div>";
+  }
+  document.getElementById("qtd-relator").textContent = todos.length + (todos.length === 1 ? " trabalho" : " trabalhos");
+}
+
+/* ===================== RENDER: APROVADO PELO RELATOR ===================== */
+function renderAprovado(){
+  montarFiltroComissao("filtro-aprovado-comissao", "aprovado");
+  const todos = porLista("aprovado");
+  let itens = filtraTexto(todos, document.getElementById("busca-aprovado").value);
+  itens = aplicaFiltroComissao(itens, "filtro-aprovado-comissao");
+  itens = ordenarPorAlteracao(itens);
+  const alvo = document.getElementById("tab-aprovado");
+
+  if(!itens.length){
+    alvo.innerHTML = vazio(todos.length ? "Nenhum trabalho corresponde ao filtro."
+      : "Nada aprovado pelo relator, no momento, à espera de destino.", todos.length ? "Ajuste a busca ou o filtro acima." : "");
+  }else{
+    alvo.innerHTML = '<div class="rolagem"><table><thead><tr>' +
+      "<th>Nº trab.</th><th>Proposição</th><th>Comissão</th><th>Tipo de trabalho</th>" +
+      "<th>Descrição</th><th>Aprovado em</th><th>Observações</th><th></th>" +
+      "</tr></thead><tbody>" +
+      itens.map(function(t){
+        return '<tr class="e-apr">' + tdNumero(t) + tdProp(t) + tdComissao(t) + tdTipoTrab(t) + tdDesc(t) +
+          '<td class="nowrap miudo">' + esc(dataBR(t.aprovadoEm)) + "</td>" + tdObs(t) +
+          '<td class="acoes">' + botoes(t, [["concluir","Concluído",true],["tramitacao","Em tramitação em outra comissão/Plenário"],["editar","Editar"],["excluir","Excluir"]]) + "</td>" +
+          "</tr>";
+      }).join("") + "</tbody></table></div>";
+  }
+  document.getElementById("qtd-aprovado").textContent = todos.length + (todos.length === 1 ? " trabalho" : " trabalhos");
+}
+
+/* ===================== RENDER: TRAMITAÇÃO POSTERIOR ===================== */
+function renderTramitacao(){
+  montarFiltroComissao("filtro-tramitacao-comissao", "tramitacao");
+  const todos = porLista("tramitacao");
+  let itens = filtraTexto(todos, document.getElementById("busca-tramitacao").value);
+  itens = aplicaFiltroComissao(itens, "filtro-tramitacao-comissao");
+  itens = ordenarPorAlteracao(itens);
+  const alvo = document.getElementById("tab-tramitacao");
+
+  if(!itens.length){
+    alvo.innerHTML = vazio(todos.length ? "Nenhum trabalho corresponde ao filtro."
+      : "Nada tramitando no Plenário ou em outra comissão agora.", todos.length ? "Ajuste a busca ou o filtro acima." : "");
+  }else{
+    alvo.innerHTML = '<div class="rolagem"><table><thead><tr>' +
+      "<th>Nº trab.</th><th>Proposição</th><th>Comissão</th><th>Tipo de trabalho</th>" +
+      "<th>Descrição</th><th>Aprovado em</th><th>Observações</th><th></th>" +
+      "</tr></thead><tbody>" +
+      itens.map(function(t){
+        return '<tr class="e-tram">' + tdNumero(t) + tdProp(t) + tdComissao(t) + tdTipoTrab(t) + tdDesc(t) +
+          '<td class="nowrap miudo">' + esc(dataBR(t.aprovadoEm)) + "</td>" + tdObs(t) +
+          '<td class="acoes">' + botoes(t, [["concluirTramitacao","Concluído",true],["editar","Editar"],["excluir","Excluir"]]) + "</td>" +
+          "</tr>";
+      }).join("") + "</tbody></table></div>";
+  }
+  document.getElementById("qtd-tramitacao").textContent = todos.length + (todos.length === 1 ? " trabalho" : " trabalhos");
+}
+
+/* ===================== RENDER: CONCLUÍDOS ===================== */
+function renderConcluidos(){
+  const todos = porLista("concluidos");
+  let itens = filtraTexto(todos, document.getElementById("busca-concluidos").value);
+  const fa = document.getElementById("filtro-concluidos-ano");
   const anos = [];
-  porLista("baixados").forEach(function(t){
+  todos.forEach(function(t){
     const y = String(t.concluidoEm).slice(0,4);
     if(y && anos.indexOf(y) < 0) anos.push(y);
   });
@@ -921,13 +1092,170 @@ function renderFiltros(){
     return '<option value="' + y + '">' + y + "</option>";
   }).join("");
   fa.value = anos.indexOf(atualA) >= 0 ? atualA : "";
+  if(fa.value) itens = itens.filter(function(t){ return String(t.concluidoEm).slice(0,4) === fa.value; });
+  itens = itens.slice().sort(function(x,y){ return String(y.concluidoEm).localeCompare(String(x.concluidoEm)); });
 
-  const leg = document.getElementById("legendaAtivos");
-  if(!leg.innerHTML){
-    leg.innerHTML = STATUS.filter(function(s){ return s.v !== CONCLUIDO; }).map(function(s){
-      return '<span><i style="background:var(--' + s.cls + '-bg);border-left:4px solid ' + s.cor + '"></i> ' + esc(s.v) + "</span>";
-    }).join("");
+  const alvo = document.getElementById("tab-concluidos");
+  if(!itens.length){
+    alvo.innerHTML = vazio(todos.length ? "Nenhum trabalho corresponde ao filtro."
+      : "Ainda não há trabalhos concluídos.", todos.length ? "Ajuste a busca ou o filtro acima." : "");
+  }else{
+    alvo.innerHTML = '<div class="rolagem"><table><thead><tr>' +
+      "<th>Nº trab.</th><th>Proposição</th><th>Comissão</th><th>Tipo de trabalho</th>" +
+      "<th>Descrição</th><th>Concluído em</th><th>Observações</th><th></th>" +
+      "</tr></thead><tbody>" +
+      itens.map(function(t){
+        return '<tr class="e-conc">' + tdNumero(t) + tdProp(t) + tdComissao(t) + tdTipoTrab(t) + tdDesc(t) +
+          '<td class="nowrap miudo">' + esc(dataBR(t.concluidoEm)) + "</td>" + tdObs(t) +
+          '<td class="acoes">' + botoes(t, [["desarquivar","Desarquivar"],["editar","Editar"],["excluir","Excluir"]]) + "</td>" +
+          "</tr>";
+      }).join("") + "</tbody></table></div>";
   }
+  document.getElementById("qtd-concluidos").textContent = todos.length + (todos.length === 1 ? " trabalho" : " trabalhos");
+}
+
+/* ===================== RENDER GERAL ===================== */
+function render(){
+  LISTAS.forEach(function(l){ document.getElementById("cnt-" + l).textContent = porLista(l).length; });
+  renderPainel();
+  renderAnteriores();
+  renderAguardando();
+  renderEmCurso();
+  renderPendentes();
+  renderRevisaoTX();
+  renderRevisaoGO();
+  renderRelator();
+  renderAprovado();
+  renderTramitacao();
+  renderConcluidos();
+}
+
+/* ===================== TRANSIÇÕES ===================== */
+function moverPara(id, novaLista, extra, msg){
+  const t = dados.trabalhos.find(function(x){ return x.id === id; });
+  if(!t) return;
+  if(extra) Object.assign(t, extra);
+  t.lista = novaLista;
+  t.alteradoEm = agora();
+  salvar(); render();
+  if(msg) avisar(msg);
+}
+
+function abrirPergunta(cfg){
+  document.getElementById("pergTitulo").textContent = cfg.titulo;
+  document.getElementById("pergCorpo").textContent = cfg.corpo;
+  document.getElementById("pergSim").textContent = cfg.simTxt || "Sim";
+  document.getElementById("pergNao").textContent = cfg.naoTxt || "Não";
+  pergCallbacks = cfg;
+  document.getElementById("modalPergunta").classList.remove("oculto");
+}
+function fecharPergunta(){
+  document.getElementById("modalPergunta").classList.add("oculto");
+  pergCallbacks = null;
+}
+
+function abrirPendencia(id){
+  const t = dados.trabalhos.find(function(x){ return x.id === id; });
+  if(!t) return;
+  pendenteId = id;
+  const rotulo = temProposicao(t) ? t.tipoProp + " " + milhar(t.numProp) + "/" + t.anoProp : t.tipoProp;
+  document.getElementById("pendResumo").innerHTML = "<strong>" + esc(rotulo) + "</strong> &mdash; " + esc(t.desc || "sem descrição");
+  document.getElementById("pendTexto").value = t.obs || "";
+  document.getElementById("modalPendencia").classList.remove("oculto");
+  setTimeout(function(){ document.getElementById("pendTexto").focus(); }, 30);
+}
+function fecharPendencia(){
+  document.getElementById("modalPendencia").classList.add("oculto");
+  pendenteId = null;
+}
+function confirmarPendencia(){
+  if(!pendenteId) return;
+  const obs = document.getElementById("pendTexto").value.trim();
+  moverPara(pendenteId, "pendentes", { obs: obs }, "Trabalho registrado como pendente.");
+  fecharPendencia();
+}
+
+function concluirTramitacao(id){
+  const t = dados.trabalhos.find(function(x){ return x.id === id; });
+  if(!t) return;
+  if(t.turno === "1º turno"){
+    abrirPergunta({
+      titulo:"Conclusão em 1º turno",
+      corpo:"Tramitará em 2º turno em comissão de sua responsabilidade?",
+      simTxt:"Sim, tramitará em 2º turno",
+      naoTxt:"Não",
+      aoSim: function(){ concluirEabrirSegundoTurno(t); },
+      aoNao: function(){ moverPara(t.id, "concluidos", { concluidoEm: hojeISO() }, "Trabalho concluído."); }
+    });
+  }else{
+    moverPara(t.id, "concluidos", { concluidoEm: hojeISO() }, "Trabalho concluído.");
+  }
+}
+function concluirEabrirSegundoTurno(t){
+  moverPara(t.id, "concluidos", { concluidoEm: hojeISO() });
+  const novo = {
+    id: novoId(), lista:"aguardando",
+    numero:"", tipoProp:"PL", numProp:t.numProp, anoProp:t.anoProp, turno:"2º turno",
+    comissao:t.comissao, tipoTrab:t.tipoTrab, desc:t.desc, obs:"",
+    comTramite:"", stl:"Não",
+    enviadoRelatorEm:"", aprovadoEm:"", concluidoEm:"",
+    criadoEm: hojeISO(), alteradoEm: agora()
+  };
+  dados.trabalhos.push(novo);
+  salvar(); render();
+  avisar("1º turno concluído. Preencha o número do trabalho do 2º turno.");
+  abrirForm(novo.id);
+}
+
+function aoClicarAcao(e){
+  const bt = e.target.closest("button[data-acao]");
+  if(bt){
+    const id = bt.dataset.id, acao = bt.dataset.acao;
+    if(acao === "editar"){ abrirForm(id); return; }
+    if(acao === "excluir"){
+      const t = dados.trabalhos.find(function(x){ return x.id === id; });
+      if(!t) return;
+      if(!confirm("Excluir definitivamente “" + (t.desc || "este trabalho") + "”?")) return;
+      dados.trabalhos = dados.trabalhos.filter(function(x){ return x.id !== id; });
+      salvar(); render(); avisar("Trabalho excluído.");
+      return;
+    }
+    if(acao === "p-mover") return moverPara(id, "aguardando", {}, "Trabalho movido para aguardando iniciar.");
+    if(acao === "iniciar") return moverPara(id, "emCurso", {}, "Trabalho iniciado.");
+    if(acao === "pendencia") return abrirPendencia(id);
+    if(acao === "curso") return moverPara(id, "emCurso", {}, "Trabalho enviado para trabalhos em curso.");
+    if(acao === "tx") return moverPara(id, "revisaoTX", {}, "Trabalho enviado para revisão TX.");
+    if(acao === "go") return moverPara(id, "revisaoGO", {}, "Trabalho enviado para revisão GO.");
+    if(acao === "relator") return moverPara(id, "relator", { enviadoRelatorEm: hojeISO() }, "Trabalho enviado para o relator.");
+    if(acao === "aprovado") return moverPara(id, "aprovado", { aprovadoEm: hojeISO() }, "Trabalho aprovado pelo relator.");
+    if(acao === "tramitacao") return moverPara(id, "tramitacao", {}, "Trabalho enviado para tramitação em outra comissão/Plenário.");
+    if(acao === "concluir") return moverPara(id, "concluidos", { concluidoEm: hojeISO() }, "Trabalho concluído.");
+    if(acao === "concluirTramitacao") return concluirTramitacao(id);
+    if(acao === "desarquivar") return moverPara(id, "aguardando", { concluidoEm:"" }, "Trabalho desarquivado.");
+    return;
+  }
+}
+
+function aoMudarSelecaoAcao(e){
+  const sel = e.target.closest("select.sel-acao");
+  if(!sel) return;
+  const id = sel.dataset.acaoid, valor = sel.value;
+  if(valor === "tx") moverPara(id, "revisaoTX", {}, "Trabalho enviado para revisão TX.");
+  else if(valor === "go") moverPara(id, "revisaoGO", {}, "Trabalho enviado para revisão GO.");
+  else if(valor === "pendencia") abrirPendencia(id);
+  else if(valor === "relator") moverPara(id, "relator", { enviadoRelatorEm: hojeISO() }, "Trabalho enviado para o relator.");
+}
+
+function aoMudarCampoInline(e){
+  const el = e.target;
+  if(!el.matches("[data-campo][data-id]")) return;
+  const t = dados.trabalhos.find(function(x){ return x.id === el.dataset.id; });
+  if(!t) return;
+  t[el.dataset.campo] = el.value;
+  t.alteradoEm = agora();
+  salvar();
+  if(el.dataset.campo === "stl") avisar(el.value === "Sim" ? "Nota no STL marcada como lançada." : "Nota no STL marcada como pendente.");
+  render();
 }
 
 /* ===================== FORMULÁRIO ===================== */
@@ -940,8 +1268,6 @@ function preencherSelects(){
   c2.innerHTML = '<option value="">Selecione a comissão</option>' + COM_TRAMITE.map(function(c){
     return '<option value="' + esc(c) + '">' + esc(nomeComissao(c)) + "</option>";
   }).join("");
-  const s = document.getElementById("f_status");
-  s.innerHTML = STATUS.map(function(x){ return "<option>" + esc(x.v) + "</option>"; }).join("");
 }
 
 function ajustarFormulario(){
@@ -950,26 +1276,9 @@ function ajustarFormulario(){
   document.getElementById("grupoProp").classList.toggle("oculto", !(tipo === "PL" || tipo === "RQN"));
   document.getElementById("campoTurno").classList.toggle("oculto", tipo !== "PL");
   document.getElementById("grupoAnteriores").classList.toggle("oculto", lista !== "anteriores");
-
-  const campoStatus = document.getElementById("campoStatus");
-  const sel = document.getElementById("f_status");
-  const dica = document.getElementById("dicaStatus");
-  if(lista === "baixados"){
-    sel.value = CONCLUIDO; sel.disabled = true;
-    dica.textContent = "Baixados são os aprovados em definitivo pelo Plenário ou em deliberação conclusiva pela comissão.";
-    campoStatus.classList.remove("oculto");
-  }else if(lista === "posteriores"){
-    sel.value = CONCLUIDO; sel.disabled = true;
-    dica.textContent = "Aprovados pelo relator, aguardando o Plenário ou outra comissão.";
-    campoStatus.classList.remove("oculto");
-  }else if(lista === "anteriores"){
-    sel.value = "Não iniciado"; sel.disabled = true;
-    dica.textContent = "Enquanto tramita em comissão anterior, o trabalho fica como não iniciado.";
-    campoStatus.classList.remove("oculto");
-  }else{
-    sel.disabled = false;
-    dica.textContent = "Ao escolher “" + CONCLUIDO + "”, o trabalho é baixado para a Tabela 2.";
-    campoStatus.classList.remove("oculto");
+  document.getElementById("grupoRelator").classList.toggle("oculto", lista !== "relator");
+  if(lista === "relator" && !document.getElementById("f_enviadoRelator").value){
+    document.getElementById("f_enviadoRelator").value = hojeISO();
   }
 }
 
@@ -978,7 +1287,7 @@ function abrirForm(id, listaPadrao){
   const t = id ? dados.trabalhos.find(function(x){ return x.id === id; }) : null;
   document.getElementById("modalTitulo").textContent = t ? "Editar trabalho" : "Incluir novo trabalho";
   document.getElementById("erroForm").classList.remove("ativo");
-  document.getElementById("f_lista").value = t ? t.lista : (listaPadrao || "ativos");
+  document.getElementById("f_lista").value = t ? t.lista : (listaPadrao || "aguardando");
   document.getElementById("f_numero").value = t ? t.numero : "";
   document.getElementById("f_tipoProp").value = t ? t.tipoProp : "PL";
   document.getElementById("f_numProp").value = t ? t.numProp : "";
@@ -990,8 +1299,8 @@ function abrirForm(id, listaPadrao){
   document.getElementById("f_obs").value = t ? t.obs : "";
   document.getElementById("f_comTramite").value = t ? t.comTramite : "";
   document.getElementById("f_stl").value = t ? t.stl : "Não";
+  document.getElementById("f_enviadoRelator").value = t ? t.enviadoRelatorEm : "";
   ajustarFormulario();
-  if(t) document.getElementById("f_status").value = t.status;
   document.getElementById("modal").classList.remove("oculto");
   setTimeout(function(){ document.getElementById("f_numero").focus(); }, 40);
 }
@@ -1026,11 +1335,6 @@ function salvarForm(){
   }
   cxErro.classList.remove("ativo");
 
-  let status = document.getElementById("f_status").value;
-  if(lista === "baixados" || lista === "posteriores") status = CONCLUIDO;
-  if(lista === "anteriores") status = "Não iniciado";
-  const precisaDecidir = (status === CONCLUIDO && lista === "ativos");
-
   const base = {
     lista: lista,
     numero: document.getElementById("f_numero").value.trim(),
@@ -1041,139 +1345,28 @@ function salvarForm(){
     comissao: temProp ? comissao : "",
     tipoTrab: document.getElementById("f_tipoTrab").value,
     desc: desc,
-    status: status,
     obs: document.getElementById("f_obs").value.trim(),
     comTramite: lista === "anteriores" ? document.getElementById("f_comTramite").value : "",
     stl: lista === "anteriores" ? document.getElementById("f_stl").value : "Não",
     alteradoEm: agora()
   };
-
-  let alvo;
-  if(editandoId){
-    alvo = dados.trabalhos.find(function(x){ return x.id === editandoId; });
-    Object.assign(alvo, base);
-  }else{
-    alvo = Object.assign({ id: novoId(), criadoEm: hojeISO(), aprovadoEm:"", conclusiva:"", concluidoEm:"" }, base);
-    dados.trabalhos.push(alvo);
+  if(lista === "relator"){
+    base.enviadoRelatorEm = document.getElementById("f_enviadoRelator").value || hojeISO();
   }
-  if(alvo.lista === "baixados"){
-    if(!alvo.concluidoEm) alvo.concluidoEm = hojeISO();
-    if(!alvo.aprovadoEm) alvo.aprovadoEm = alvo.concluidoEm;
-  }else if(alvo.lista === "posteriores"){
-    if(!alvo.aprovadoEm) alvo.aprovadoEm = hojeISO();
-    alvo.concluidoEm = "";
+
+  if(eraEdicao){
+    const t = dados.trabalhos.find(function(x){ return x.id === editandoId; });
+    Object.assign(t, base);
   }else{
-    alvo.concluidoEm = "";
+    const novo = Object.assign({
+      id: novoId(), criadoEm: hojeISO(), enviadoRelatorEm:"", aprovadoEm:"", concluidoEm:""
+    }, base);
+    dados.trabalhos.push(novo);
   }
   salvar();
   render();
   fecharForm();
-
-  if(precisaDecidir){ concluirTrabalho(alvo); return; }
   avisar(eraEdicao ? "Trabalho atualizado." : "Trabalho registrado em " + NOMES_LISTA[base.lista] + ".");
-}
-
-/* ---- destino de um trabalho aprovado pelo relator ---- */
-let pendente = null, statusAnterior = null;
-
-function concluirTrabalho(t, anterior){
-  t.status = CONCLUIDO;
-  t.aprovadoEm = t.aprovadoEm || hojeISO();
-  if(t.tipoProp !== "PL"){
-    // requerimentos, informações e relatórios encerram-se com a aprovação do parecer
-    t.lista = "baixados";
-    t.conclusiva = "Sim";
-    t.concluidoEm = hojeISO();
-    t.alteradoEm = agora();
-    salvar(); render();
-    avisar("“" + (t.desc || "Trabalho") + "” foi baixado para a Tabela 2.");
-    return;
-  }
-  pendente = t;
-  statusAnterior = anterior || null;
-  const rotulo = temProposicao(t)
-    ? t.tipoProp + " " + milhar(t.numProp) + "/" + t.anoProp + (t.turno ? " (" + t.turno + ")" : "")
-    : t.tipoProp;
-  document.getElementById("destResumo").innerHTML =
-    "<strong>" + esc(rotulo) + "</strong> &mdash; " + esc(t.desc || "sem descrição");
-  document.getElementById("modalDestino").classList.remove("oculto");
-}
-
-function resolverDestino(destino){
-  const t = pendente;
-  if(!t){ document.getElementById("modalDestino").classList.add("oculto"); return; }
-  if(destino === "cancelar"){
-    if(statusAnterior){ t.status = statusAnterior; t.aprovadoEm = ""; }
-  }else if(destino === "baixados"){
-    t.lista = "baixados"; t.conclusiva = "Sim"; t.concluidoEm = hojeISO();
-  }else{
-    t.lista = "posteriores"; t.conclusiva = "Não"; t.concluidoEm = "";
-  }
-  t.alteradoEm = agora();
-  pendente = null; statusAnterior = null;
-  document.getElementById("modalDestino").classList.add("oculto");
-  salvar(); render();
-  if(destino === "baixados") avisar("Deliberação conclusiva: trabalho baixado para a Tabela 2.");
-  else if(destino === "posteriores") avisar("Trabalho enviado para a Tabela 4, aguardando o Plenário.");
-}
-
-/* ===================== AÇÕES NAS TABELAS ===================== */
-function aoMudarCampo(e){
-  const el = e.target;
-  if(!el.matches("select.inline")) return;
-  const t = dados.trabalhos.find(function(x){ return x.id === el.dataset.id; });
-  if(!t) return;
-  const campo = el.dataset.campo;
-  t[campo] = el.value;
-  t.alteradoEm = agora();
-
-  if(campo === "status" && el.value === CONCLUIDO){
-    const anterior = el.dataset.anterior || "Em elaboração";
-    salvar();
-    concluirTrabalho(t, anterior);
-    return;
-  }else if(campo === "stl"){
-    avisar(el.value === "Sim" ? "Nota no STL marcada como lançada." : "Nota no STL marcada como pendente.");
-  }
-  salvar();
-  render();
-}
-
-function aoClicarAcao(e){
-  const bt = e.target.closest("button[data-acao]");
-  if(!bt) return;
-  const t = dados.trabalhos.find(function(x){ return x.id === bt.dataset.id; });
-  if(!t) return;
-  const acao = bt.dataset.acao;
-
-  if(acao === "editar"){ abrirForm(t.id); return; }
-
-  if(acao === "excluir"){
-    if(!confirm("Excluir definitivamente “" + (t.desc || "este trabalho") + "”?")) return;
-    dados.trabalhos = dados.trabalhos.filter(function(x){ return x.id !== t.id; });
-    salvar(); render(); avisar("Trabalho excluído.");
-    return;
-  }
-  if(acao === "mover"){
-    t.lista = "ativos"; t.status = "Não iniciado"; t.alteradoEm = agora();
-    salvar(); render(); avisar("Trabalho movido para os ativos.");
-    return;
-  }
-  if(acao === "baixar"){
-    t.lista = "baixados"; t.conclusiva = "Não"; t.concluidoEm = hojeISO(); t.alteradoEm = agora();
-    salvar(); render(); avisar("Trabalho baixado para a Tabela 2.");
-    return;
-  }
-  if(acao === "voltar"){
-    t.lista = "ativos"; t.status = "Em elaboração"; t.aprovadoEm = ""; t.alteradoEm = agora();
-    salvar(); render(); avisar("Trabalho devolvido aos ativos.");
-    return;
-  }
-  if(acao === "reabrir"){
-    t.lista = "ativos"; t.status = "Em elaboração"; t.concluidoEm = ""; t.aprovadoEm = ""; t.alteradoEm = agora();
-    salvar(); render(); avisar("Trabalho reaberto como “Em elaboração”.");
-    return;
-  }
 }
 
 /* ===================== EXPORTAR / IMPORTAR ===================== */
@@ -1186,23 +1379,22 @@ function baixarArquivo(nome, conteudo, tipo){
   setTimeout(function(){ URL.revokeObjectURL(url); }, 1500);
 }
 function exportarJSON(){
-  const pacote = { formato:"controle-trabalhos-consultoria", versao:1, exportadoEm:new Date().toISOString(),
+  const pacote = { formato:"controle-trabalhos-consultoria", versao:2, exportadoEm:new Date().toISOString(),
     consultor:"Alysson Amorim Mendes da Silveira", prefs:dados.prefs, trabalhos:dados.trabalhos };
   baixarArquivo("controle-trabalhos-" + hojeISO() + ".json", JSON.stringify(pacote, null, 2), "application/json");
   avisar("Cópia de segurança gerada.");
 }
 function exportarCSV(lista){
   const cab = ["Nº trabalho","Tipo prop.","Nº prop.","Ano","Turno","Comissão","Tipo de trabalho","Descrição",
-    "Status","Lista","Tramitando na","Nota STL","Deliberação conclusiva","Aprovado em","Baixado em","Observações"];
-  const linhas = (lista || dados.trabalhos).map(function(t){
+    "Enviado ao relator em","Aprovado em","Concluído em","Observações"];
+  const linhas = lista.map(function(t){
     return [t.numero, t.tipoProp, t.numProp, t.anoProp, t.turno, t.comissao ? nomeComissao(t.comissao) : "",
-      t.tipoTrab, t.desc, t.status, NOMES_LISTA[t.lista], t.comTramite ? nomeComissao(t.comTramite) : "",
-      t.lista === "anteriores" ? t.stl : "", t.conclusiva, dataBR(t.aprovadoEm), dataBR(t.concluidoEm), t.obs];
+      t.tipoTrab, t.desc, dataBR(t.enviadoRelatorEm), dataBR(t.aprovadoEm), dataBR(t.concluidoEm), t.obs];
   });
   const csv = [cab].concat(linhas).map(function(l){
     return l.map(function(c){ return '"' + String(c == null ? "" : c).replace(/"/g,'""') + '"'; }).join(";");
   }).join("\r\n");
-  baixarArquivo("trabalhos-" + hojeISO() + ".csv", "\ufeff" + csv, "text/csv;charset=utf-8");
+  baixarArquivo("trabalhos-concluidos-" + hojeISO() + ".csv", "\ufeff" + csv, "text/csv;charset=utf-8");
   avisar("Planilha CSV gerada.");
 }
 function lerImportacao(file){
@@ -1393,44 +1585,65 @@ function iniciarGoogle(){
 document.querySelectorAll(".aba").forEach(function(b){
   b.addEventListener("click", function(){ irPara(b.dataset.vista); });
 });
-document.querySelectorAll("[data-ir]").forEach(function(b){
-  b.addEventListener("click", function(){ irPara(b.dataset.ir); });
+document.getElementById("cartoesPainel").addEventListener("click", function(e){
+  const bt = e.target.closest("[data-ir]");
+  if(bt) irPara(bt.dataset.ir);
 });
-document.getElementById("btnNovo").addEventListener("click", function(){ abrirForm(null,"ativos"); });
 document.querySelectorAll("[data-novo]").forEach(function(b){
   b.addEventListener("click", function(){ abrirForm(null, b.dataset.novo); });
 });
+document.getElementById("btnNovo").addEventListener("click", function(){ abrirForm(null, "aguardando"); });
 document.getElementById("btnCancelar").addEventListener("click", fecharForm);
 document.getElementById("btnSalvar").addEventListener("click", salvarForm);
 document.getElementById("f_lista").addEventListener("change", ajustarFormulario);
 document.getElementById("f_tipoProp").addEventListener("change", ajustarFormulario);
 document.getElementById("modal").addEventListener("click", function(e){ if(e.target.id === "modal") fecharForm(); });
+
+document.getElementById("pendCancelar").addEventListener("click", fecharPendencia);
+document.getElementById("pendConfirmar").addEventListener("click", confirmarPendencia);
+document.getElementById("modalPendencia").addEventListener("click", function(e){ if(e.target.id === "modalPendencia") fecharPendencia(); });
+
+document.getElementById("pergCancelar").addEventListener("click", fecharPergunta);
+document.getElementById("pergSim").addEventListener("click", function(){ const cb = pergCallbacks; fecharPergunta(); if(cb && cb.aoSim) cb.aoSim(); });
+document.getElementById("pergNao").addEventListener("click", function(){ const cb = pergCallbacks; fecharPergunta(); if(cb && cb.aoNao) cb.aoNao(); });
+
 document.addEventListener("keydown", function(e){
-  if(e.key === "Escape"){
-    if(!document.getElementById("modalDestino").classList.contains("oculto")){ resolverDestino("cancelar"); return; }
-    fecharForm();
-    document.getElementById("modalImp").classList.add("oculto");
-  }
+  if(e.key !== "Escape") return;
+  if(!document.getElementById("modalPergunta").classList.contains("oculto")){ fecharPergunta(); return; }
+  if(!document.getElementById("modalPendencia").classList.contains("oculto")){ fecharPendencia(); return; }
+  fecharForm();
+  document.getElementById("modalImp").classList.add("oculto");
 });
 
-["tabAtivos","tabBaixados","tabAnteriores","tabPosteriores"].forEach(function(id){
+const IDS_TABELAS = ["tab-anteriores","tab-aguardando","tab-emCurso","tab-pendentes","tab-revisaoTX",
+  "tab-revisaoGO","tab-relator","tab-aprovado","tab-tramitacao","tab-concluidos"];
+IDS_TABELAS.forEach(function(id){
   const el = document.getElementById(id);
-  el.addEventListener("change", aoMudarCampo);
   el.addEventListener("click", aoClicarAcao);
+  el.addEventListener("change", function(e){ aoMudarSelecaoAcao(e); aoMudarCampoInline(e); });
 });
-function ligarFiltros(ids, fn){
-  ids.forEach(function(id){
-    const el = document.getElementById(id);
-    ["input","change"].forEach(function(ev){ el.addEventListener(ev, fn); });
-  });
+
+function ligarFerramentas(prefixo, fn){
+  ["busca-" + prefixo, "filtro-" + prefixo + "-comissao", "filtro-" + prefixo + "-stl", "filtro-" + prefixo + "-ano"]
+    .forEach(function(id){
+      const el = document.getElementById(id);
+      if(!el) return;
+      ["input","change"].forEach(function(ev){ el.addEventListener(ev, fn); });
+    });
 }
-ligarFiltros(["buscaAtivos","filtroStatus","filtroComissao","ordemAtivos"], function(){ renderAtivos(porLista("ativos")); });
-ligarFiltros(["buscaBaixados","filtroAnoBaixados"], function(){ renderBaixados(porLista("baixados")); });
-ligarFiltros(["buscaAnteriores","filtroSTL"], function(){ renderAnteriores(porLista("anteriores")); });
-ligarFiltros(["buscaPosteriores","filtroTurno"], function(){ renderPosteriores(porLista("posteriores")); });
+ligarFerramentas("anteriores", renderAnteriores);
+ligarFerramentas("aguardando", renderAguardando);
+ligarFerramentas("emCurso", renderEmCurso);
+ligarFerramentas("pendentes", renderPendentes);
+ligarFerramentas("revisaoTX", renderRevisaoTX);
+ligarFerramentas("revisaoGO", renderRevisaoGO);
+ligarFerramentas("relator", renderRelator);
+ligarFerramentas("aprovado", renderAprovado);
+ligarFerramentas("tramitacao", renderTramitacao);
+ligarFerramentas("concluidos", renderConcluidos);
 
 document.getElementById("btnExportar").addEventListener("click", exportarJSON);
-document.getElementById("btnCsv").addEventListener("click", function(){ exportarCSV(porLista("baixados")); });
+document.getElementById("btnCsv").addEventListener("click", function(){ exportarCSV(porLista("concluidos")); });
 document.getElementById("btnImportar").addEventListener("click", function(){
   document.getElementById("arquivoImportar").click();
 });
@@ -1445,9 +1658,6 @@ document.getElementById("impCancelar").addEventListener("click", function(){
 });
 document.getElementById("impSubstituir").addEventListener("click", function(){ concluirImportacao("substituir"); });
 document.getElementById("impMesclar").addEventListener("click", function(){ concluirImportacao("mesclar"); });
-document.getElementById("destCancelar").addEventListener("click", function(){ resolverDestino("cancelar"); });
-document.getElementById("destPlenario").addEventListener("click", function(){ resolverDestino("posteriores"); });
-document.getElementById("destBaixar").addEventListener("click", function(){ resolverDestino("baixados"); });
 document.getElementById("btnEntrar").addEventListener("click", entrar);
 document.getElementById("btnSair").addEventListener("click", sair);
 
