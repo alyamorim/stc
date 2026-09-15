@@ -45,7 +45,7 @@ a{color:var(--vermelho-esc)}
 :focus-visible{outline:2px solid var(--vermelho);outline-offset:2px}
 
 header.topo{background:var(--branco);border-bottom:3px solid var(--vermelho)}
-.topo-in{max-width:1500px;margin:0 auto;padding:16px 22px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.topo-in{max-width:1760px;margin:0 auto;padding:16px 22px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
 .marca{display:flex;align-items:center;gap:13px;min-width:0}
 .marca img{width:42px;height:42px;display:block;flex:none}
 .marca h1{font-size:18px;font-weight:700;letter-spacing:-.2px;margin:0;line-height:1.15;color:var(--grafite)}
@@ -72,16 +72,16 @@ button{font-family:inherit;font-size:inherit}
 .btn:disabled{opacity:.45;cursor:not-allowed}
 
 nav.abas{background:var(--branco);border-bottom:1px solid var(--linha);position:sticky;top:0;z-index:20}
-.abas-in{max-width:1500px;margin:0 auto;padding:0 22px;display:flex;gap:2px;overflow-x:auto}
-.aba{border:0;background:none;padding:13px 13px 11px;cursor:pointer;color:var(--texto-fraco);
-  font-size:13px;font-weight:500;border-bottom:3px solid transparent;white-space:nowrap;
+.abas-in{max-width:1760px;margin:0 auto;padding:6px 22px;display:flex;flex-wrap:wrap;gap:4px 3px}
+.aba{border:0;background:none;padding:9px 11px 8px;cursor:pointer;color:var(--texto-fraco);
+  font-size:12.5px;font-weight:500;border-bottom:3px solid transparent;border-radius:3px 3px 0 0;white-space:nowrap;
   font-family:"Libre Franklin",sans-serif}
 .aba:hover{color:var(--texto)}
 .aba[aria-current="page"]{color:var(--grafite);border-bottom-color:var(--vermelho);font-weight:600}
 .aba .cnt{display:inline-block;margin-left:5px;font-size:11px;color:var(--texto-fraco);
   background:var(--papel);border:1px solid var(--linha);border-radius:999px;padding:0 6px;font-variant-numeric:tabular-nums}
 
-main{max-width:1500px;margin:0 auto;padding:26px 22px 70px}
+main{max-width:1760px;margin:0 auto;padding:26px 22px 70px}
 .oculto{display:none !important}
 
 .chamada{background:var(--branco);border:1px solid var(--linha);border-left:4px solid var(--vermelho);
@@ -160,6 +160,9 @@ tr.e-conc{background:var(--e-conc-bg);border-left-color:var(--e-conc-ac)}
 tr.stl-sim{background:var(--stl-sim-bg);border-left-color:var(--stl-sim-ac)}
 tr.stl-nao{background:var(--stl-nao-bg);border-left-color:var(--stl-nao-ac)}
 
+.pontinho{display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--vermelho);
+  margin-left:5px;vertical-align:middle}
+.btn-notas-destaque{border-color:var(--linha-forte);color:var(--texto)}
 .legenda{display:flex;flex-wrap:wrap;gap:8px 16px;margin-top:12px;font-size:12px;color:var(--texto-fraco)}
 .legenda span{display:inline-flex;align-items:center;gap:6px}
 .legenda i{width:22px;height:11px;border:1px solid var(--linha);display:inline-block}
@@ -192,7 +195,7 @@ fieldset.grupo legend{font-size:11.5px;letter-spacing:.07em;text-transform:upper
   pointer-events:none;transition:opacity .2s,transform .2s;z-index:80;max-width:90vw;text-align:center}
 #aviso.ver{opacity:1;transform:translateX(-50%) translateY(0)}
 
-footer{max-width:1500px;margin:0 auto;padding:0 22px 40px;color:var(--texto-fraco);font-size:12px}
+footer{max-width:1760px;margin:0 auto;padding:0 22px 40px;color:var(--texto-fraco);font-size:12px}
 
 @media(prefers-reduced-motion:reduce){*{animation:none !important;transition:none !important}}
 @media print{
@@ -237,9 +240,9 @@ footer{max-width:1500px;margin:0 auto;padding:0 22px 40px;color:var(--texto-frac
     <button class="aba" data-vista="pendentes" type="button">Pendentes <span class="cnt" id="cnt-pendentes">0</span></button>
     <button class="aba" data-vista="revisaoTX" type="button">Revisão TX <span class="cnt" id="cnt-revisaoTX">0</span></button>
     <button class="aba" data-vista="revisaoGO" type="button">Revisão GO <span class="cnt" id="cnt-revisaoGO">0</span></button>
-    <button class="aba" data-vista="relator" type="button">Com o relator <span class="cnt" id="cnt-relator">0</span></button>
-    <button class="aba" data-vista="aprovado" type="button">Aprovado pelo relator <span class="cnt" id="cnt-aprovado">0</span></button>
-    <button class="aba" data-vista="tramitacao" type="button">Plenário/comissão posterior <span class="cnt" id="cnt-tramitacao">0</span></button>
+    <button class="aba" data-vista="relator" type="button">Relator <span class="cnt" id="cnt-relator">0</span></button>
+    <button class="aba" data-vista="aprovado" type="button">Aprovado <span class="cnt" id="cnt-aprovado">0</span></button>
+    <button class="aba" data-vista="tramitacao" type="button">Plenário/posterior <span class="cnt" id="cnt-tramitacao">0</span></button>
     <button class="aba" data-vista="concluidos" type="button">Concluídos <span class="cnt" id="cnt-concluidos">0</span></button>
   </div>
 </nav>
@@ -548,6 +551,25 @@ footer{max-width:1500px;margin:0 auto;padding:0 22px 40px;color:var(--texto-frac
   </div>
 </div>
 
+<!-- ============ MODAL: NOTAS DE ELABORAÇÃO ============ -->
+<div class="fundo oculto" id="modalNotas" role="dialog" aria-modal="true" aria-labelledby="notasTitulo">
+  <div class="caixa" style="max-width:600px">
+    <div class="caixa-topo"><h2 id="notasTitulo">Notas de elaboração</h2></div>
+    <div class="caixa-corpo">
+      <p style="margin-top:0" id="notasResumo"></p>
+      <div class="campo">
+        <label for="notasTexto">Notas</label>
+        <textarea id="notasTexto" style="min-height:170px" placeholder="Anotações sobre a elaboração deste trabalho: fundamentos, pendências de pesquisa, conversas com o autor, etc."></textarea>
+        <div class="dica">Ficam arquivadas junto ao trabalho e continuam consultáveis mesmo depois de concluído.</div>
+      </div>
+    </div>
+    <div class="caixa-pe">
+      <button class="btn" id="notasCancelar" type="button">Cancelar</button>
+      <button class="btn btn-primario" id="notasConfirmar" type="button">Salvar notas</button>
+    </div>
+  </div>
+</div>
+
 <!-- ============ MODAL: IMPORTAÇÃO ============ -->
 <div class="fundo oculto" id="modalImp" role="dialog" aria-modal="true" aria-labelledby="impTitulo">
   <div class="caixa" style="max-width:520px">
@@ -617,6 +639,7 @@ let editandoId = null;
 let importPendente = null;
 let pendenteId = null;
 let pergCallbacks = null;
+let notasId = null;
 
 function novoId(){ return "t" + Date.now().toString(36) + Math.random().toString(36).slice(2,7); }
 function agora(){ return Date.now(); }
@@ -688,6 +711,7 @@ function normalizar(d){
         obs: t.obs || "",
         comTramite: t.comTramite || "",
         stl: t.stl === "Sim" ? "Sim" : "Não",
+        notas: t.notas || "",
         enviadoRelatorEm: t.enviadoRelatorEm || "",
         aprovadoEm: t.aprovadoEm || "",
         concluidoEm: t.concluidoEm || "",
@@ -791,6 +815,12 @@ function tdComissao(t){ return '<td class="miudo">' + (t.comissao ? esc(nomeComi
 function tdTipoTrab(t){ return '<td class="nowrap">' + esc(t.tipoTrab) + "</td>"; }
 function tdDesc(t){ return '<td class="desc">' + esc(t.desc) + "</td>"; }
 function tdObs(t){ return '<td class="obs">' + esc(t.obs) + "</td>"; }
+function botaoNotas(t, rotulo, destaque){
+  const tem = (t.notas || "").trim().length > 0;
+  return '<button class="btn btn-mini btn-fantasma' + (destaque ? " btn-notas-destaque" : "") +
+    '" data-acao="notas" data-id="' + t.id + '" type="button">' + esc(rotulo) +
+    (tem ? '<span class="pontinho" aria-hidden="true" title="Há notas registradas"></span>' : "") + "</button>";
+}
 
 /* ===================== RENDER: PAINEL ===================== */
 function renderPainel(){
@@ -843,7 +873,7 @@ function renderAnteriores(){
             '<option value="Sim"' + (t.stl === "Sim" ? " selected" : "") + ">Sim</option>" +
             "</select>" +
           "</td>" + tdObs(t) +
-          '<td class="acoes">' + botoes(t, [["p-mover","Mover para aguardando iniciar",true],["editar","Editar"],["excluir","Excluir"]]) + "</td>" +
+          '<td class="acoes">' + botaoNotas(t,"Notas") + " " + botoes(t, [["p-mover","Mover para aguardando iniciar",true],["editar","Editar"],["excluir","Excluir"]]) + "</td>" +
           "</tr>";
       }).join("") + "</tbody></table></div>";
   }
@@ -878,7 +908,7 @@ function renderAguardando(){
       "</tr></thead><tbody>" +
       itens.map(function(t){
         return '<tr class="e-agu">' + tdNumero(t) + tdProp(t) + tdComissao(t) + tdTipoTrab(t) + tdDesc(t) + tdObs(t) +
-          '<td class="acoes">' + botoes(t, [["iniciar","Iniciar trabalho",true],["pendencia","Registrar pendência"],["editar","Editar"],["excluir","Excluir"]]) + "</td>" +
+          '<td class="acoes">' + botaoNotas(t,"Notas") + " " + botoes(t, [["iniciar","Iniciar trabalho",true],["pendencia","Registrar pendência"],["editar","Editar"],["excluir","Excluir"]]) + "</td>" +
           "</tr>";
       }).join("") + "</tbody></table></div>";
   }
@@ -908,7 +938,7 @@ function renderEmCurso(){
           "<td>" + selectEncaminhar(t, [
             ["tx","Revisão TX"], ["go","Revisão GO"], ["pendencia","Pendências"], ["relator","Relator"]
           ]) + "</td>" +
-          '<td class="acoes">' + botoes(t, [["editar","Editar"],["excluir","Excluir"]]) + "</td>" +
+          '<td class="acoes">' + botaoNotas(t,"Notas de elaboração",true) + " " + botoes(t, [["editar","Editar"],["excluir","Excluir"]]) + "</td>" +
           "</tr>";
       }).join("") + "</tbody></table></div>";
   }
@@ -936,7 +966,7 @@ function renderPendentes(){
       itens.map(function(t){
         return '<tr class="e-pen">' + tdNumero(t) + tdProp(t) + tdComissao(t) + tdTipoTrab(t) + tdDesc(t) +
           '<td><textarea class="inline" data-campo="obs" data-id="' + t.id + '" placeholder="Descreva a pendência">' + esc(t.obs) + "</textarea></td>" +
-          '<td class="acoes">' + botoes(t, [["curso","Enviar para trabalhos em curso",true],["editar","Editar"],["excluir","Excluir"]]) + "</td>" +
+          '<td class="acoes">' + botaoNotas(t,"Notas") + " " + botoes(t, [["curso","Enviar para trabalhos em curso",true],["editar","Editar"],["excluir","Excluir"]]) + "</td>" +
           "</tr>";
       }).join("") + "</tbody></table></div>";
   }
@@ -962,7 +992,7 @@ function renderRevisaoTX(){
       "</tr></thead><tbody>" +
       itens.map(function(t){
         return '<tr class="e-tx">' + tdNumero(t) + tdProp(t) + tdComissao(t) + tdTipoTrab(t) + tdDesc(t) + tdObs(t) +
-          '<td class="acoes">' + botoes(t, [["curso","Enviar para trabalhos em curso"],["go","Enviar para revisão GO",true],["editar","Editar"],["excluir","Excluir"]]) + "</td>" +
+          '<td class="acoes">' + botaoNotas(t,"Notas") + " " + botoes(t, [["curso","Enviar para trabalhos em curso"],["go","Enviar para revisão GO",true],["editar","Editar"],["excluir","Excluir"]]) + "</td>" +
           "</tr>";
       }).join("") + "</tbody></table></div>";
   }
@@ -988,7 +1018,7 @@ function renderRevisaoGO(){
       "</tr></thead><tbody>" +
       itens.map(function(t){
         return '<tr class="e-go">' + tdNumero(t) + tdProp(t) + tdComissao(t) + tdTipoTrab(t) + tdDesc(t) + tdObs(t) +
-          '<td class="acoes">' + botoes(t, [["tx","Retornar para revisão TX"],["relator","Enviar para relator",true],["editar","Editar"],["excluir","Excluir"]]) + "</td>" +
+          '<td class="acoes">' + botaoNotas(t,"Notas") + " " + botoes(t, [["tx","Retornar para revisão TX"],["relator","Enviar para relator",true],["editar","Editar"],["excluir","Excluir"]]) + "</td>" +
           "</tr>";
       }).join("") + "</tbody></table></div>";
   }
@@ -1016,7 +1046,7 @@ function renderRelator(){
         return '<tr class="e-rel">' + tdNumero(t) + tdProp(t) + tdComissao(t) + tdTipoTrab(t) + tdDesc(t) +
           '<td><input type="date" class="inline" data-campo="enviadoRelatorEm" data-id="' + t.id + '" value="' + esc(t.enviadoRelatorEm) + '"></td>' +
           tdObs(t) +
-          '<td class="acoes">' + botoes(t, [["curso","Retornar para trabalhos em curso"],["aprovado","Aprovado pelo relator",true],["editar","Editar"],["excluir","Excluir"]]) + "</td>" +
+          '<td class="acoes">' + botaoNotas(t,"Notas") + " " + botoes(t, [["curso","Retornar para trabalhos em curso"],["aprovado","Aprovado pelo relator",true],["editar","Editar"],["excluir","Excluir"]]) + "</td>" +
           "</tr>";
       }).join("") + "</tbody></table></div>";
   }
@@ -1043,7 +1073,7 @@ function renderAprovado(){
       itens.map(function(t){
         return '<tr class="e-apr">' + tdNumero(t) + tdProp(t) + tdComissao(t) + tdTipoTrab(t) + tdDesc(t) +
           '<td class="nowrap miudo">' + esc(dataBR(t.aprovadoEm)) + "</td>" + tdObs(t) +
-          '<td class="acoes">' + botoes(t, [["concluir","Concluído",true],["tramitacao","Em tramitação em outra comissão/Plenário"],["editar","Editar"],["excluir","Excluir"]]) + "</td>" +
+          '<td class="acoes">' + botaoNotas(t,"Notas") + " " + botoes(t, [["concluir","Concluído",true],["tramitacao","Em tramitação em outra comissão/Plenário"],["editar","Editar"],["excluir","Excluir"]]) + "</td>" +
           "</tr>";
       }).join("") + "</tbody></table></div>";
   }
@@ -1070,7 +1100,7 @@ function renderTramitacao(){
       itens.map(function(t){
         return '<tr class="e-tram">' + tdNumero(t) + tdProp(t) + tdComissao(t) + tdTipoTrab(t) + tdDesc(t) +
           '<td class="nowrap miudo">' + esc(dataBR(t.aprovadoEm)) + "</td>" + tdObs(t) +
-          '<td class="acoes">' + botoes(t, [["concluirTramitacao","Concluído",true],["editar","Editar"],["excluir","Excluir"]]) + "</td>" +
+          '<td class="acoes">' + botaoNotas(t,"Notas") + " " + botoes(t, [["concluirTramitacao","Concluído",true],["editar","Editar"],["excluir","Excluir"]]) + "</td>" +
           "</tr>";
       }).join("") + "</tbody></table></div>";
   }
@@ -1107,7 +1137,7 @@ function renderConcluidos(){
       itens.map(function(t){
         return '<tr class="e-conc">' + tdNumero(t) + tdProp(t) + tdComissao(t) + tdTipoTrab(t) + tdDesc(t) +
           '<td class="nowrap miudo">' + esc(dataBR(t.concluidoEm)) + "</td>" + tdObs(t) +
-          '<td class="acoes">' + botoes(t, [["desarquivar","Desarquivar"],["editar","Editar"],["excluir","Excluir"]]) + "</td>" +
+          '<td class="acoes">' + botaoNotas(t,"Notas") + " " + botoes(t, [["desarquivar","Desarquivar"],["editar","Editar"],["excluir","Excluir"]]) + "</td>" +
           "</tr>";
       }).join("") + "</tbody></table></div>";
   }
@@ -1175,6 +1205,31 @@ function confirmarPendencia(){
   fecharPendencia();
 }
 
+function abrirNotas(id){
+  const t = dados.trabalhos.find(function(x){ return x.id === id; });
+  if(!t) return;
+  notasId = id;
+  const rotulo = temProposicao(t) ? t.tipoProp + " " + milhar(t.numProp) + "/" + t.anoProp : t.tipoProp;
+  document.getElementById("notasResumo").innerHTML = "<strong>" + esc(rotulo) + "</strong> &mdash; " + esc(t.desc || "sem descrição");
+  document.getElementById("notasTexto").value = t.notas || "";
+  document.getElementById("modalNotas").classList.remove("oculto");
+  setTimeout(function(){ document.getElementById("notasTexto").focus(); }, 30);
+}
+function fecharNotas(){
+  document.getElementById("modalNotas").classList.add("oculto");
+  notasId = null;
+}
+function confirmarNotas(){
+  if(!notasId) return;
+  const t = dados.trabalhos.find(function(x){ return x.id === notasId; });
+  if(!t){ fecharNotas(); return; }
+  t.notas = document.getElementById("notasTexto").value.trim();
+  t.alteradoEm = agora();
+  salvar(); render();
+  avisar("Notas de elaboração salvas.");
+  fecharNotas();
+}
+
 function concluirTramitacao(id){
   const t = dados.trabalhos.find(function(x){ return x.id === id; });
   if(!t) return;
@@ -1196,7 +1251,7 @@ function concluirEabrirSegundoTurno(t){
   const novo = {
     id: novoId(), lista:"aguardando",
     numero:"", tipoProp:"PL", numProp:t.numProp, anoProp:t.anoProp, turno:"2º turno",
-    comissao:t.comissao, tipoTrab:t.tipoTrab, desc:t.desc, obs:"",
+    comissao:t.comissao, tipoTrab:t.tipoTrab, desc:t.desc, obs:"", notas:"",
     comTramite:"", stl:"Não",
     enviadoRelatorEm:"", aprovadoEm:"", concluidoEm:"",
     criadoEm: hojeISO(), alteradoEm: agora()
@@ -1223,6 +1278,7 @@ function aoClicarAcao(e){
     if(acao === "p-mover") return moverPara(id, "aguardando", {}, "Trabalho movido para aguardando iniciar.");
     if(acao === "iniciar") return moverPara(id, "emCurso", {}, "Trabalho iniciado.");
     if(acao === "pendencia") return abrirPendencia(id);
+    if(acao === "notas") return abrirNotas(id);
     if(acao === "curso") return moverPara(id, "emCurso", {}, "Trabalho enviado para trabalhos em curso.");
     if(acao === "tx") return moverPara(id, "revisaoTX", {}, "Trabalho enviado para revisão TX.");
     if(acao === "go") return moverPara(id, "revisaoGO", {}, "Trabalho enviado para revisão GO.");
@@ -1359,7 +1415,7 @@ function salvarForm(){
     Object.assign(t, base);
   }else{
     const novo = Object.assign({
-      id: novoId(), criadoEm: hojeISO(), enviadoRelatorEm:"", aprovadoEm:"", concluidoEm:""
+      id: novoId(), criadoEm: hojeISO(), notas:"", enviadoRelatorEm:"", aprovadoEm:"", concluidoEm:""
     }, base);
     dados.trabalhos.push(novo);
   }
@@ -1603,6 +1659,10 @@ document.getElementById("pendCancelar").addEventListener("click", fecharPendenci
 document.getElementById("pendConfirmar").addEventListener("click", confirmarPendencia);
 document.getElementById("modalPendencia").addEventListener("click", function(e){ if(e.target.id === "modalPendencia") fecharPendencia(); });
 
+document.getElementById("notasCancelar").addEventListener("click", fecharNotas);
+document.getElementById("notasConfirmar").addEventListener("click", confirmarNotas);
+document.getElementById("modalNotas").addEventListener("click", function(e){ if(e.target.id === "modalNotas") fecharNotas(); });
+
 document.getElementById("pergCancelar").addEventListener("click", fecharPergunta);
 document.getElementById("pergSim").addEventListener("click", function(){ const cb = pergCallbacks; fecharPergunta(); if(cb && cb.aoSim) cb.aoSim(); });
 document.getElementById("pergNao").addEventListener("click", function(){ const cb = pergCallbacks; fecharPergunta(); if(cb && cb.aoNao) cb.aoNao(); });
@@ -1611,6 +1671,7 @@ document.addEventListener("keydown", function(e){
   if(e.key !== "Escape") return;
   if(!document.getElementById("modalPergunta").classList.contains("oculto")){ fecharPergunta(); return; }
   if(!document.getElementById("modalPendencia").classList.contains("oculto")){ fecharPendencia(); return; }
+  if(!document.getElementById("modalNotas").classList.contains("oculto")){ fecharNotas(); return; }
   fecharForm();
   document.getElementById("modalImp").classList.add("oculto");
 });
