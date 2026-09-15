@@ -72,6 +72,11 @@ button{font-family:inherit;font-size:inherit}
 .btn:disabled{opacity:.45;cursor:not-allowed}
 
 nav.abas{background:var(--branco);border-bottom:1px solid var(--linha);position:sticky;top:0;z-index:20}
+:root{
+  --pill-azul-bg:#dcebf7;  --pill-azul-fg:#33587a;
+  --pill-verde-bg:#e0f0e2; --pill-verde-fg:#3c7050;
+  --pill-verm-bg:#f9e1e1;  --pill-verm-fg:#9c4a4a;
+}
 .abas-in{max-width:1760px;margin:0 auto;padding:6px 22px;display:flex;flex-wrap:wrap;gap:4px 3px}
 .aba{border:0;background:none;padding:9px 11px 8px;cursor:pointer;color:var(--texto-fraco);
   font-size:12.5px;font-weight:500;border-bottom:3px solid transparent;border-radius:3px 3px 0 0;white-space:nowrap;
@@ -80,6 +85,13 @@ nav.abas{background:var(--branco);border-bottom:1px solid var(--linha);position:
 .aba[aria-current="page"]{color:var(--grafite);border-bottom-color:var(--vermelho);font-weight:600}
 .aba .cnt{display:inline-block;margin-left:5px;font-size:11px;color:var(--texto-fraco);
   background:var(--papel);border:1px solid var(--linha);border-radius:999px;padding:0 6px;font-variant-numeric:tabular-nums}
+.aba.pilula{border-radius:999px;border-bottom-color:transparent !important;font-weight:600;padding:8px 15px 7px}
+.aba.pilula-azul{background:var(--pill-azul-bg);color:var(--pill-azul-fg)}
+.aba.pilula-verde{background:var(--pill-verde-bg);color:var(--pill-verde-fg)}
+.aba.pilula-vermelha{background:var(--pill-verm-bg);color:var(--pill-verm-fg)}
+.aba.pilula:hover{filter:brightness(0.97)}
+.aba.pilula[aria-current="page"]{box-shadow:inset 0 0 0 2px currentColor}
+.aba.pilula .cnt{background:rgba(255,255,255,.55);border-color:rgba(255,255,255,.7);color:inherit}
 
 main{max-width:1760px;margin:0 auto;padding:26px 22px 70px}
 .oculto{display:none !important}
@@ -113,6 +125,7 @@ main{max-width:1760px;margin:0 auto;padding:26px 22px 70px}
   font-family:inherit;font-size:13.5px;padding:7px 10px;border:1px solid var(--linha-forte);
   border-radius:3px;background:var(--branco);color:var(--texto)}
 .ferramentas input[type=search]{min-width:230px;flex:1;max-width:380px}
+.btn-dir{font-size:14px;padding:6px 10px;line-height:1}
 .titulo-lista{display:flex;align-items:center;gap:12px;margin:0 0 4px}
 .marcador{width:12px;height:12px;border-radius:3px;flex:none;display:inline-block}
 .titulo-lista h2{font-size:19px;margin:0;font-weight:600;color:var(--grafite)}
@@ -235,9 +248,9 @@ footer{max-width:1760px;margin:0 auto;padding:0 22px 40px;color:var(--texto-frac
   <div class="abas-in">
     <button class="aba" data-vista="painel" type="button">Painel</button>
     <button class="aba" data-vista="anteriores" type="button">Comissões anteriores <span class="cnt" id="cnt-anteriores">0</span></button>
-    <button class="aba" data-vista="aguardando" type="button">Aguardando iniciar <span class="cnt" id="cnt-aguardando">0</span></button>
-    <button class="aba" data-vista="emCurso" type="button">Em curso <span class="cnt" id="cnt-emCurso">0</span></button>
-    <button class="aba" data-vista="pendentes" type="button">Pendentes <span class="cnt" id="cnt-pendentes">0</span></button>
+    <button class="aba pilula pilula-azul" data-vista="aguardando" type="button">Aguardando iniciar <span class="cnt" id="cnt-aguardando">0</span></button>
+    <button class="aba pilula pilula-verde" data-vista="emCurso" type="button">Em curso <span class="cnt" id="cnt-emCurso">0</span></button>
+    <button class="aba pilula pilula-vermelha" data-vista="pendentes" type="button">Pendentes <span class="cnt" id="cnt-pendentes">0</span></button>
     <button class="aba" data-vista="revisaoTX" type="button">Revisão TX <span class="cnt" id="cnt-revisaoTX">0</span></button>
     <button class="aba" data-vista="revisaoGO" type="button">Revisão GO <span class="cnt" id="cnt-revisaoGO">0</span></button>
     <button class="aba" data-vista="relator" type="button">Relator <span class="cnt" id="cnt-relator">0</span></button>
@@ -282,6 +295,7 @@ footer{max-width:1760px;margin:0 auto;padding:0 22px 40px;color:var(--texto-frac
         <option value="Não">Sem nota lançada</option>
         <option value="Sim">Com nota lançada</option>
       </select>
+      <select class="sel-ordenar" data-lista="anteriores"><option value="recente">Mais recentes</option><option value="proposicao">Nº da proposição</option><option value="comissao">Comissão</option><option value="tipoTrab">Tipo de trabalho</option></select><button class="btn btn-mini btn-fantasma btn-dir" data-lista="anteriores" type="button" title="Inverter a ordem">&darr;</button>
       <button class="btn btn-mini btn-primario" data-novo="anteriores" type="button">Incluir trabalho</button>
     </div>
     <div id="tab-anteriores"></div>
@@ -298,6 +312,7 @@ footer{max-width:1760px;margin:0 auto;padding:0 22px 40px;color:var(--texto-frac
     <div class="ferramentas">
       <input type="search" id="busca-aguardando" placeholder="Buscar&hellip;">
       <select id="filtro-aguardando-comissao"><option value="">Todas as comissões</option></select>
+      <select class="sel-ordenar" data-lista="aguardando"><option value="recente">Mais recentes</option><option value="proposicao">Nº da proposição</option><option value="comissao">Comissão</option><option value="tipoTrab">Tipo de trabalho</option></select><button class="btn btn-mini btn-fantasma btn-dir" data-lista="aguardando" type="button" title="Inverter a ordem">&darr;</button>
       <button class="btn btn-mini btn-primario" data-novo="aguardando" type="button">Incluir trabalho</button>
     </div>
     <div id="tab-aguardando"></div>
@@ -310,6 +325,7 @@ footer{max-width:1760px;margin:0 auto;padding:0 22px 40px;color:var(--texto-frac
     <div class="ferramentas">
       <input type="search" id="busca-emCurso" placeholder="Buscar&hellip;">
       <select id="filtro-emCurso-comissao"><option value="">Todas as comissões</option></select>
+      <select class="sel-ordenar" data-lista="emCurso"><option value="recente">Mais recentes</option><option value="proposicao">Nº da proposição</option><option value="comissao">Comissão</option><option value="tipoTrab">Tipo de trabalho</option></select><button class="btn btn-mini btn-fantasma btn-dir" data-lista="emCurso" type="button" title="Inverter a ordem">&darr;</button>
       <button class="btn btn-mini btn-primario" data-novo="emCurso" type="button">Incluir trabalho</button>
     </div>
     <div id="tab-emCurso"></div>
@@ -322,6 +338,7 @@ footer{max-width:1760px;margin:0 auto;padding:0 22px 40px;color:var(--texto-frac
     <div class="ferramentas">
       <input type="search" id="busca-pendentes" placeholder="Buscar&hellip;">
       <select id="filtro-pendentes-comissao"><option value="">Todas as comissões</option></select>
+      <select class="sel-ordenar" data-lista="pendentes"><option value="recente">Mais recentes</option><option value="proposicao">Nº da proposição</option><option value="comissao">Comissão</option><option value="tipoTrab">Tipo de trabalho</option></select><button class="btn btn-mini btn-fantasma btn-dir" data-lista="pendentes" type="button" title="Inverter a ordem">&darr;</button>
       <button class="btn btn-mini btn-primario" data-novo="pendentes" type="button">Incluir trabalho</button>
     </div>
     <div id="tab-pendentes"></div>
@@ -334,6 +351,7 @@ footer{max-width:1760px;margin:0 auto;padding:0 22px 40px;color:var(--texto-frac
     <div class="ferramentas">
       <input type="search" id="busca-revisaoTX" placeholder="Buscar&hellip;">
       <select id="filtro-revisaoTX-comissao"><option value="">Todas as comissões</option></select>
+      <select class="sel-ordenar" data-lista="revisaoTX"><option value="recente">Mais recentes</option><option value="proposicao">Nº da proposição</option><option value="comissao">Comissão</option><option value="tipoTrab">Tipo de trabalho</option></select><button class="btn btn-mini btn-fantasma btn-dir" data-lista="revisaoTX" type="button" title="Inverter a ordem">&darr;</button>
       <button class="btn btn-mini btn-primario" data-novo="revisaoTX" type="button">Incluir trabalho</button>
     </div>
     <div id="tab-revisaoTX"></div>
@@ -346,6 +364,7 @@ footer{max-width:1760px;margin:0 auto;padding:0 22px 40px;color:var(--texto-frac
     <div class="ferramentas">
       <input type="search" id="busca-revisaoGO" placeholder="Buscar&hellip;">
       <select id="filtro-revisaoGO-comissao"><option value="">Todas as comissões</option></select>
+      <select class="sel-ordenar" data-lista="revisaoGO"><option value="recente">Mais recentes</option><option value="proposicao">Nº da proposição</option><option value="comissao">Comissão</option><option value="tipoTrab">Tipo de trabalho</option></select><button class="btn btn-mini btn-fantasma btn-dir" data-lista="revisaoGO" type="button" title="Inverter a ordem">&darr;</button>
       <button class="btn btn-mini btn-primario" data-novo="revisaoGO" type="button">Incluir trabalho</button>
     </div>
     <div id="tab-revisaoGO"></div>
@@ -358,6 +377,7 @@ footer{max-width:1760px;margin:0 auto;padding:0 22px 40px;color:var(--texto-frac
     <div class="ferramentas">
       <input type="search" id="busca-relator" placeholder="Buscar&hellip;">
       <select id="filtro-relator-comissao"><option value="">Todas as comissões</option></select>
+      <select class="sel-ordenar" data-lista="relator"><option value="recente">Mais recentes</option><option value="proposicao">Nº da proposição</option><option value="comissao">Comissão</option><option value="tipoTrab">Tipo de trabalho</option></select><button class="btn btn-mini btn-fantasma btn-dir" data-lista="relator" type="button" title="Inverter a ordem">&darr;</button>
       <button class="btn btn-mini btn-primario" data-novo="relator" type="button">Incluir trabalho</button>
     </div>
     <div id="tab-relator"></div>
@@ -370,6 +390,7 @@ footer{max-width:1760px;margin:0 auto;padding:0 22px 40px;color:var(--texto-frac
     <div class="ferramentas">
       <input type="search" id="busca-aprovado" placeholder="Buscar&hellip;">
       <select id="filtro-aprovado-comissao"><option value="">Todas as comissões</option></select>
+      <select class="sel-ordenar" data-lista="aprovado"><option value="recente">Mais recentes</option><option value="proposicao">Nº da proposição</option><option value="comissao">Comissão</option><option value="tipoTrab">Tipo de trabalho</option></select><button class="btn btn-mini btn-fantasma btn-dir" data-lista="aprovado" type="button" title="Inverter a ordem">&darr;</button>
       <button class="btn btn-mini btn-primario" data-novo="aprovado" type="button">Incluir trabalho</button>
     </div>
     <div id="tab-aprovado"></div>
@@ -382,6 +403,7 @@ footer{max-width:1760px;margin:0 auto;padding:0 22px 40px;color:var(--texto-frac
     <div class="ferramentas">
       <input type="search" id="busca-tramitacao" placeholder="Buscar&hellip;">
       <select id="filtro-tramitacao-comissao"><option value="">Todas as comissões</option></select>
+      <select class="sel-ordenar" data-lista="tramitacao"><option value="recente">Mais recentes</option><option value="proposicao">Nº da proposição</option><option value="comissao">Comissão</option><option value="tipoTrab">Tipo de trabalho</option></select><button class="btn btn-mini btn-fantasma btn-dir" data-lista="tramitacao" type="button" title="Inverter a ordem">&darr;</button>
       <button class="btn btn-mini btn-primario" data-novo="tramitacao" type="button">Incluir trabalho</button>
     </div>
     <div id="tab-tramitacao"></div>
@@ -395,6 +417,7 @@ footer{max-width:1760px;margin:0 auto;padding:0 22px 40px;color:var(--texto-frac
       <input type="search" id="busca-concluidos" placeholder="Buscar&hellip;">
       <select id="filtro-concluidos-ano"><option value="">Todos os anos de conclusão</option></select>
       <button class="btn btn-mini" id="btnCsv" type="button">Exportar esta lista em CSV</button>
+      <select class="sel-ordenar" data-lista="concluidos"><option value="recente">Mais recentes</option><option value="proposicao">Nº da proposição</option><option value="comissao">Comissão</option><option value="tipoTrab">Tipo de trabalho</option></select><button class="btn btn-mini btn-fantasma btn-dir" data-lista="concluidos" type="button" title="Inverter a ordem">&darr;</button>
       <button class="btn btn-mini btn-primario" data-novo="concluidos" type="button">Incluir trabalho</button>
     </div>
     <div id="tab-concluidos"></div>
@@ -444,6 +467,7 @@ footer{max-width:1760px;margin:0 auto;padding:0 22px 40px;color:var(--texto-frac
           <option value="Rel. Vis.">Rel. Vis. &mdash; Relatório de visita</option>
           <option value="Rel. Fis.">Rel. Fis. &mdash; Relatório de fiscalização</option>
           <option value="Minuta de Proposição">Minuta de Proposição</option>
+          <option value="Análise técnica de proposição">Análise técnica de proposição</option>
         </select>
       </div>
 
@@ -477,7 +501,6 @@ footer{max-width:1760px;margin:0 auto;padding:0 22px 40px;color:var(--texto-frac
         <select id="f_tipoTrab">
           <option>Minuta de Parecer</option>
           <option>Parecer para a Mesa</option>
-          <option>Análise técnica de proposição</option>
           <option>Relatório de Visita</option>
           <option>Informação</option>
           <option>Outro</option>
@@ -641,6 +664,8 @@ let importPendente = null;
 let pendenteId = null;
 let pergCallbacks = null;
 let notasId = null;
+const ordenacao = {};
+LISTAS.forEach(function(l){ ordenacao[l] = { campo:"recente", dir:"desc" }; });
 
 function novoId(){ return "t" + Date.now().toString(36) + Math.random().toString(36).slice(2,7); }
 function agora(){ return Date.now(); }
@@ -779,6 +804,23 @@ function filtraTexto(lista, termo){
 function ordenarPorAlteracao(lista){
   return lista.slice().sort(function(x,y){ return (y.alteradoEm || 0) - (x.alteradoEm || 0); });
 }
+function valorOrdenacao(t, campo){
+  if(campo === "proposicao"){
+    return (parseInt(t.anoProp,10) || 0) * 100000 + (parseInt(t.numProp,10) || 0);
+  }
+  if(campo === "comissao") return t.comissao ? nomeComissao(t.comissao) : "";
+  if(campo === "tipoTrab") return t.tipoTrab || "";
+  return t.alteradoEm || 0;
+}
+function aplicarOrdenacao(itens, listaChave){
+  const cfg = ordenacao[listaChave] || { campo:"recente", dir:"desc" };
+  const dir = cfg.dir === "asc" ? 1 : -1;
+  return itens.slice().sort(function(a,b){
+    const va = valorOrdenacao(a, cfg.campo), vb = valorOrdenacao(b, cfg.campo);
+    if(typeof va === "number" && typeof vb === "number") return dir * (va - vb);
+    return dir * String(va).localeCompare(String(vb), "pt-BR", { numeric:true });
+  });
+}
 function montarFiltroComissao(elId, listaChave){
   const el = document.getElementById(elId);
   if(!el) return;
@@ -852,7 +894,7 @@ function renderAnteriores(){
   let itens = filtraTexto(todos, document.getElementById("busca-anteriores").value);
   const f = document.getElementById("filtro-anteriores-stl").value;
   if(f) itens = itens.filter(function(t){ return t.stl === f; });
-  itens = ordenarPorAlteracao(itens);
+  itens = aplicarOrdenacao(itens, "anteriores");
   const alvo = document.getElementById("tab-anteriores");
 
   if(!itens.length){
@@ -895,7 +937,7 @@ function renderAguardando(){
   const todos = porLista("aguardando");
   let itens = filtraTexto(todos, document.getElementById("busca-aguardando").value);
   itens = aplicaFiltroComissao(itens, "filtro-aguardando-comissao");
-  itens = ordenarPorAlteracao(itens);
+  itens = aplicarOrdenacao(itens, "aguardando");
   const alvo = document.getElementById("tab-aguardando");
 
   if(!itens.length){
@@ -922,7 +964,7 @@ function renderEmCurso(){
   const todos = porLista("emCurso");
   let itens = filtraTexto(todos, document.getElementById("busca-emCurso").value);
   itens = aplicaFiltroComissao(itens, "filtro-emCurso-comissao");
-  itens = ordenarPorAlteracao(itens);
+  itens = aplicarOrdenacao(itens, "emCurso");
   const alvo = document.getElementById("tab-emCurso");
 
   if(!itens.length){
@@ -952,7 +994,7 @@ function renderPendentes(){
   const todos = porLista("pendentes");
   let itens = filtraTexto(todos, document.getElementById("busca-pendentes").value);
   itens = aplicaFiltroComissao(itens, "filtro-pendentes-comissao");
-  itens = ordenarPorAlteracao(itens);
+  itens = aplicarOrdenacao(itens, "pendentes");
   const alvo = document.getElementById("tab-pendentes");
 
   if(!itens.length){
@@ -980,7 +1022,7 @@ function renderRevisaoTX(){
   const todos = porLista("revisaoTX");
   let itens = filtraTexto(todos, document.getElementById("busca-revisaoTX").value);
   itens = aplicaFiltroComissao(itens, "filtro-revisaoTX-comissao");
-  itens = ordenarPorAlteracao(itens);
+  itens = aplicarOrdenacao(itens, "revisaoTX");
   const alvo = document.getElementById("tab-revisaoTX");
 
   if(!itens.length){
@@ -1006,7 +1048,7 @@ function renderRevisaoGO(){
   const todos = porLista("revisaoGO");
   let itens = filtraTexto(todos, document.getElementById("busca-revisaoGO").value);
   itens = aplicaFiltroComissao(itens, "filtro-revisaoGO-comissao");
-  itens = ordenarPorAlteracao(itens);
+  itens = aplicarOrdenacao(itens, "revisaoGO");
   const alvo = document.getElementById("tab-revisaoGO");
 
   if(!itens.length){
@@ -1032,7 +1074,7 @@ function renderRelator(){
   const todos = porLista("relator");
   let itens = filtraTexto(todos, document.getElementById("busca-relator").value);
   itens = aplicaFiltroComissao(itens, "filtro-relator-comissao");
-  itens = ordenarPorAlteracao(itens);
+  itens = aplicarOrdenacao(itens, "relator");
   const alvo = document.getElementById("tab-relator");
 
   if(!itens.length){
@@ -1060,7 +1102,7 @@ function renderAprovado(){
   const todos = porLista("aprovado");
   let itens = filtraTexto(todos, document.getElementById("busca-aprovado").value);
   itens = aplicaFiltroComissao(itens, "filtro-aprovado-comissao");
-  itens = ordenarPorAlteracao(itens);
+  itens = aplicarOrdenacao(itens, "aprovado");
   const alvo = document.getElementById("tab-aprovado");
 
   if(!itens.length){
@@ -1087,7 +1129,7 @@ function renderTramitacao(){
   const todos = porLista("tramitacao");
   let itens = filtraTexto(todos, document.getElementById("busca-tramitacao").value);
   itens = aplicaFiltroComissao(itens, "filtro-tramitacao-comissao");
-  itens = ordenarPorAlteracao(itens);
+  itens = aplicarOrdenacao(itens, "tramitacao");
   const alvo = document.getElementById("tab-tramitacao");
 
   if(!itens.length){
@@ -1124,7 +1166,7 @@ function renderConcluidos(){
   }).join("");
   fa.value = anos.indexOf(atualA) >= 0 ? atualA : "";
   if(fa.value) itens = itens.filter(function(t){ return String(t.concluidoEm).slice(0,4) === fa.value; });
-  itens = itens.slice().sort(function(x,y){ return String(y.concluidoEm).localeCompare(String(x.concluidoEm)); });
+  itens = aplicarOrdenacao(itens, "concluidos");
 
   const alvo = document.getElementById("tab-concluidos");
   if(!itens.length){
@@ -1160,6 +1202,12 @@ function render(){
   renderTramitacao();
   renderConcluidos();
 }
+
+const RENDER_FN = {
+  anteriores:renderAnteriores, aguardando:renderAguardando, emCurso:renderEmCurso, pendentes:renderPendentes,
+  revisaoTX:renderRevisaoTX, revisaoGO:renderRevisaoGO, relator:renderRelator, aprovado:renderAprovado,
+  tramitacao:renderTramitacao, concluidos:renderConcluidos
+};
 
 /* ===================== TRANSIÇÕES ===================== */
 function moverPara(id, novaLista, extra, msg){
@@ -1703,6 +1751,22 @@ ligarFerramentas("relator", renderRelator);
 ligarFerramentas("aprovado", renderAprovado);
 ligarFerramentas("tramitacao", renderTramitacao);
 ligarFerramentas("concluidos", renderConcluidos);
+
+document.querySelectorAll(".sel-ordenar").forEach(function(sel){
+  sel.addEventListener("change", function(){
+    const l = sel.dataset.lista;
+    ordenacao[l].campo = sel.value;
+    if(RENDER_FN[l]) RENDER_FN[l]();
+  });
+});
+document.querySelectorAll(".btn-dir").forEach(function(bt){
+  bt.addEventListener("click", function(){
+    const l = bt.dataset.lista;
+    ordenacao[l].dir = ordenacao[l].dir === "asc" ? "desc" : "asc";
+    bt.innerHTML = ordenacao[l].dir === "asc" ? "&uarr;" : "&darr;";
+    if(RENDER_FN[l]) RENDER_FN[l]();
+  });
+});
 
 document.getElementById("btnExportar").addEventListener("click", exportarJSON);
 document.getElementById("btnCsv").addEventListener("click", function(){ exportarCSV(porLista("concluidos")); });
